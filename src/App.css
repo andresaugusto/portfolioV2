@@ -1,25 +1,36 @@
 body {
   width: 100vw;
-  height: 100vh;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  height: 100%;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58)); */
-  background-color: olive;
+  background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58));
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: rgb(255, 255, 255);
 }
 
 .links {
 	color: inherit;
 	text-decoration: none;
+}
+
+#homeContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-buttons {
+  overflow: visible;
+  stroke-width: 1;
 }
 
 /* .logo-container {
@@ -32,10 +43,7 @@ body {
 
 #aomLogo {
   overflow: visible;
-  stroke: #fff;
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  stroke: white;
 }
 
 /* .logo-container {
@@ -55,16 +63,118 @@ body {
 
 
 /* grow button and change background gradient on hover */
-.path-letters:hover {
+/* .path-letters:hover {
   fill: (linear-gradient(to left, #2d8fe5, #d155b8));
   cursor: pointer;
-}
+} */
 
 #animationWindow {
-  z-index: +10000;
+  z-index: +100;
   width: 100vw;
   height: 100vh;
-  /* background-image: url() no-repeat center center fixed; */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#animationWindow .logo-container {
+  /* background-color: red; */
+  z-index: +110;
+  position: fixed;
+}
+
+.path-letters {
+  fill: rgba(0, 0, 0, 0);
+  display: inline;
+  stroke: 0.3543;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+}
+
+.letter-fill {
+  z-index: +109;
+  display: inline;
+  stroke: none;
+  fill: none;
+}
+
+#animationWindow #backgroundImage {
+  z-index: +101;
+  min-width: 100%;
+  position: fixed;
+  overflow: hidden;
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  #aomLogo {
+    position: fixed;
+    width: 130vmin;
+  }
+
+  #animationWindow #backgroundImage {
+    height: 100%;
+    min-width: 100vw;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #animationWindow {
+    animation: openingCeremonyWindow 10s ease-in-out
+  }
+  #animationWindow #backgroundImage {
+    animation: openingCeremonyImg 10s ease-in-out
+  }
+  #animationWindow .letter-fill {
+    animation: openingCeremonyLetterFill 10s ease-in-out
+  }
+}
+
+@keyframes openingCeremonyWindow {
+  0% { background-color: black }
+  2% { background-color: black }
+  8% { background-color: white }
+  100% { background-color: white }
+}
+
+@keyframes openingCeremonyImg {
+
+  /* FLICKER ON */
+  0% { opacity: 0 }
+  18% { opacity: 0 }
+  18.5% { opacity: 1}
+  19% { opacity: 0 }
+  19.5% { opacity: 1 }
+  20% { opacity: 0 }
+  24% { opacity: 1 }
+
+  /* FLICKER OFF */
+  97% { opacity: 1 }
+  98% { opacity: 0 }
+  98.5% { opacity: 1 }
+  99% { opacity: 0 }
+  99.5% { opacity: 1 }
+  100% { opacity: 0 }
+}
+
+@keyframes openingCeremonyLetterFill {
+
+  /* DIM ON */
+  0% { fill: rgba(251, 192, 192, 0.0) }
+  60% { fill: rgba(251, 192, 192, 0.0) }
+  90% { fill: rgba(251, 192, 192, 0.2) }
+
+  /* FLICKER OFF */
+  97% { fill: rgba(251, 192, 192, 0.2) }
+  98% { fill: rgba(251, 192, 192, 0.0) }
+  98.5% { fill: rgba(251, 192, 192, 0.2) }
+  99% { fill: rgba(251, 192, 192, 0.0) }
+  99.5% { fill: rgba(251, 192, 192, 0.2) }
+  100% { fill: rgba(251, 192, 192, 0.0) }
 }
 
 

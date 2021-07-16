@@ -14,7 +14,7 @@ export default function App() {
 	};
 
 	return (
-		<div style={{ width: "" }}>
+		<div id="homeContainer">
 			<OpeningCeremony />
 
 				<motion.svg
@@ -29,13 +29,23 @@ export default function App() {
 						pointerEvents="visiblePainted"
 					>
 						<g id="_x30_">
+							<a href="">
+								<motion.path
+									id="O"
+									className="logo-buttons"
+									display="inline"
+									fill="rgba(251, 192, 192, 0.1)"
+									stroke="none"
+									d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
+								/>
+							</a>
 							<a href="https://www.google.com/search?q=elvin+me+lo+mama&oq=elvin+me+lo+mama&aqs=chrome..69i57j33i160l3j33i299l2.7910j1j1&sourceid=chrome&ie=UTF-8">
 								<motion.path
 									id="AO"
-									fill="rgba(0, 0, 0, 0)"
-									className="path-letters"
+									className="logo-buttons"
 									display="inline"
-									stroke-width="0.3543"
+									fill="rgba(251, 192, 192, 0.2)"
+									stroke="white"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									stroke-miterlimit="10"
@@ -44,26 +54,11 @@ export default function App() {
 							</a>
 							<a href="">
 								<motion.path
-									id="O"
-									fill="rgba(0, 0, 0, 0)"
-									style={{}}
-									className="path-letters"
-									display="inline"
-									stroke-width="0.3543"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-miterlimit="10"
-									d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
-								/>
-							</a>
-							<a href="">
-								<motion.path
 									id="M"
-									fill="rgba(0, 0, 0, 0)"
-									style={{animationDelay: '2s'}}
-									className="path-letters"
+									className="logo-buttons"
 									display="inline"
-									stroke-width="0.3543"
+									fill="rgba(251, 192, 192, 0.2)"
+									stroke="white"
 									stroke-linecap="round"
 									stroke-linejoin="round"
 									stroke-miterlimit="10"
@@ -72,7 +67,7 @@ export default function App() {
 							</a>
 						</g>
 					</motion.svg>
-			<button onClick={bgChange}>el bg</button>
+			{/* <button onClick={bgChange}>el bg</button> */}
 		</div>
 	);
 }
