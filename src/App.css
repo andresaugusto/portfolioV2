@@ -28,45 +28,175 @@ body {
   justify-content: center;
 }
 
+#logoCard {
+  /* border-radius: 30px;
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2) */
+}
+
 .logo-buttons {
   overflow: visible;
   stroke-width: 1;
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2)
 }
 
-/* .logo-container {
-  display: flex;
-  place-content: center;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-} */
+#logoCard #aomLogo {
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+    z-index: +1;
+    fill: black;
+    stroke: none;
+}
 
-#aomLogo {
+#logoCard #aomLogo #AO, #logoCard #aomLogo #M {
+  filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+  fill: black;
+  stroke: none;
+}
+
+#logoCard #aomLogo #O {
+  /* fill: rgba(251, 192, 192, 0.14); */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #aomLogo #AO {
+    animation: logoPieceFlickerOnAO 15s
+  }
+  #aomLogo #O {
+    animation: logoPieceFlickerOnO 15s
+  }
+  #aomLogo #M {
+    animation: logoPieceFlickerOnM 15s
+  }
+}
+@keyframes logoPieceFlickerOnAO {
+  0% {
+    filter: none;
+    fill: rgba(0, 0, 0, 0);
+  }
+  79% {
+    filter: none;
+    fill: rgba(0, 0, 0, 0);
+  }
+  79.5% {
+    filter: none;
+    fill: black;
+  }
+  80% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  80.5% {
+    filter: none;
+    fill: black;
+  }
+  81% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  81.5% {
+    filter: none;
+    fill: black;
+  }
+  85% {
+    filter: none;
+    fill: black;
+  }
+  90% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  100% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+}
+/* @keyframes logoPieceFlickerOnO {
+  0% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  79.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  80% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  80.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  81% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  81.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  85% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  90% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  100% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+} */
+@keyframes logoPieceFlickerOnM {
+  0% {
+    filter: none;
+    fill: rgba(0, 0, 0, 0);
+  }
+  73% {
+    filter: none;
+    fill: rgba(0, 0, 0, 0);
+  }
+  73.5% {
+    filter: none;
+    fill: black;
+  }
+  74% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  74.5% {
+    filter: none;
+    fill: black;
+  }
+  75% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  75.5% {
+    filter: none;
+    fill: black;
+  }
+  80.5% {
+    filter: none;
+    fill: black;
+  }
+  81% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  81.5% {
+    filter: none;
+    fill: black;
+  }
+  85% {
+    filter: none;
+    fill: black;
+  }
+  90% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+  100% {
+    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black;
+  }
+}
+
+#animationWindow #aomLogo {
   overflow: visible;
   stroke: white;
 }
-
-/* .logo-container {
-  -webkit-animation: 4.7s ease 0s normal forwards 1 fadein;
-  animation: 4.7s ease 0s normal forwards 1 fadein;
-}
-@keyframes fadein{
-    0% { opacity:0; }
-    65% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes fadein{
-    0% { opacity:0; }
-    65% { opacity:0; }
-    100% { opacity:1; }
-} */
-
-
-/* grow button and change background gradient on hover */
-/* .path-letters:hover {
-  fill: (linear-gradient(to left, #2d8fe5, #d155b8));
-  cursor: pointer;
-} */
 
 #animationWindow {
   z-index: +100;
@@ -80,7 +210,6 @@ body {
 }
 
 #animationWindow .logo-container {
-  /* background-color: red; */
   z-index: +110;
   position: fixed;
 }

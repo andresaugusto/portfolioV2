@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 
 //STYLES
 import "./../App.css"
+import "./styles/opening-ceremony.css"
 
 
 export default function OpeningCeremony() {
