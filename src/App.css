@@ -7,9 +7,10 @@ body {
   margin-inline-end: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58));
+  /* background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58)); */
   min-height: 100vh;
   color: rgb(255, 255, 255);
+  perspective: 2000px;
 }
 
 .links {
@@ -26,183 +27,272 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+	left: 50%;
+	top: 50%; */
 }
 
 #logoCard {
+  transform-style: preserve-3d;
+  z-index: +1;
+  background: rgba(255, 182, 193, 0.449);
+
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+	left: 50%;
+	top: 50%; */
+
   /* border-radius: 30px;
   box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2) */
 }
 
-.logo-buttons {
-  overflow: visible;
-  stroke-width: 1;
-  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2)
+#buttonContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
+  transform: translateZ(40px);
+}
+
+#glowContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
+}
+
+
+#aomLogo {
+  z-index: 5px;
+  position: fixed;
+}
+
+#aomLogoGlow {
+  position: fixed;
 }
 
 #logoCard #aomLogo {
     /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
-    z-index: +1;
-    fill: black;
     stroke: none;
 }
 
 #logoCard #aomLogo #AO, #logoCard #aomLogo #M {
-  filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-  fill: black;
+  /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+  fill: rgba(0, 0, 0, 0.949);
   stroke: none;
+  /* transform: translateZ(1px) */
 }
-
 #logoCard #aomLogo #O {
   /* fill: rgba(251, 192, 192, 0.14); */
+  fill: rgba(255, 255, 255, 0.0);
+  transition: all 0.17s ease-in-out;
+}
+
+#logoCard #aomLogo #O:hover {
+  /* fill: rgba(251, 192, 192, 0.14); */
+  fill: rgba(254, 238, 210, 0.3);
+  filter: drop-shadow( 6px -9px 0px rgba(255, 255, 255, 0.774));
+}
+
+#logoCard #aomLogoGlow #AO, #logoCard #aomLogoGlow #M {
+  /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+  /* filter: blur(8px); */
+  /* fill: black; */
+  stroke: rgba(254, 238, 210, 0.719);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  transition: all 0.5s ease-out;
+}
+
+#logoCard #aomLogoGlow #O {
+  /* fill: rgba(251, 192, 192, 0.14); */
+  fill: rgba(0, 0, 0, 0);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  #aomLogo #AO {
-    animation: logoPieceFlickerOnAO 15s
+  #logoCard #aomLogoGlow #AO {
+    animation: 15s logoFlickerOnAO
   }
-  #aomLogo #O {
-    animation: logoPieceFlickerOnO 15s
+  #logoCard #aomLogoGlow #O {
+    /* animation: logoFlickerOnO 15s ease */
   }
-  #aomLogo #M {
-    animation: logoPieceFlickerOnM 15s
+  #logoCard #aomLogoGlow #M {
+    animation: 15s logoFlickerOnM
   }
 }
-@keyframes logoPieceFlickerOnAO {
+@keyframes logoFlickerOnO {
   0% {
-    filter: none;
-    fill: rgba(0, 0, 0, 0);
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  79.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  80% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  80.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  81% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  81.5% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  85% {
+    fill: rgba(251, 192, 192, 0.0);
+  }
+  90% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+  100% {
+    fill: rgba(251, 192, 192, 0.14);
+  }
+}
+@keyframes logoFlickerOnAO {
+  0% {
+    /* filter: none; */
+    /* fill: rgba(0, 0, 0, 0); */
+    stroke: none;
+    transition: stroke 1s ease-in-out 0s;
   }
   79% {
-    filter: none;
-    fill: rgba(0, 0, 0, 0);
+    /* filter: none; */
+    /* fill: rgba(0, 0, 0, 0); */
+    stroke: none
   }
   79.5% {
-    filter: none;
-    fill: black;
+    /* filter: none; */
+    /* fill: black; */
   }
   80% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+    /* fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   80.5% {
-    filter: none;
-    fill: black;
+    /* filter: none; */
+    /* fill: black; */
+    stroke: none
   }
-  81% {
+
+  /* 81% {
     filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
     fill: black;
+    stroke: rgba(254, 238, 210, 0.719)
   }
   81.5% {
     filter: none;
     fill: black;
-  }
+  } */
+  
   85% {
-    filter: none;
-    fill: black;
+    /* filter: none; */
+    /* fill: black; */
+    stroke: none
   }
-  90% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+  99% {
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+    /* fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   100% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+    /* fill: black; */
+    stroke: rgba(254, 238, 210, 0.719);
+    transition: stroke 1s ease-in-out 0s;
   }
 }
-/* @keyframes logoPieceFlickerOnO {
+@keyframes logoFlickerOnM {
   0% {
-    fill: rgba(251, 192, 192, 0.0);
-  }
-  79.5% {
-    fill: rgba(251, 192, 192, 0.0);
-  }
-  80% {
-    fill: rgba(251, 192, 192, 0.14);
-  }
-  80.5% {
-    fill: rgba(251, 192, 192, 0.0);
-  }
-  81% {
-    fill: rgba(251, 192, 192, 0.14);
-  }
-  81.5% {
-    fill: rgba(251, 192, 192, 0.0);
-  }
-  85% {
-    fill: rgba(251, 192, 192, 0.0);
-  }
-  90% {
-    fill: rgba(251, 192, 192, 0.14);
-  }
-  100% {
-    fill: rgba(251, 192, 192, 0.14);
-  }
-} */
-@keyframes logoPieceFlickerOnM {
-  0% {
-    filter: none;
-    fill: rgba(0, 0, 0, 0);
+    /* filter: none;
+    fill: rgba(0, 0, 0, 0); */
+    stroke: none
   }
   73% {
-    filter: none;
-    fill: rgba(0, 0, 0, 0);
+    /* filter: none;
+    fill: rgba(0, 0, 0, 0); */
+    stroke: none
   }
   73.5% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   74% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   74.5% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   75% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   75.5% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   80.5% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   81% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   81.5% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   85% {
-    filter: none;
-    fill: black;
+    /* filter: none;
+    fill: black; */
+    stroke: none
   }
   90% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
   100% {
-    filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
-    fill: black;
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9));
+    fill: black; */
+    stroke: rgba(254, 238, 210, 0.719)
   }
 }
 
 #animationWindow #aomLogo {
   overflow: visible;
-  stroke: white;
 }
 
 #animationWindow {
   z-index: +100;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -212,15 +302,20 @@ body {
 #animationWindow .logo-container {
   z-index: +110;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .path-letters {
   fill: rgba(0, 0, 0, 0);
   display: inline;
-  stroke: 0.3543;
-  stroke-linecap: round;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 1.5px;
+  /* stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-miterlimit: 10;
+  stroke-miterlimit: 10; */
 }
 
 .letter-fill {
@@ -232,11 +327,22 @@ body {
 
 #animationWindow #backgroundImage {
   z-index: +101;
-  min-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vmax;
+
+  -webkit-transform: translate(-50%, -50%);
   position: fixed;
   overflow: hidden;
-  display: block;
+  left: 50%;
+  top: 50%;
+  /* -webkit-filter: blur(0px) brightness(120%) contrast(1.1) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(10%);
+  filter: blur(0px) brightness(120%) contrast(1.1) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(10%); */
+  -webkit-filter: blur(0px) brightness(110%) contrast(1.05) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(80%);
+  filter: blur(0px) brightness(110%) contrast(1.05) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(80%);
 }
+
 
 @media (max-width: 768px) {
 
@@ -256,7 +362,7 @@ body {
     animation: openingCeremonyWindow 10s ease-in-out
   }
   #animationWindow #backgroundImage {
-    animation: openingCeremonyImg 10s ease-in-out
+    animation: openingCeremonyImg 10s ease
   }
   #animationWindow .letter-fill {
     animation: openingCeremonyLetterFill 10s ease-in-out
@@ -277,9 +383,9 @@ body {
   18% { opacity: 0 }
   18.5% { opacity: 1}
   19% { opacity: 0 }
-  19.5% { opacity: 1 }
+  19.5% { opacity: 1}
   20% { opacity: 0 }
-  24% { opacity: 1 }
+  22% { opacity: 1 }
 
   /* FLICKER OFF */
   97% { opacity: 1 }
@@ -288,22 +394,23 @@ body {
   99% { opacity: 0 }
   99.5% { opacity: 1 }
   100% { opacity: 0 }
+
 }
 
 @keyframes openingCeremonyLetterFill {
 
   /* DIM ON */
-  0% { fill: rgba(251, 192, 192, 0.0) }
-  60% { fill: rgba(251, 192, 192, 0.0) }
-  90% { fill: rgba(251, 192, 192, 0.2) }
+  0% { fill: rgba(0, 0, 0, 0) }
+  60% { fill: rgba(0, 0, 0, 0) }
+  90% { fill: rgba(254, 238, 210, 0.237)  }
 
   /* FLICKER OFF */
-  97% { fill: rgba(251, 192, 192, 0.2) }
-  98% { fill: rgba(251, 192, 192, 0.0) }
-  98.5% { fill: rgba(251, 192, 192, 0.2) }
-  99% { fill: rgba(251, 192, 192, 0.0) }
-  99.5% { fill: rgba(251, 192, 192, 0.2) }
-  100% { fill: rgba(251, 192, 192, 0.0) }
+  97% { fill: rgba(254, 238, 210, 0.49) }
+  98% { fill: rgba(0, 0, 0, 0) }
+  98.5% { fill: rgba(254, 238, 210, 0.342) }
+  99% { fill: rgba(0, 0, 0, 0) }
+  99.5% { fill: rgba(0, 0, 0, 0.235) }
+  100% { fill: rgba(0, 0, 0, 0) }
 }
 
 
