@@ -1,8 +1,12 @@
-//COMPS
-import { useState } from "react";
-
 //DEPS
 // import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
+//COMPS
+import AVTC from "./projects/AVTC" 
+import WIP from "./projects/WIP" 
+import Fire from "./projects/Fire" 
 
 //STYLES
 import "../App.css";
@@ -25,7 +29,7 @@ export default function HomeLogo() {
                 primaryColor: "olive",
                 secondaryColor: "purple",
             },
-        };
+        }
         
         const buttons = {
             AO: {
@@ -89,9 +93,9 @@ export default function HomeLogo() {
 
     //  HANDLE BUTTON FOCUS
 
-        const [ButtonContainerStyles, setButtonContainerStyles] = useState({
-            zTransformation: "none",
-        });
+        // const [ButtonContainerStyles, setButtonContainerStyles] = useState({
+        //     zTransformation: "none",
+        // });
 
         const [ActiveButtonStates, setActiveButtonStates] = useState({
             AO: {
@@ -112,8 +116,7 @@ export default function HomeLogo() {
                 fill: buttons.AO.normal.fill,
                 underGlow: buttons.AO.normal.underGlow,                
             }
-        });
-
+        })
         function handleButtonStates(x) {
             switch (x) {
                 case "AO" :
@@ -257,7 +260,7 @@ export default function HomeLogo() {
         }
         function MouseExitLogoCardAnimation() {
             setLogoCardTransTimer({ time: "all 0.5s ease" });
-            setButtonContainerStyles({ zTransformation: "translateZ(1px)" });
+            // setButtonContainerStyles({ zTransformation: "translateZ(1px)" });
             setOrbitalValue({ xAxis: 0, yAxis: 0 });
         }
 
@@ -294,60 +297,62 @@ export default function HomeLogo() {
 						pointerEvents="visiblePainted"
 					>
 						<g id="_x30_">
-							<a href="">
-								<path
-									id="O"
-									className="logo-buttons"
-									referencedProject="wip"
-									onMouseEnter={SetFocusedProject}
-									onMouseLeave={RemoveFocusedProject}
-									// onMouseEnter={handleButtonStates}
-									// onMouseLeave={handleButtonStates}
+                            <Link to="/WIP">
+                                <path
+                                    id="O"
+                                    className="logo-buttons"
+                                    referencedProject="wip"
+                                    onMouseEnter={SetFocusedProject}
+                                    onMouseLeave={RemoveFocusedProject}
+                                    // onMouseEnter={handleButtonStates}
+                                    // onMouseLeave={handleButtonStates}
                                     d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
-									style={{
+                                    style={{
                                         strokeWidth: ActiveButtonStates["O"].strokeWidth,
                                         stroke: ActiveButtonStates["O"].stroke,
                                         fill: ActiveButtonStates["O"].fill,
                                         transition: "all 0.17s ease-out"
-									}}
-								/>
-							</a>
-							<a href="https://www.google.com/search?q=elvin+me+lo+mama&oq=elvin+me+lo+mama&aqs=chrome..69i57j33i160l3j33i299l2.7910j1j1&sourceid=chrome&ie=UTF-8">
-								<path
-									id="AO"
-									className="logo-buttons"
-									referencedProject="avtc"
-									onMouseEnter={SetFocusedProject}
-									onMouseLeave={RemoveFocusedProject}
-									// onMouseEnter={handleButtonStates}
-									// onMouseLeave={handleButtonStates}
-                                    d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
-									style={{
-                                        strokeWidth: ActiveButtonStates["AO"].strokeWidth,
-                                        stroke: ActiveButtonStates["AO"].stroke,
-                                        fill: ActiveButtonStates["AO"].fill,
-                                        transition: "all 0.17s ease-out"
-									}}
-								/>
-							</a>
-							<a href="">
-								<path
-									id="M"
-									className="logo-buttons"
-									referencedProject="fire"
-									onMouseEnter={SetFocusedProject}
-									onMouseLeave={RemoveFocusedProject}
-									// onMouseEnter={handleButtonStates}
-									// onMouseLeave={handleButtonStates}
+                                    }}
+                                />
+                            </Link>
+                            <Link to="/AVTC">
+                                {/* <a href="https://www.google.com/search?q=elvin+me+lo+mama&oq=elvin+me+lo+mama&aqs=chrome..69i57j33i160l3j33i299l2.7910j1j1&sourceid=chrome&ie=UTF-8"> */}
+                                    <path
+                                        id="AO"
+                                        className="logo-buttons"
+                                        referencedProject="avtc"
+                                        onMouseEnter={SetFocusedProject}
+                                        onMouseLeave={RemoveFocusedProject}
+                                        // onMouseEnter={handleButtonStates}
+                                        // onMouseLeave={handleButtonStates}
+                                        d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
+                                        style={{
+                                            strokeWidth: ActiveButtonStates["AO"].strokeWidth,
+                                            stroke: ActiveButtonStates["AO"].stroke,
+                                            fill: ActiveButtonStates["AO"].fill,
+                                            transition: "all 0.17s ease-out"
+                                        }}
+                                    />
+                                {/* </a> */}
+                            </Link>
+                            <Link to="/Fire">
+                                <path
+                                    id="M"
+                                    className="logo-buttons"
+                                    referencedProject="fire"
+                                    onMouseEnter={SetFocusedProject}
+                                    onMouseLeave={RemoveFocusedProject}
+                                    // onMouseEnter={handleButtonStates}
+                                    // onMouseLeave={handleButtonStates}
                                     d="M380.664,431.123 435.105,342.457 500.904,601.17z"
-									style={{
+                                    style={{
                                         strokeWidth: ActiveButtonStates["M"].strokeWidth,
                                         stroke: ActiveButtonStates["M"].stroke,
                                         fill: ActiveButtonStates["M"].fill,
                                         transition: "all 0.17s ease-out"
-									}}
-								/>
-							</a>
+                                    }}
+                                />
+                            </Link>
 						</g>
 					</svg>
 				</div>
@@ -366,40 +371,34 @@ export default function HomeLogo() {
 						pointerxents="visiblePainted"
 					>
 						<g id="_x30_">
-							<a href="">
-								<path
-									id="O"
-									className="logo-buttons-neons"
-                                    d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
-									style={{
-                                        stroke: ActiveButtonStates["O"].underGlow
-									}}
-								/>
-							</a>
-							<a href="https://www.google.com/search?q=elvin+me+lo+mama&oq=elvin+me+lo+mama&aqs=chrome..69i57j33i160l3j33i299l2.7910j1j1&sourceid=chrome&ie=UTF-8">
-								<path
-									id="AO"
-									className="logo-buttons-neons"
-									d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
-									style={{
-                                        stroke: ActiveButtonStates["AO"].underGlow,
-									}}
-								/>
-							</a>
-							<a href="">
-								<path
-									id="M"
-									className="logo-buttons-neons"
-									d="M380.664,431.123 435.105,342.457 500.904,601.17z"
-									style={{
-                                        stroke: ActiveButtonStates["M"].underGlow,
-									}}
-								/>
-							</a>
+                            <path
+                                id="O"
+                                className="logo-buttons-neons"
+                                d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
+                                style={{
+                                    stroke: ActiveButtonStates["O"].underGlow
+                                }}
+                            />
+							<path
+                                id="AO"
+                                className="logo-buttons-neons"
+                                d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
+                                style={{
+                                    stroke: ActiveButtonStates["AO"].underGlow,
+                                }}
+                            />
+                            <path
+                                id="M"
+                                className="logo-buttons-neons"
+                                d="M380.664,431.123 435.105,342.457 500.904,601.17z"
+                                style={{
+                                    stroke: ActiveButtonStates["M"].underGlow,
+                                }}
+                            />
 						</g>
 					</svg>
 				</div>
 			</div>
 		</div>
-	);
+	)
 }

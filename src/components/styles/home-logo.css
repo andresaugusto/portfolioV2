@@ -119,10 +119,10 @@
 
 @media (prefers-reduced-motion: no-preference) {
   #logoCard #aomLogoGlow #AO {
-    animation: 15s logoFlickerOnAO
+    /* animation: 15s logoFlickerOnAO */
   }
   #logoCard #aomLogoGlow #M {
-    animation: 15s logoFlickerOnM
+    /* animation: 15s logoFlickerOnM */
   }
 }
 
