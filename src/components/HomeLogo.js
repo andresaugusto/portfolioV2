@@ -1,7 +1,8 @@
 //DEPS
 // import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { FocusProjectContext, ContextInfluencers } from "./helpers/appContext";
 
 //COMPS
 import AVTC from "./projects/AVTC" 
@@ -14,6 +15,7 @@ import "./styles/home-logo.css";
 
 export default function HomeLogo() {
     
+
 	// OBJECTS
 
         const projects = {
@@ -91,6 +93,33 @@ export default function HomeLogo() {
             }
         }
 
+
+    //  HANDLE CONTEXT
+
+        const { focusProject, setFocusProject } = useContext(FocusProjectContext)
+
+        function SetFocusedProject(x) {
+            setFocusProject({
+                project: x.target.attributes.referencedProject.value,
+                primaryColor:
+                    projects[x.target.attributes.referencedProject.value].primaryColor,
+                secondaryColor:
+                    projects[x.target.attributes.referencedProject.value].secondaryColor,
+            })
+            handleButtonStates(x.target.attributes.id.value)
+        }
+
+        function RemoveFocusedProject(x) {
+            setFocusProject({
+                project: false,
+                primaryColor: false,
+                secondaryColor: false,
+                primaryImage: false
+            })
+            handleButtonStates(null)
+        }
+
+
     //  HANDLE BUTTON FOCUS
 
         // const [ButtonContainerStyles, setButtonContainerStyles] = useState({
@@ -117,6 +146,7 @@ export default function HomeLogo() {
                 underGlow: buttons.AO.normal.underGlow,                
             }
         })
+
         function handleButtonStates(x) {
             switch (x) {
                 case "AO" :
@@ -206,33 +236,7 @@ export default function HomeLogo() {
             }
         }
 
-    //  HANDLE PROJECT FOCUS
 
-        const [FocusedProjectAttributes, setFocusedProjectAttributes] = useState({
-            project: false,
-            primaryColor: false,
-            secondaryColor: false,
-            primaryImage: false,
-        })
-        function SetFocusedProject(x) {
-            setFocusedProjectAttributes({
-                project: x.target.attributes.referencedProject.value,
-                primaryColor:
-                    projects[x.target.attributes.referencedProject.value].primaryColor,
-                secondaryColor:
-                    projects[x.target.attributes.referencedProject.value].secondaryColor,
-            })
-            handleButtonStates(x.target.attributes.id.value)
-        }
-        function RemoveFocusedProject(x) {
-            setFocusedProjectAttributes({
-                project: false,
-                primaryColor: false,
-                secondaryColor: false,
-            })
-            handleButtonStates(null)
-        }
-        
     //  HANDLE LOGO ORBITING
     
         const [LogoCardTransTimer, setLogoCardTransTimer] = useState({
@@ -242,6 +246,7 @@ export default function HomeLogo() {
             xAxis: 0,
             yAxis: 0,
         })
+
         function CreateOrbitalValue(x) {
             setOrbitalValue({
                 xAxis: (window.innerWidth / 2 - x.pageX) / -25,
@@ -268,9 +273,9 @@ export default function HomeLogo() {
 	return (
 		<div
 			id="homeContainer"
-			style={{
-				backgroundColor: FocusedProjectAttributes.primaryColor,
-			}}
+			// style={{
+			// 	backgroundColor: FocusedProjectAttributes.primaryColor,
+			// }}
 		>
 			<div
 				id="logoCard"
@@ -290,8 +295,8 @@ export default function HomeLogo() {
 						version="1.1"
 						x="0px"
 						y="0px"
-						width="720px"
-						height="864px"
+						// width="720px"
+						// height="864px"
 						viewBox="0 0 720 864"
 						enable-background="new 0 0 720 864"
 						pointerEvents="visiblePainted"
@@ -364,8 +369,8 @@ export default function HomeLogo() {
 						version="1.1"
 						x="0px"
 						y="0px"
-						width="720px"
-						height="864px"
+						// width="720px"
+						// height="864px"
 						viewBox="0 0 720 864"
 						enable-background="new 0 0 720 864"
 						pointerxents="visiblePainted"
