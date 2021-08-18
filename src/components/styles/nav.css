@@ -1,0 +1,56 @@
+#navBar {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.233);
+    border-top: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#menuButtonContainer {
+    box-sizing: border-box;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    /* align-content: center; */
+
+    background-color: rgba(255, 0, 0, 0)
+}
+
+/* #menuButton {
+    box-sizing: border-box;
+    width: 37px;
+    height: 22px;
+    fill: none;
+} */
+
+.button {
+    box-sizing: border-box;
+    width: 37px;
+    height: 22px;
+    margin: 0 2.5vw;
+    fill: none;
+    display: flex;
+    /* justify-content: center;
+    align-content: center; */
+}
+
+#navButtonsContainer {
+    box-sizing: border-box;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+
+    /* flex-direction: row; */
+    flex-flow: row nowrap;
+
+    justify-content: center;
+    align-content: center;
+
+    background-color: rgba(255, 255, 0, 0);
+}
+

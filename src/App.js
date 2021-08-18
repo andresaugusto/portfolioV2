@@ -50,7 +50,7 @@ export default function App() {
 						<Route exact path="/WIP" component={WIP}/>
 					</Switch>
 
-					{/* <Nav /> */}
+					<Nav />
 
 				</ContextInfluencers.Provider>
 			</FocusProjectContext.Provider>
