@@ -1,0 +1,7 @@
+#workViewPort {
+    box-sizing: border-box;
+    /* border: solid 2px olive;
+    background-color: rgba(128, 128, 0, 0.233); */
+    width: 100%;
+    height: 20vh;
+}

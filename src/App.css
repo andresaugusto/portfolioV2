@@ -11,6 +11,7 @@ body {
   min-height: 100vh;
   color: rgb(255, 255, 255);
   perspective: 2000px;
+	/* scrollbar-color: rebeccapurple green; */
 }
 
 .links {

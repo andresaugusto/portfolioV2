@@ -273,9 +273,6 @@ export default function HomeLogo() {
 	return (
 		<div
 			id="homeContainer"
-			// style={{
-			// 	backgroundColor: FocusedProjectAttributes.primaryColor,
-			// }}
 		>
 			<div
 				id="logoCard"

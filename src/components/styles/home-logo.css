@@ -367,8 +367,7 @@
 
 @media (max-width: 1000px) {
   #logoCard {
-    /* position: fixed;
-    width: 130vmin; */
+    width: 10vmin;
   }
   #aomLogo {
     position: fixed;
