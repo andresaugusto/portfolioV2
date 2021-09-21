@@ -64,10 +64,12 @@
   z-index: 5px;
   position: fixed;
   overflow: clip;
-  height: 110vmin;
+  height: 100vmin;
   
+  /* max-width: 720px;
+  max-height: 864px; */
   max-width: 720px;
-  max-height: 864px;
+  max-height: 60vh;
 }
 
 #aomLogo #O, #aomLogo #AO, #aomLogo #M {
@@ -77,10 +79,12 @@
 #aomLogoGlow {
   position: fixed;
   overflow: clip;
-  height: 110vmin;
+  height: 100vmin;
   
+  /* max-width: 720px;
+  max-height: 864px; */
   max-width: 720px;
-  max-height: 864px;
+  max-height: 60vh;
 }
 
 #aomLogoGlow #O, #aomLogoGlow #AO, #aomLogoGlow #M {
@@ -365,16 +369,11 @@
 
 /* SCREEN SIZE QUERIES */
 
-@media (max-width: 1000px) {
-  #logoCard {
-    width: 10vmin;
+@media (max-width: 700px) {
+
+  #aomLogo, #aomLogoGlow {
+    height: 90vmin;
+    max-height: 400px;
   }
-  #aomLogo {
-    position: fixed;
-    /* width: 30vmin; */
-  }
-  #aomLogoGlow {
-    position: fixed;
-    /* width: 30vmin; */
-  }
+
 }

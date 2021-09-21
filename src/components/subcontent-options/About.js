@@ -90,7 +90,7 @@ export default function About() {
                     <motion.div id="toolkitItems" variants={ItemContainerAnimation}>
                         {proficiencies.map((i) => (
                             <motion.div 
-                                class="tool-holder-divs"
+                                className="tool-holder-divs"
                                 variants={ItemAnimation}
                             >
                                 {i}

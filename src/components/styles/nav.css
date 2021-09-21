@@ -33,19 +33,18 @@
 
 #menuButtonContainer {
 	box-sizing: border-box;
-	/* height: 7vh; */
 	width: 100vw;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
-	align-items: center;
+	align-items: stretch;
 
 	background-color: rgba(255, 0, 0, 0);
 }
 
 #menuButton {
 	box-sizing: border-box;
-	width: 37px;
+	width: 30px;
 	fill: none;
 }
 
@@ -92,7 +91,6 @@
 #workButton:hover,
 #contactButton:hover {
 	color: black;
-	font-weight: 550;
 	background-color: rgba(254, 238, 210, 1);
 	box-shadow: 
         0 0px 10px 0 rgba(254, 238, 210, 1),
@@ -133,9 +131,9 @@
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
 	#menuButton {
-		width: 8vmin;
+		width: 4.5vmin;
 	}
 	.button {
 		font-size: 3vmin;

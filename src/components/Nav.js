@@ -611,6 +611,23 @@ export default function Nav() {
 	};
 
 	
+    //  //  //  ITEM HIGHLIGHT  //  //  //
+    
+    const [focusHome, setFocusHome] = useState(false)
+    const [focusGallery, setFocusGallery] = useState(false)
+    const [focusResidentArtists, setFocusResidentArtists] = useState(false)
+    const [focusMerchandise, setFocusMerchandise] = useState(false)
+    const [focusContactUs, setFocusContactUs] = useState(false)
+
+    const closeAndUnfocusTitles = () => {
+        setFocusHome(false)
+        setFocusGallery(false)
+        setFocusResidentArtists(false)
+        setFocusMerchandise(false)
+        setFocusContactUs(false)
+    }
+
+
 	//RETURN
 	return (
 		<div id="navScreen">

@@ -1,7 +1,6 @@
 //DEPS
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { FocusProjectContext, ContextInfluencers } from "./helpers/appContext";
 
 //COMPS
@@ -14,262 +13,248 @@ import "../App.css";
 import "./styles/home-logo.css";
 
 export default function HomeLogo() {
-    
 
-	// OBJECTS
-
-        const projects = {
-            avtc: {
-                primaryColor: "orange",
-                secondaryColor: "gray",
+	//OBJECTS
+    const projects = {
+        avtc: {
+            primaryColor: "orange",
+            secondaryColor: "gray",
+        },
+        wip: {
+            primaryColor: "maroon",
+            secondaryColor: "gold",
+        },
+        fire: {
+            primaryColor: "olive",
+            secondaryColor: "purple",
+        },
+    }
+    const buttons = {
+        AO: {
+            normal: {
+                stroke: null,
+                strokeWidth: null,
+                fill: null,
+                underGlow: null,
             },
-            wip: {
-                primaryColor: "maroon",
-                secondaryColor: "gold",
+            focused: {
+                stroke: null,
+                strokeWidth: null,
+                fill: null,
+                underGlow: null,
             },
-            fire: {
-                primaryColor: "olive",
-                secondaryColor: "purple",
+            unfocused: {
+                stroke: "rgba(254, 238, 210, 1)",
+                strokeWidth: ".5px",
+                fill: "rgba(255, 255, 255, .1)",
+                underGlow: "rgba(255, 255, 255, 0)",
+            }
+        },
+        M: {
+            normal: {
+                stroke: null,
+                strokeWidth: null,
+                fill: null,
+                underGlow: null,
             },
-        }
-        
-        const buttons = {
-            AO: {
-                normal: {
-                    stroke: null,
-                    strokeWidth: null,
-                    fill: null,
-                    underGlow: null,
-                },
-                focused: {
-                    stroke: null,
-                    strokeWidth: null,
-                    fill: null,
-                    underGlow: null,
-                },
-                unfocused: {
-                    stroke: "rgba(254, 238, 210, 1)",
-                    strokeWidth: ".5px",
-                    fill: "rgba(255, 255, 255, .1)",
-                    underGlow: "rgba(255, 255, 255, 0)",
-                }
+            focused: {
+                stroke: null,
+                strokeWidth: null,
+                fill: null,
+                underGlow: null,
             },
-            M: {
-                normal: {
-                    stroke: null,
-                    strokeWidth: null,
-                    fill: null,
-                    underGlow: null,
-                },
-                focused: {
-                    stroke: null,
-                    strokeWidth: null,
-                    fill: null,
-                    underGlow: null,
-                },
-                unfocused: {
-                    stroke: "rgba(254, 238, 210, 1)",
-                    strokeWidth: ".5px",
-                    fill: "rgba(255, 255, 255, .1)",
-                    underGlow: "rgba(255, 255, 255, 0)",
-                }
+            unfocused: {
+                stroke: "rgba(254, 238, 210, 1)",
+                strokeWidth: ".5px",
+                fill: "rgba(255, 255, 255, .1)",
+                underGlow: "rgba(255, 255, 255, 0)",
+            }
+        },
+        O: {
+            normal: {
+                stroke: null,
+                fill: null,
+                underGlow: null,
             },
-            O: {
-                normal: {
-                    stroke: null,
-                    fill: null,
-                    underGlow: null,
-                },
-                focused: {
-                    stroke: "white",
-                    fill: "rgba(254, 238, 210, 0.719)",
-                    underGlow: "rgba(254, 238, 210, 0.719)",
-                },
-                unfocused: {
-                    stroke: null,
-                    fill: null,
-                    underGlow: null,
-                }
+            focused: {
+                stroke: "white",
+                fill: "rgba(254, 238, 210, 0.719)",
+                underGlow: "rgba(254, 238, 210, 0.719)",
+            },
+            unfocused: {
+                stroke: null,
+                fill: null,
+                underGlow: null,
             }
         }
+    }
 
-
-    //  HANDLE CONTEXT
-
-        const { focusProject, setFocusProject } = useContext(FocusProjectContext)
-
-        function SetFocusedProject(x) {
-            setFocusProject({
-                project: x.target.attributes.referencedProject.value,
-                primaryColor:
-                    projects[x.target.attributes.referencedProject.value].primaryColor,
-                secondaryColor:
-                    projects[x.target.attributes.referencedProject.value].secondaryColor,
-            })
-            handleButtonStates(x.target.attributes.id.value)
-        }
-
-        function RemoveFocusedProject(x) {
-            setFocusProject({
-                project: false,
-                primaryColor: false,
-                secondaryColor: false,
-                primaryImage: false
-            })
-            handleButtonStates(null)
-        }
-
-
-    //  HANDLE BUTTON FOCUS
-
-        // const [ButtonContainerStyles, setButtonContainerStyles] = useState({
-        //     zTransformation: "none",
-        // });
-
-        const [ActiveButtonStates, setActiveButtonStates] = useState({
-            AO: {
-                strokeWidth: buttons.AO.normal.strokeWidth,
-                stroke: buttons.AO.normal.stroke,
-                fill: buttons.AO.normal.fill,
-                underGlow: buttons.AO.normal.underGlow,
-            },
-            M: {
-                strokeWidth: buttons.AO.normal.strokeWidth,
-                stroke: buttons.AO.normal.stroke,
-                fill: buttons.AO.normal.fill,
-                underGlow: buttons.AO.normal.underGlow,
-            },
-            O: {
-                strokeWidth: buttons.AO.normal.strokeWidth,
-                stroke: buttons.AO.normal.stroke,
-                fill: buttons.AO.normal.fill,
-                underGlow: buttons.AO.normal.underGlow,                
-            }
+    //HANDLE CONTEXT
+    const { setFocusProject } = useContext(FocusProjectContext)
+    function SetFocusedProject(x) {
+        setFocusProject({
+            project: x.target.attributes.referencedProject.value,
+            primaryColor:
+                projects[x.target.attributes.referencedProject.value].primaryColor,
+            secondaryColor:
+                projects[x.target.attributes.referencedProject.value].secondaryColor,
         })
-
-        function handleButtonStates(x) {
-            switch (x) {
-                case "AO" :
-                    setActiveButtonStates({
-                        AO: {
-                            strokeWidth: buttons.AO.focused.strokeWidth,
-                            stroke: buttons.AO.focused.stroke,
-                            fill: buttons.AO.focused.fill,
-                            underGlow: buttons.AO.focused.underGlow,
-                        },
-                        M: {
-                            strokeWidth: buttons.M.unfocused.strokeWidth,
-                            stroke: buttons.M.unfocused.stroke,
-                            fill: buttons.M.unfocused.fill,
-                            underGlow: buttons.M.unfocused.underGlow,
-                        },
-                        O: {
-                            strokeWidth: buttons.O.unfocused.strokeWidth,
-                            stroke: buttons.O.unfocused.stroke,
-                            fill: buttons.O.unfocused.fill,
-                            underGlow: buttons.O.unfocused.underGlow,                            
-                        }
-                    }); break
-                case "M" :
-                    setActiveButtonStates({
-                        AO: {
-                            strokeWidth: buttons.AO.unfocused.strokeWidth,
-                            stroke: buttons.AO.unfocused.stroke,
-                            fill: buttons.AO.unfocused.fill,
-                            underGlow: buttons.AO.unfocused.underGlow,
-                        },
-                        M: {
-                            strokeWidth: buttons.M.focused.strokeWidth,
-                            stroke: buttons.M.focused.stroke,
-                            fill: buttons.M.focused.fill,
-                            underGlow: buttons.M.focused.underGlow,
-                        },
-                        O: {
-                            strokeWidth: buttons.O.unfocused.strokeWidth,
-                            stroke: buttons.O.unfocused.stroke,
-                            fill: buttons.O.unfocused.fill,
-                            underGlow: buttons.O.unfocused.underGlow,                            
-                        }
-                    }); break
-                case "O" :
-                    setActiveButtonStates({
-                        AO: {
-                            strokeWidth: buttons.AO.unfocused.strokeWidth,
-                            stroke: buttons.AO.unfocused.stroke,
-                            fill: buttons.AO.unfocused.fill,
-                            underGlow: buttons.AO.unfocused.underGlow,
-                        },
-                        M: {
-                            strokeWidth: buttons.M.unfocused.strokeWidth,
-                            stroke: buttons.M.unfocused.stroke,
-                            fill: buttons.M.unfocused.fill,
-                            underGlow: buttons.M.unfocused.underGlow,
-                        },
-                        O: {
-                            strokeWidth: buttons.O.focused.strokeWidth,
-                            stroke: buttons.O.focused.stroke,
-                            fill: buttons.O.focused.fill,
-                            underGlow: buttons.O.focused.underGlow,                            
-                        }
-                    }); break
-                default :
-                    setActiveButtonStates({
-                        AO: {
-                            strokeWidth: buttons.AO.normal.strokeWidth,
-                            stroke: buttons.AO.normal.stroke,
-                            fill: buttons.AO.normal.fill,
-                            underGlow: buttons.AO.normal.underGlow,
-                        },
-                        M: {
-                            strokeWidth: buttons.M.normal.strokeWidth,
-                            stroke: buttons.M.normal.stroke,
-                            fill: buttons.M.normal.fill,
-                            underGlow: buttons.M.normal.underGlow,
-                        },
-                        O: {
-                            strokeWidth: buttons.O.normal.strokeWidth,
-                            stroke: buttons.O.normal.stroke,
-                            fill: buttons.O.normal.fill,
-                            underGlow: buttons.O.normal.underGlow,                            
-                        }
-                    }); break
-            }
-        }
-
-
-    //  HANDLE LOGO ORBITING
-    
-        const [LogoCardTransTimer, setLogoCardTransTimer] = useState({
-            time: "none",
+        handleButtonStates(x.target.attributes.id.value)
+    }
+    function RemoveFocusedProject(x) {
+        setFocusProject({
+            project: false,
+            primaryColor: false,
+            secondaryColor: false,
+            primaryImage: false
         })
-        const [OrbitalValue, setOrbitalValue] = useState({
-            xAxis: 0,
-            yAxis: 0,
-        })
+        handleButtonStates(null)
+    }
 
-        function CreateOrbitalValue(x) {
-            setOrbitalValue({
-                xAxis: (window.innerWidth / 2 - x.pageX) / -25,
-                yAxis: (window.innerHeight / 2 - x.pageY) / 25,
-            });
-            // console.log(`left: ${OrbitalValue.yAxis}, top: ${OrbitalValue.xAxis}`);
+    //HANDLE BUTTON FOCUS
+    // const [ButtonContainerStyles, setButtonContainerStyles] = useState({
+    //     zTransformation: "none",
+    // });
+    const [ActiveButtonStates, setActiveButtonStates] = useState({
+        AO: {
+            strokeWidth: buttons.AO.normal.strokeWidth,
+            stroke: buttons.AO.normal.stroke,
+            fill: buttons.AO.normal.fill,
+            underGlow: buttons.AO.normal.underGlow,
+        },
+        M: {
+            strokeWidth: buttons.AO.normal.strokeWidth,
+            stroke: buttons.AO.normal.stroke,
+            fill: buttons.AO.normal.fill,
+            underGlow: buttons.AO.normal.underGlow,
+        },
+        O: {
+            strokeWidth: buttons.AO.normal.strokeWidth,
+            stroke: buttons.AO.normal.stroke,
+            fill: buttons.AO.normal.fill,
+            underGlow: buttons.AO.normal.underGlow,                
         }
-        function MouseEnterLogoCardAnimation() {
-            setLogoCardTransTimer({ time: "all 0.12s ease" });
-            // setButtonContainerStyles({ zTransformation: "translateZ(40px)" });
-            // setGlowContainerStyles({  })
-            // console.log(LogoCardTransTimer.time)
-            setTimeout(() => {
-                setLogoCardTransTimer({ time: "none" });
-            }, 120);
+    })
+    function handleButtonStates(x) {
+        switch (x) {
+            case "AO" :
+                setActiveButtonStates({
+                    AO: {
+                        strokeWidth: buttons.AO.focused.strokeWidth,
+                        stroke: buttons.AO.focused.stroke,
+                        fill: buttons.AO.focused.fill,
+                        underGlow: buttons.AO.focused.underGlow,
+                    },
+                    M: {
+                        strokeWidth: buttons.M.unfocused.strokeWidth,
+                        stroke: buttons.M.unfocused.stroke,
+                        fill: buttons.M.unfocused.fill,
+                        underGlow: buttons.M.unfocused.underGlow,
+                    },
+                    O: {
+                        strokeWidth: buttons.O.unfocused.strokeWidth,
+                        stroke: buttons.O.unfocused.stroke,
+                        fill: buttons.O.unfocused.fill,
+                        underGlow: buttons.O.unfocused.underGlow,                            
+                    }
+                }); break
+            case "M" :
+                setActiveButtonStates({
+                    AO: {
+                        strokeWidth: buttons.AO.unfocused.strokeWidth,
+                        stroke: buttons.AO.unfocused.stroke,
+                        fill: buttons.AO.unfocused.fill,
+                        underGlow: buttons.AO.unfocused.underGlow,
+                    },
+                    M: {
+                        strokeWidth: buttons.M.focused.strokeWidth,
+                        stroke: buttons.M.focused.stroke,
+                        fill: buttons.M.focused.fill,
+                        underGlow: buttons.M.focused.underGlow,
+                    },
+                    O: {
+                        strokeWidth: buttons.O.unfocused.strokeWidth,
+                        stroke: buttons.O.unfocused.stroke,
+                        fill: buttons.O.unfocused.fill,
+                        underGlow: buttons.O.unfocused.underGlow,                            
+                    }
+                }); break
+            case "O" :
+                setActiveButtonStates({
+                    AO: {
+                        strokeWidth: buttons.AO.unfocused.strokeWidth,
+                        stroke: buttons.AO.unfocused.stroke,
+                        fill: buttons.AO.unfocused.fill,
+                        underGlow: buttons.AO.unfocused.underGlow,
+                    },
+                    M: {
+                        strokeWidth: buttons.M.unfocused.strokeWidth,
+                        stroke: buttons.M.unfocused.stroke,
+                        fill: buttons.M.unfocused.fill,
+                        underGlow: buttons.M.unfocused.underGlow,
+                    },
+                    O: {
+                        strokeWidth: buttons.O.focused.strokeWidth,
+                        stroke: buttons.O.focused.stroke,
+                        fill: buttons.O.focused.fill,
+                        underGlow: buttons.O.focused.underGlow,                            
+                    }
+                }); break
+            default :
+                setActiveButtonStates({
+                    AO: {
+                        strokeWidth: buttons.AO.normal.strokeWidth,
+                        stroke: buttons.AO.normal.stroke,
+                        fill: buttons.AO.normal.fill,
+                        underGlow: buttons.AO.normal.underGlow,
+                    },
+                    M: {
+                        strokeWidth: buttons.M.normal.strokeWidth,
+                        stroke: buttons.M.normal.stroke,
+                        fill: buttons.M.normal.fill,
+                        underGlow: buttons.M.normal.underGlow,
+                    },
+                    O: {
+                        strokeWidth: buttons.O.normal.strokeWidth,
+                        stroke: buttons.O.normal.stroke,
+                        fill: buttons.O.normal.fill,
+                        underGlow: buttons.O.normal.underGlow,                            
+                    }
+                }); break
         }
-        function MouseExitLogoCardAnimation() {
-            setLogoCardTransTimer({ time: "all 0.5s ease" });
-            // setButtonContainerStyles({ zTransformation: "translateZ(1px)" });
-            setOrbitalValue({ xAxis: 0, yAxis: 0 });
-        }
+    }
 
+    //HANDLE LOGO ORBITING
+    const [LogoCardTransTimer, setLogoCardTransTimer] = useState({
+        time: "none",
+    })
+    const [OrbitalValue, setOrbitalValue] = useState({
+        xAxis: 0,
+        yAxis: 0,
+    }) 
+    function CreateOrbitalValue(x) {
+        setOrbitalValue({
+            xAxis: (window.innerWidth / 2 - x.pageX) / -25,
+            yAxis: (window.innerHeight / 2 - x.pageY) / 25,
+        });
+        // console.log(`left: ${OrbitalValue.yAxis}, top: ${OrbitalValue.xAxis}`);
+    }
+    function MouseEnterLogoCardAnimation() {
+        setLogoCardTransTimer({ time: "all 0.12s ease" });
+        // setButtonContainerStyles({ zTransformation: "translateZ(40px)" });
+        // setGlowContainerStyles({  })
+        // console.log(LogoCardTransTimer.time)
+        setTimeout(() => {
+            setLogoCardTransTimer({ time: "none" });
+        }, 120);
+    }
+    function MouseExitLogoCardAnimation() {
+        setLogoCardTransTimer({ time: "all 0.5s ease" });
+        // setButtonContainerStyles({ zTransformation: "translateZ(1px)" });
+        setOrbitalValue({ xAxis: 0, yAxis: 0 });
+    }
 
+    //RETURN
 	return (
 		<div
 			id="homeContainer"
