@@ -1,125 +1,20 @@
 body {
-  width: 100vw;
-  height: 100vh;
-  margin-block-start: 0;
-  margin-block-end: 0;
+  width: 100%;
+  height: 100%;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58)); */
-  background-color: olive;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: rgb(255, 255, 255);
+  perspective: 2000px;
+	/* scrollbar-color: rebeccapurple green; */
 }
 
 .links {
 	color: inherit;
 	text-decoration: none;
 }
-
-/* .logo-container {
-  display: flex;
-  place-content: center;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-} */
-
-#aomLogo {
-  overflow: visible;
-  stroke: #fff;
-  stroke-width: 1;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-
-/* .logo-container {
-  -webkit-animation: 4.7s ease 0s normal forwards 1 fadein;
-  animation: 4.7s ease 0s normal forwards 1 fadein;
-}
-@keyframes fadein{
-    0% { opacity:0; }
-    65% { opacity:0; }
-    100% { opacity:1; }
-}
-@-webkit-keyframes fadein{
-    0% { opacity:0; }
-    65% { opacity:0; }
-    100% { opacity:1; }
-} */
-
-
-/* grow button and change background gradient on hover */
-.path-letters:hover {
-  fill: (linear-gradient(to left, #2d8fe5, #d155b8));
-  cursor: pointer;
-}
-
-#animationWindow {
-  z-index: +10000;
-  width: 100vw;
-  height: 100vh;
-  /* background-image: url() no-repeat center center fixed; */
-}
-
-
-/* a:hover #AO, a:hover #M { */
-  /* fill: black; */
-  /* background-image: linear-gradient(to bottom left, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58)); */
-/* } */
-
-/* a:hover #AO ~ body{
-  fill: black;
-  background-image: linear-gradient(to bottom right, red, red, red, red, red, red, red, orange, orange);
-} */
-
-/* a:hover #O {
-  fill: rgba(255, 255, 255, 0.25);
-} */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  a #AO {
-    animation: ao-shine infinite 5s linear;
-  }
-  a #O {
-    animation: o-shine infinite 5s linear;
-  }
-  a #M {
-    animation: m-shine infinite 5s linear;
-  }
-  a #AO:hover, a #O:hover, a #M:hover {
-    animation: none;
-  }
-} */
-
-@keyframes ao-shine {
-  0% { fill: rgba(255, 166, 0, 0.75) }
-  10% { fill: rgba(255, 166, 0, 0.75) }
-  15% { fill: rgba(255, 255, 255, 0.75) }
-  25% { fill: rgba(255, 211, 129, 0.75) }
-  30% { fill: rgba(255, 166, 0, 0.75) }
-  100% { fill: rgba(255, 166, 0, 0.75) }
-}
-@keyframes o-shine {
-  0% { fill: rgba(255, 255, 255, 0.0) }
-  30% { fill: rgba(255, 255, 255, 0.0) }
-  35% { fill: rgba(255, 255, 255, 0.40) }
-  45% { fill: rgba(255, 255, 255, 0.20) }
-  50% { fill: rgba(255, 255, 255, 0.0) }
-  100% { fill: rgba(255, 255, 255, 0.0) }
-}
-@keyframes m-shine {
-  0% { fill: rgba(255, 166, 0, 0.75) }
-  20% { fill: rgba(255, 166, 0, 0.75) }
-  25% { fill: rgba(255, 255, 255, 0.75) }
-  35% { fill: rgba(255, 211, 129, 0.75) }
-  40% { fill: rgba(255, 166, 0, 0.75) }
-  100% { fill: rgba(255, 166, 0, 0.75) }
-}
-
-/* rgba(255, 166, 0, 0.75) */

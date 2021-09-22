@@ -1,0 +1,379 @@
+#homeContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  /* box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
+
+  /* -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+	left: 50%;
+	top: 50%; */
+}
+
+#logoCard {
+  transform-style: preserve-3d;
+  z-index: +1;
+  /* background: rgba(255, 182, 193, 0.449); */
+
+  position: fixed;
+  /* overflow: hidden; */
+  /* width: 100%;
+  height: 100%; */
+  /* box-sizing: border-box; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* -webkit-transform: translate(-50%, -50%);
+  position: absolute;
+	left: 50%;
+	top: 50%; */
+
+  /* border-radius: 30px;
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2) */
+}
+
+#buttonContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
+  transform: translateZ(40px);
+}
+
+#glowContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-out;
+  stroke-width: 30;
+  filter: blur(8px);
+}
+
+#aomLogo {
+  z-index: 5px;
+  position: fixed;
+  overflow: clip;
+  height: 100vmin;
+  
+  /* max-width: 720px;
+  max-height: 864px; */
+  max-width: 720px;
+  max-height: 60vh;
+}
+
+#aomLogo #O, #aomLogo #AO, #aomLogo #M {
+  display: inline;
+}
+
+#aomLogoGlow {
+  position: fixed;
+  overflow: clip;
+  height: 100vmin;
+  
+  /* max-width: 720px;
+  max-height: 864px; */
+  max-width: 720px;
+  max-height: 60vh;
+}
+
+#aomLogoGlow #O, #aomLogoGlow #AO, #aomLogoGlow #M {
+  display: inline;
+}
+
+#logoCard #aomLogo {
+    /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+    stroke: none;
+}
+
+#logoCard #aomLogo #AO, #logoCard #aomLogo #M {
+  /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+  fill: rgba(0, 0, 0, 0.949);
+  stroke: none;
+  /* transform: translateZ(1px) */
+}
+
+#logoCard #aomLogo #O {
+  /* fill: rgba(251, 192, 192, 0.14); */
+  fill: rgba(255, 255, 255, 0.0);
+  transition: all 0.17s ease-in-out;
+}
+
+#logoCard #aomLogo #O:hover {
+  /* filter: drop-shadow( -3px 10px 0px rgba(255, 255, 255, 0.774)); */
+}
+
+#logoCard #aomLogoGlow #AO, #logoCard #aomLogoGlow #M {
+  /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
+  filter: blur(8px);
+  fill: rgba(254, 238, 210, 0);
+  stroke: rgba(254, 238, 210, 0.719);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  transition: all 0.25s ease-out;
+  
+}
+
+#logoCard #aomLogoGlow #O {
+  filter: blur(8px);
+  fill: rgba(0, 0, 0, 0);
+  stroke: rgba(0, 0, 0, 0);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  transition: all 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #logoCard #aomLogoGlow #AO {
+    /* animation: 15s longLogoFlickerOnAO */
+    animation: 3s logoFlickerOnAO
+  }
+  #logoCard #aomLogoGlow #M {
+    /* animation: 15s longLogoFlickerOnM */
+    animation: 3s logoFlickerOnM
+  }
+}
+
+@keyframes logoFlickerOnAO {
+  0% {
+    stroke-width: 0px;
+  }
+
+
+  /* 10% {
+    stroke-width: 0px;
+  }
+  12% {
+    stroke-width: 15px;
+  }
+  14% {
+    stroke-width: 0px;
+  } */
+
+
+  /* 13% {
+    stroke-width: 0px;
+  }
+  15% {
+    stroke-width: 15px;
+  }
+  17% {
+    stroke-width: 0px;
+  } */
+
+
+  /* 35% {
+    stroke-width: 0px;
+  }
+  37% {
+    stroke-width: 25px;
+  }
+  39% {
+    stroke-width: 0px;
+  } */
+
+
+  50% {
+    stroke-width: 0px;
+  }
+  50.05% {
+    stroke-width: 10px;
+  }
+  60% {
+    stroke-width: 0px;
+  }
+  60.05% {
+    stroke-width: 40px;
+  }
+  63% {
+    stroke-width: 0px;
+  }
+  
+
+  75% {
+    stroke-width: 0px;
+  }
+  77% {
+    stroke-width: 20px;
+  }
+  99% {
+    stroke-width: 30px;
+  }
+  100% {
+    stroke-width: 30px; 
+  }
+}
+@keyframes logoFlickerOnM {
+  0% {
+    stroke-width: 0px;
+  }
+
+
+  10% {
+    stroke-width: 0px;
+  }
+  12% {
+    stroke-width: 25px;
+  }
+  14% {
+    stroke-width: 0px;
+  }
+
+
+  15% {
+    stroke-width: 0px;
+  }
+  17% {
+    stroke-width: 15px;
+  }
+  19% {
+    stroke-width: 0px;
+  }
+
+
+  /* 35% {
+    stroke-width: 0px;
+  }
+  37% {
+    stroke-width: 25px;
+  }
+  39% {
+    stroke-width: 0px;
+  } */
+
+
+  /* 50% {
+    stroke-width: 0px;
+  }
+  52% {
+    stroke-width: 10px;
+  }
+  60% {
+    stroke-width: 0px;
+  } */
+
+
+  75% {
+    stroke-width: 0px;
+  }
+  77% {
+    stroke-width: 20px;
+  }
+  99% {
+    stroke-width: 30px;
+  }
+  100% {
+    stroke-width: 30px;
+  }
+}
+@keyframes longLogoFlickerOnAO {
+  0% {
+    stroke-width: 0px;
+  }
+  /* 73% {
+    stroke-width: 0px;
+  }
+  73.5% {
+    stroke-width: 0px;
+  }
+  74% {
+    stroke-width: 15px;
+  }
+  74.5% {
+    stroke-width: 0px;
+  }
+  75% {
+    stroke-width: 25px;
+  }
+  75.5% {
+    stroke-width: 0px;
+  } */
+  80% {
+    stroke-width: 0px;
+  }
+  80.5% {
+    stroke-width: 10px;
+  }
+  81% {
+    stroke-width: 0px;
+  }
+  90.5% {
+    stroke-width: 0px;
+  }
+  91% {
+    stroke-width: 20px;
+  }
+  99% {
+    stroke-width: 30px;
+  }
+  100% {
+    stroke-width: 30px;
+  }
+}
+@keyframes longLogoFlickerOnM {
+  0% {
+    stroke-width: 0px;
+  }
+  73% {
+    stroke-width: 0px;
+  }
+  73.5% {
+    stroke-width: 0px;
+  }
+  74% {
+    stroke-width: 15px;
+  }
+  74.5% {
+    stroke-width: 0px;
+  }
+  75% {
+    stroke-width: 25px;
+  }
+  75.5% {
+    stroke-width: 0px;
+  }
+  80.5% {
+    stroke-width: 0px;
+  }
+  81% {
+    stroke-width: 15px;
+  }
+  81.5% {
+    stroke-width: 0px;
+  }
+  90.5% {
+    stroke-width: 0px;
+  }
+  91% {
+    stroke-width: 20px;
+  }
+  99% {
+    stroke-width: 30px;
+  }
+  100% {
+    stroke-width: 30px;
+  }
+}
+
+/* SCREEN SIZE QUERIES */
+
+@media (max-width: 850px) {
+
+  #aomLogo, #aomLogoGlow {
+    height: 90vmin;
+    max-height: 400px;
+  }
+
+}
