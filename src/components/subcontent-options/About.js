@@ -69,28 +69,30 @@ export default function About() {
         >
             <div id="aboutContent">
                 <motion.div id="bioSection" class="about-section" variants={ItemContainerAnimation}>
-                    <motion.div class="section-title" variants={ItemAnimation}>approach</motion.div>
-                    <motion.div class="section-body" variants={ItemContainerAnimation}>
+                    <motion.div class="about-section-title" variants={ItemAnimation}>approach</motion.div>
+                    <motion.div class="about-section-body" variants={ItemContainerAnimation}>
                         <section id="bioTextBody">
                             <motion.p variants={ItemAnimation}>
                                 I think that, as a human, one does not ever see faliure as a true option to our most important ideas. Our core values and drivers. Those which propel other most outrageous ideas to affect our ever-evolving ideals and permeate through the plethora of lessons we receive in the creative process. As the creators all humans are, we're expected to entitle ourselves with a voice. It's how we deliver our existence to the world and also how we understand what we receive in return. We make things. Structured as we see fit.
                             </motion.p>
                             <motion.p variants={ItemAnimation}>
-                                Whether it be skateboarding, performing a musical piece, designing spatial experiences and interfaces, or delivering a feeling or a question in any way that speaks to cognition. Being moved by an inspiring figure created by garments or the role of memory in an astounding dish. We all express and are expressed at. And, perhaps subjectively, we intrerpret the receipt onto what we feel the communicator is truly expressing about itself. In Spanish, Braile, or visually; sensibility and empathy empower the guided as well as the guide.
+                                Whether it be skateboarding, performing a musical piece, designing spatial experiences and interfaces, or delivering a feeling or a question in any way that speaks to cognition. Being astounded by a figure created with garments or a memory relived through an astounding dish. We all express and are expressed at. Perhaps subjectively, we intrerpret the receipt onto what we feel the communicator is truly expressing about itself. In Spanish, Braile, or visually; sensibility and empathy empower the guided as well as the guide.
                             </motion.p>
                             <motion.p id="centeredText" variants={ItemAnimation}>
-                                Composing an experience should be, in itself, an experience of its own.
+                                Composing an experience needs to be taken, in itself, as an experience of its own.
                             </motion.p>     
                         </section>
                         {/* <br/> */}
                     </motion.div>
                 </motion.div>
                 <motion.div id="toolkitSection" class="about-section" variants={ItemContainerAnimation}>
-                    <motion.div class="section-title" variants={ItemAnimation}>toolkit</motion.div>
+                    <motion.div class="about-section-title" variants={ItemAnimation}>toolkit</motion.div>
                     <motion.div id="toolkitItems" variants={ItemContainerAnimation}>
                         {proficiencies.map((i) => (
                             <motion.div 
                                 className="tool-holder-divs"
+                                onTap={(i) => {
+                                }}
                                 variants={ItemAnimation}
                             >
                                 {i}

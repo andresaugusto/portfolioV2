@@ -51,7 +51,7 @@ export default function Nav() {
 							x2="37"
 							y2="1.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="x1"
@@ -84,7 +84,7 @@ export default function Nav() {
 							x2="calc(((6.55671e-08)+(37))/2)"
 							y2="11.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="x1"
@@ -109,7 +109,7 @@ export default function Nav() {
 							x2="37"
 							y2="1.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="y1"
@@ -157,7 +157,7 @@ export default function Nav() {
 							x2="37"
 							y2="1.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="x1"
@@ -190,7 +190,7 @@ export default function Nav() {
 							x2="37"
 							y2="11.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="x1"
@@ -215,7 +215,7 @@ export default function Nav() {
 							x2="37"
 							y2="21.25"
 							stroke="white"
-							stroke-width="1.5"
+							// stroke-width="1.5"
 						>
 							<animate
 								attributeName="y1"
@@ -611,21 +611,19 @@ export default function Nav() {
 	};
 
 	
-    //  //  //  ITEM HIGHLIGHT  //  //  //
-    
-    const [focusHome, setFocusHome] = useState(false)
-    const [focusGallery, setFocusGallery] = useState(false)
-    const [focusResidentArtists, setFocusResidentArtists] = useState(false)
-    const [focusMerchandise, setFocusMerchandise] = useState(false)
-    const [focusContactUs, setFocusContactUs] = useState(false)
-
-    const closeAndUnfocusTitles = () => {
-        setFocusHome(false)
-        setFocusGallery(false)
-        setFocusResidentArtists(false)
-        setFocusMerchandise(false)
-        setFocusContactUs(false)
-    }
+    // //  //  //  ITEM HIGHLIGHT  //  //  //
+    // const [focusHome, setFocusHome] = useState(false)
+    // const [focusGallery, setFocusGallery] = useState(false)
+    // const [focusResidentArtists, setFocusResidentArtists] = useState(false)
+    // const [focusMerchandise, setFocusMerchandise] = useState(false)
+    // const [focusContactUs, setFocusContactUs] = useState(false)
+    // const closeAndUnfocusTitles = () => {
+    //     setFocusHome(false)
+    //     setFocusGallery(false)
+    //     setFocusResidentArtists(false)
+    //     setFocusMerchandise(false)
+    //     setFocusContactUs(false)
+    // }
 
 
 	//RETURN
@@ -641,164 +639,6 @@ export default function Nav() {
 					<div id="menuButton" class="button" onClick={toggleNav}>
 						{!nav.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
 						{nav.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
-						{/* {nav.open ?
-						(
-							<svg viewBox="0 0 37 22">
-								<line
-									x1={navButtonOptions.menuButton.open.line1.x1}
-									x2={navButtonOptions.menuButton.open.line1.x2}
-									y1={navButtonOptions.menuButton.open.line1.y1}
-									y2={navButtonOptions.menuButton.open.line1.y2}
-									stroke={navButtonOptions.menuButton.open.line1.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="x1"
-										from={navButtonOptions.menuButton.closed.line1.x1}
-										to={navButtonOptions.menuButton.closed.line1.x2}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="x2"
-										from={navButtonOptions.menuButton.closed.line1.x2}
-										to={navButtonOptions.menuButton.closed.line3.x1}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="y2"
-										from={navButtonOptions.menuButton.closed.line1.y2}
-										to={navButtonOptions.menuButton.open.line3.y2}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-								<line
-									x1={navButtonOptions.menuButton.open.line2.x1}
-									x2={navButtonOptions.menuButton.open.line2.x2}
-									y1={navButtonOptions.menuButton.open.line2.y1}
-									y2={navButtonOptions.menuButton.open.line2.y2}
-									stroke={navButtonOptions.menuButton.open.line2.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="x1"
-										from={navButtonOptions.menuButton.closed.line2.x2}
-										to={navButtonOptions.menuButton.open.line2.x2}
-										dur=".25s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="x2"
-										from={navButtonOptions.menuButton.closed.line2.x1}
-										to={navButtonOptions.menuButton.open.line2.x1}
-										dur=".25s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-								<line
-									x1={navButtonOptions.menuButton.open.line3.x1}
-									x2={navButtonOptions.menuButton.open.line3.x2}
-									y1={navButtonOptions.menuButton.open.line3.y1}
-									y2={navButtonOptions.menuButton.open.line3.y2}
-									stroke={navButtonOptions.menuButton.open.line3.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="y1"
-										from={navButtonOptions.menuButton.closed.line3.y1}
-										to={navButtonOptions.menuButton.open.line3.y1}
-										dur=".5s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-							</svg>
-						) : (
-							<svg viewBox="0 0 37 22">
-								<line
-									x1={navButtonOptions.menuButton.closed.line1.x1}
-									x2={navButtonOptions.menuButton.closed.line1.x2}
-									y1={navButtonOptions.menuButton.closed.line1.y1}
-									y2={navButtonOptions.menuButton.closed.line1.y2}
-									stroke={navButtonOptions.menuButton.closed.line1.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="x1"
-										from={navButtonOptions.menuButton.closed.line1.x2}
-										to={navButtonOptions.menuButton.closed.line1.x1}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="x2"
-										from={navButtonOptions.menuButton.closed.line3.x1}
-										to={navButtonOptions.menuButton.closed.line1.x2}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="y2"
-										from={navButtonOptions.menuButton.open.line3.y2}
-										to={navButtonOptions.menuButton.closed.line1.y2}
-										dur=".3s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-								<line
-									x1={navButtonOptions.menuButton.closed.line2.x1}
-									x2={navButtonOptions.menuButton.closed.line2.x2}
-									y1={navButtonOptions.menuButton.closed.line2.y1}
-									y2={navButtonOptions.menuButton.closed.line2.y2}
-									stroke={navButtonOptions.menuButton.closed.line2.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="x1"
-										from={navButtonOptions.menuButton.open.line2.x2}
-										to={navButtonOptions.menuButton.closed.line2.x2}
-										dur=".25s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-									<animate
-										attributeName="x2"
-										from={navButtonOptions.menuButton.open.line2.x1}
-										to={navButtonOptions.menuButton.closed.line2.x1}
-										dur=".25s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-								<line
-									x1={navButtonOptions.menuButton.closed.line3.x1}
-									x2={navButtonOptions.menuButton.closed.line3.x2}
-									y1={navButtonOptions.menuButton.closed.line3.y1}
-									y2={navButtonOptions.menuButton.closed.line3.y2}
-									stroke={navButtonOptions.menuButton.closed.line3.stroke}
-									stroke-width="1.5"
-								>
-									<animate
-										attributeName="y1"
-										from={navButtonOptions.menuButton.open.line3.y1}
-										to={navButtonOptions.menuButton.closed.line3.y1}
-										dur=".5s"
-										fill="freeze"
-										keySplines="0 1 .25 1"
-									/>
-								</line>
-							</svg>
-						)} */}
 					</div>
 				</div>
 				<div id="navButtonsContainer">

@@ -151,12 +151,19 @@ export default function Work() {
             styleInfluencers: {
                 colors: {
                     primaryColor: "rgb(164, 179, 119)",
-                    secondaryColor: "white"
-
+                    secondaryColor: "0, 0, 0, 0.5"
                 }
             }
         }
     }
+    const projectKeys = ["avtc", "fire", "simon", "wip", "br"]
+    // const getProjectKeys = () => {
+    //     Object.keys(projects).map((key, index) => {
+    //         projectKeys.push(projects[key])
+    //     })
+    //     console.log(projectKeys)
+    // }
+    // getProjectKeys()
 
     //MOTION CONSTS
     const ItemContainerAnimation = {
@@ -181,7 +188,7 @@ export default function Work() {
     };
 
     // Object.keys(projects).map((key, index) => {
-    //     console.log(projects[key])
+    //     console.log(projects[key].info.title)
     // })
 
     //RETURN
@@ -195,25 +202,18 @@ export default function Work() {
         >
             <div id="workContent">
                 <motion.div id="projectsSection" class="work-section" variants={ItemContainerAnimation}>
-                    <motion.div class="section-title" variants={ItemAnimation}>web applications</motion.div>
+                    <motion.div class="work-section-title" variants={ItemAnimation}>web apps</motion.div>
                     <motion.div id="projects" variants={ItemContainerAnimation}>
-                        {Object.keys(projects).map((key, index) => {
-                            // console.log(projects[key].year)
+                        {projectKeys.map((i) => (
+                            // console.log(i)
                             <motion.div 
-                                className="project-holder-divs"
-                                variants={ItemAnimation}
-                            >
-                                {projects[key].title.toString()}
-                            </motion.div>
-                        })}
-                        {/* {projects.map((i) => (
-                            <motion.div 
+                                id={i}
                                 class="project-holder-divs"
                                 variants={ItemAnimation}
                             >
-                                {i}
+                                {projects[i].info.title}
                             </motion.div>
-                        ))} */}
+                        ))}
                     </motion.div>
                 </motion.div>
             </div>
