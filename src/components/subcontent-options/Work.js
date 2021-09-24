@@ -15,7 +15,7 @@ export default function Work() {
                 title: "AVTC",
                 year: "2021",
                 projectType: "Responsive Website",
-                HighlightedFrameworks:["React.js", "Python", "Django"],
+                featuredTechnologies: ["React.js", "Python", "Django"],
                 roles: ["Frontend Engineer", "UI Designer"],
                 headline: null,
                 photoHero: null,
@@ -44,7 +44,7 @@ export default function Work() {
                 title: "Fire",
                 year: "2020",
                 projectType: "Responsive Website",
-                HighlightedFrameworks:["React.js", "Express", "Node.js", "MongoDB"],
+                featuredTechnologies: ["React.js", "Express", "Node.js", "MongoDB"],
                 roles: ["SCRUM Master", "Frontend Engineer"],
                 headline: null,
                 photoHero: null,
@@ -73,7 +73,7 @@ export default function Work() {
                 title: "sim[]n",
                 year: "2020",
                 projectType: "Responsive Website",
-                HighlightedFrameworks:["JavaScript"],
+                featuredTechnologies: ["JavaScript"],
                 roles: ["Frontend Engineer", "UI Designer"],
                 headline: null,
                 photoHero: null,
@@ -102,7 +102,7 @@ export default function Work() {
                 title: "WIP",
                 year: "2020",
                 projectType: "Responsive Website",
-                HighlightedFrameworks:["React.js", "Python", "Django"],
+                featuredTechnologies: ["React.js", "Python", "Django"],
                 roles: ["SCRUM Master", "Frontend Engineer"],
                 headline: null,
                 photoHero: null,
@@ -131,7 +131,7 @@ export default function Work() {
                 title: "Br",
                 year: "2020",
                 projectType: "Responsive Website",
-                HighlightedFrameworks:["React.js"],
+                featuredTechnologies: ["React.js"],
                 roles: ["Frontend Engineer"],
                 headline: null,
                 photoHero: null,
@@ -208,10 +208,36 @@ export default function Work() {
                             // console.log(i)
                             <motion.div 
                                 id={i}
-                                class="project-holder-divs"
+                                class="project-card"
                                 variants={ItemAnimation}
                             >
-                                {projects[i].info.title}
+                                <div id={`${i}CardGif`} className="project-card-section">gif</div>
+                                <div id={`${i}CardTitle`} className="project-card-section">{projects[i].info.title}</div>
+                                <div id={`${i}CardYear`} className="project-card-section">{projects[i].info.year}</div>
+                                <div id={`${i}CardRoles`} className="project-card-section">{projects[i].info.roles}</div>
+                                <div id={`${i}CardProjectType`} className="project-card-section">{projects[i].info.projectType}</div>
+                                <div id={`${i}CardFeaturedTechnologies`} className="project-card-section">
+                                    {/* {projects[i].info..map((i) => (
+                                        <motion.div 
+                                        className="project-featured-technology"
+                                        onTap={(i) => {
+                                        }}
+                                        variants={ItemAnimation}
+                                        >
+                                            {projects[i].info.featuredTechnologies}
+                                        </motion.div>
+                                    ))} */}
+                                    {projects[i].info.featuredTechnologies}
+                                    {/* {(i) => {
+                                        switch(projects[i].info.featuredTechnologies.length) {
+                                            case 0 : return null
+                                            case 1 : return `${projects[i].info.featuredTechnologies[0]}`
+                                            case 2 : return `${projects[i].info.featuredTechnologies[0]} & ${projects[i].info.featuredTechnologies[1]}`
+                                            case 3 : return `${projects[i].info.featuredTechnologies[0]}, ${projects[i].info.featuredTechnologies[1]} & ${projects[i].info.featuredTechnologies[2]}`
+                                            default : return `${projects[i].info.featuredTechnologies[0]}, ${projects[i].info.featuredTechnologies[1]} & ${projects[i].info.featuredTechnologies.length-2} other similar roles`
+                                        }
+                                    }} */}
+                                </div>
                             </motion.div>
                         ))}
                     </motion.div>

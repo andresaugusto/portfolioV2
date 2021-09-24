@@ -80,9 +80,8 @@ export default function About() {
                             </motion.p>
                             <motion.p id="centeredText" variants={ItemAnimation}>
                                 Composing an experience needs to be taken, in itself, as an experience of its own.
-                            </motion.p>     
+                            </motion.p>
                         </section>
-                        {/* <br/> */}
                     </motion.div>
                 </motion.div>
                 <motion.div id="toolkitSection" class="about-section" variants={ItemContainerAnimation}>
@@ -90,7 +89,7 @@ export default function About() {
                     <motion.div id="toolkitItems" variants={ItemContainerAnimation}>
                         {proficiencies.map((i) => (
                             <motion.div 
-                                className="tool-holder-divs"
+                                className="tool-card"
                                 onTap={(i) => {
                                 }}
                                 variants={ItemAnimation}
