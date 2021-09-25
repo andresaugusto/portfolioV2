@@ -10,8 +10,8 @@ body {
   /* background-image: linear-gradient(to bottom right, rgb(17, 17, 16), rgb(41, 39, 36), rgb(66, 62, 57), rgb(88, 76, 58)); */
   min-height: 100vh;
   color: rgb(255, 255, 255);
-  perspective: 2000px;
-	/* scrollbar-color: rebeccapurple green; */
+  /* perspective: 2000px;
+	scrollbar-color: rebeccapurple green; */
 }
 
 .links {
