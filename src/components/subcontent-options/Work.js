@@ -178,19 +178,22 @@ export default function Work() {
         }
     }
     const frameworksArrayMap = (i) => {
-        for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
-            // <div id={`${i}CardFeaturedTechnology${x}`}className="project-card-featured-technology">
-            //     {projects[i].info.featuredTechnologies[x]}
-            // </div>
-            console.log(`${i}CardFeaturedTechnology${projects[i].info.featuredTechnologies[x]}`)
-        }
+        // for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
+        //     <div id={`CardFeaturedTechnology${i}${x}`}className="project-card-featured-technology">
+        //         {projects[i].info.featuredTechnologies[x]}
+        //     </div>
+            
+        //     // console.log(`CardFeaturedTechnology${i.capitalize()}${projects[i].info.featuredTechnologies[x]}`)
+        // }
 
-        // projects[i].info.featuredTechnologies.map((j) => (
-        //     console.log(projects[i].info.featuredTechnologies.find(j))
-        // //     <div id={`${i}CardFeaturedTechnology${j}`} className="project-card-featured-technology">
-        // //         {projects[i].info.featuredTechnologies[projects[i].info.featuredTechnologies.find(j)]}
-        // //     </div>
-        // ))
+        projects[i].info.featuredTechnologies.map((x) => (
+            // console.log(projects[i].info.featuredTechnologies.find(j))
+        //     <div id={`CardFeaturedTechnology${i}${j}`} className="project-card-featured-technology">
+        //         {projects[i].info.featuredTechnologies[j]}
+        //     </div>
+            console.log(`CardFeaturedTechnology${i.charAt(0).toUpperCase()+i.slice(1)}${projects[i].info.featuredTechnologies[x]}`)
+
+        ))
     }
 
     //MOTION CONSTS
@@ -245,7 +248,7 @@ export default function Work() {
                                     <span id={`${i}CardYear`} className="project-card-section-item">{projects[i].info.year}</span>
                                     <div id={`${i}CardProjectType`} className="project-card-section-item">{projects[i].info.projectType}</div>
                                     <div id={`${i}CardFeaturedTechnologies`} className="project-card-section-item">
-                                        {frameworksArrayMap(i)}
+                                        {/* {frameworksArrayMap(i)} */}
                                         {/* {projects[i].info.featuredTechnologies} */}
                                         {/* {(i) => {
                                             for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
@@ -259,6 +262,13 @@ export default function Work() {
                                                     {projects[i].info.featuredTechnologies[projects[i].info.featuredTechnologies.find()]}
                                                 </div>
                                         ))} */}
+                                        {projects[i].info.featuredTechnologies.map((x) => (
+                                            // console.log(projects[i].info.featuredTechnologies.find(j))
+                                        //     <div id={`CardFeaturedTechnology${i}${j}`} className="project-card-featured-technology">
+                                        //         {projects[i].info.featuredTechnologies[projects[i].info.featuredTechnologies.find(j)]}
+                                        //     </div>
+                                            console.log(`CardFeaturedTechnology${i.charAt(0).toUpperCase()+i.slice(1)}${projects[i].info.featuredTechnologies[x]}`)
+                                        ))}
                                     </div>
                                     <div id={`${i}CardRoles`} className="project-card-section-item">
                                         {rolesArrayMap(i)}
