@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+//COMPS
+import ProjectCard from "./ProjectCard"
+
 //STYLES
 import "../styles/work.css"
 
@@ -157,16 +160,8 @@ export default function Work() {
         }
     }
     const projectKeys = ["avtc", "fire", "simon", "wip", "br"]
-    // const getProjectKeys = () => {
-    //     Object.keys(projects).map((key, index) => {
-    //         projectKeys.push(projects[key])
-    //     })
-    //     console.log(projectKeys)
-    // }
-    // getProjectKeys()
 
     //FUNCTIONS
-
     const rolesArrayMap = (i) => {
         switch (projects[i].info.roles.length) {
             case 0 : return null
@@ -177,6 +172,20 @@ export default function Work() {
             default : return `${projects[i].info.roles[0]} + ${projects[i].info.roles[1]} + (+${projects[i].info.roles.length-3})`
         }
     }
+
+    const cardFeaturedTechs = (i) => {
+        let cardFeaturedTechs = []
+        projects[i].info.featuredTechnologies.map((j) => (
+            cardFeaturedTechs.push(j)
+        ))
+        console.log(cardFeaturedTechs)
+        cardFeaturedTechs.map((j)=> (
+            <div id={`cardFeaturedTechnology${i}${j}`} key={`cardFeaturedTechnology${i}${j}`} className="project-card-featured-technology">
+                {j}
+            </div>
+        ))
+    }
+
     const frameworksArrayMap = (i) => {
         // for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
         //     <div id={`CardFeaturedTechnology${i}${x}`}className="project-card-featured-technology">
@@ -203,8 +212,8 @@ export default function Work() {
             y: 0,
             opacity: 1,
             transition: {
-            delayChildren: .10,
-            staggerChildren: .10
+                delayChildren: .10,
+                staggerChildren: .10
             }
         },
         exit: { y: 100, opacity: 0 }
@@ -246,33 +255,38 @@ export default function Work() {
                                 <div id={`${i}CardText`} className="project-card-section">
                                     <span id={`${i}CardTitle`} className="project-card-section-item">{projects[i].info.title}</span>
                                     <span id={`${i}CardYear`} className="project-card-section-item">{projects[i].info.year}</span>
+                                        <div id={`${i}CardRoles`} className="project-card-section-item">
+                                            {rolesArrayMap(i)}
+                                        </div>
                                     <div id={`${i}CardProjectType`} className="project-card-section-item">{projects[i].info.projectType}</div>
-                                    <div id={`${i}CardFeaturedTechnologies`} className="project-card-section-item">
-                                        {/* {frameworksArrayMap(i)} */}
-                                        {/* {projects[i].info.featuredTechnologies} */}
+                                    {/* <div id={`${i}CardFeaturedTechnologies`} className="project-card-section-item"> */}
+                                        {/* {cardFeaturedTechs(i)} */}
                                         {/* {(i) => {
-                                            for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
-                                                <div id={`${i}CardFeaturedTechnology${projects[i].info.featuredTechnologies[i]}`} className="project-card-featured-technology">
-                                                    {projects[i].info.featuredTechnologies[i]}
-                                                </div>
-                                            }
+                                            let cardFeatTechs = []
+                                            projects[i].info.featuredTechnologies.map((j) => (
+                                                cardFeatTechs.push(j)
+                                            ))
+                                            console.log(cardFeatTechs)
+
+                                            // for (let x=0; x<projects[i].info.featuredTechnologies.length; x++ ) {
+                                            //     <div id={`${i}CardFeaturedTechnology${projects[i].info.featuredTechnologies[i]}`} className="project-card-featured-technology">
+                                            //         {projects[i].info.featuredTechnologies[i]}
+                                            //     </div>
+                                            // }
                                         }} */}
                                         {/* {projects[i].info.featuredTechnologies.map((j) => (
                                                 <div id={`${i}CardFeaturedTechnology${j}`} className="project-card-featured-technology">
                                                     {projects[i].info.featuredTechnologies[projects[i].info.featuredTechnologies.find()]}
                                                 </div>
                                         ))} */}
-                                        {projects[i].info.featuredTechnologies.map((x) => (
+                                        {/* {projects[i].info.featuredTechnologies.map((x) => (
                                             // console.log(projects[i].info.featuredTechnologies.find(j))
                                         //     <div id={`CardFeaturedTechnology${i}${j}`} className="project-card-featured-technology">
                                         //         {projects[i].info.featuredTechnologies[projects[i].info.featuredTechnologies.find(j)]}
                                         //     </div>
                                             console.log(`CardFeaturedTechnology${i.charAt(0).toUpperCase()+i.slice(1)}${projects[i].info.featuredTechnologies[x]}`)
-                                        ))}
-                                    </div>
-                                    <div id={`${i}CardRoles`} className="project-card-section-item">
-                                        {rolesArrayMap(i)}
-                                    </div>
+                                        ))} */}
+                                    {/* </div> */}
                                 </div>
                             </motion.div>
                         ))}
