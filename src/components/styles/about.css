@@ -173,6 +173,16 @@
 	.about-section {
 		font-size: 2.7vmin;
 	}
+	.about-section-title {
+		padding: 0 0 0 4vmin;
+		text-align: center;
+		font-size: 3vmin;
+		line-height: 12vmin;
+		font-weight: 500;
+		letter-spacing: 3vmin;
+		color: rgba(255, 255, 255, 0.922);
+		text-transform: uppercase;
+	}
 	.tool-card {
 		/* font-size: 3.5vmin; */
 		letter-spacing: .37vmin;
@@ -208,15 +218,5 @@
 	#bioSection {
 		letter-spacing: 0.17vmin;
 		line-height: 5vmin;
-	}
-	.about-section-title {
-		padding: 0 0 0 4vmin;
-		text-align: center;
-		font-size: 3vmin;
-		line-height: 12vmin;
-		font-weight: 500;
-		letter-spacing: 3vmin;
-		color: rgba(255, 255, 255, 0.922);
-		text-transform: uppercase;
 	}
 }

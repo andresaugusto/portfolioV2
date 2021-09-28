@@ -89,7 +89,7 @@ export default function About() {
                     <motion.div id="toolkitItems" variants={ItemContainerAnimation}>
                         {proficiencies.map((i) => (
                             <motion.div 
-                                id={`toolkitItem${i.capitalize()}`}
+                                id={`toolkitItem${i.charAt(0).toUpperCase()+i.slice(1)}`}
                                 className="tool-card"
                                 onTap={(i) => {
                                 }}
