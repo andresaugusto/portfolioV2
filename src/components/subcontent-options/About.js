@@ -62,7 +62,7 @@ export default function About() {
     return (
         <motion.div 
             id="aboutViewPort"
-            variants={ItemAnimation}
+            // variants={ItemContainerAnimation}
             initial="hidden"
             animate="visible"
             exit="exit"
