@@ -104,6 +104,7 @@ export default function Nav() {
 							/>
 						</line> */}
 						<line
+							id="menuButtonBlurredLine"
 							x1="6.55671e-08"
 							y1="21.25"
 							x2="37"
@@ -210,11 +211,12 @@ export default function Nav() {
 							/>
 						</line> */}
 						<line
+							id="menuButtonBlurredLine"
 							x1="6.55671e-08"
 							y1="21.25"
 							x2="37"
 							y2="21.25"
-							stroke="white"
+							stroke="rgba(254, 238, 210, 1)"
 							// stroke-width="1.5"
 						>
 							<animate
