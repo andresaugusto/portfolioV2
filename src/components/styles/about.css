@@ -124,7 +124,7 @@
 }
 
 .tool-card {
-	/* padding: 16.67px 25px; */
+	box-sizing: border-box;
 	padding: 25px 35px 17.67px 28.67px;
 	margin: 6.34px;
 	display: flex;

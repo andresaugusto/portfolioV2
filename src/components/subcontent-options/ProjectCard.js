@@ -1,5 +1,6 @@
 //DEPS
 import { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 //STYLES
@@ -63,10 +64,22 @@ export default function ProjectCard( props ) {
     return (
         <motion.div 
             id={`${pk}ProjectCard`}
+            key={`${pk}ProjectCard`}
             class="project-card"
             variants={ItemAnimation}
         >
-            <div id={`${pk}CardMedia`} className="project-card-section">image</div>
+            <div id={`${pk}CardMediaSection`} className="project-card-section">
+                {/* <Link id={`${pk}CardLinkContainer`} className="project-card-link-container" to={`/${pk}`} >
+                    <div id={`${pk}CardLink`} className={`project-card-link`}>
+                        view case study
+                    </div>
+                </Link> */}
+                <div id={`${pk}CardMediaContainer`} className="project-card-media-container">
+                    <div id={`${pk}CardMedia`} className="project-card-media">
+                        image
+                    </div>
+                </div>
+            </div>
             <div id={`${pk}CardText`} className="project-card-section">
                 <span id={`${pk}CardTitle`} className="project-card-section-item">{prj.info.title}</span>
                 <span id={`${pk}CardYear`} className="project-card-section-item">{prj.info.year}</span>
@@ -83,5 +96,5 @@ export default function ProjectCard( props ) {
                 </div>
             </div>
         </motion.div>
-    )
+    ) 
 }

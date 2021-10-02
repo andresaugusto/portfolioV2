@@ -86,6 +86,11 @@
 	transition: ease-out 0.1s;
 }
 
+#menuButtonBlurredLine{
+  /* stroke-width: 3.5;
+  filter: blur(3px); */
+}
+
 #aboutButton,
 #workButton,
 #contactButton {
