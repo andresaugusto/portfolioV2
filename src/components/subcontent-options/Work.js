@@ -1,6 +1,8 @@
 //DEPS
 import { useState, useContext } from "react";
 import { motion } from "framer-motion";
+import { FocusProjectContext, ContextInfluencers } from "../helpers/appContext";
+import { projects } from "../../data"
 
 //COMPS
 import ProjectCard from "./ProjectCard"
@@ -11,184 +13,28 @@ import "../styles/work.css"
 //FUNC
 export default function Work() {
 
-    //OBJECTS
-    const projects = {
-        avtc: {
-            info: {
-                title: "AVTC",
-                year: "2021",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Python", "Django", "Figma", "Illustrator", "Photoshop", "AutoCAD"],
-                roles: ["Frontend Engineer", "UI Designer", "Graphic Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "orange",
-                    secondaryColor: "gray"
-                }
-            }
-        },
-        fire: {
-            info: {
-                title: "Fire",
-                year: "2020",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Express", "Node.js", "MongoDB"],
-                roles: ["SCRUM Master", "Frontend Engineer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "olive",
-                    secondaryColor: "purple"
-                }
-            }
-        },
-        simon: {
-            info: {
-                title: "sim[]n",
-                year: "2020",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["JavaScript", "Photoshop"],
-                roles: ["Frontend Engineer", "UI Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "#807a70",
-                    secondaryColor: "white"
-                }
-            }
-        },
-        wip: {
-            info: {
-                title: "WIP",
-                year: "2020",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Python", "Django"],
-                roles: ["SCRUM Master", "Frontend Engineer", "UI Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "maroon",
-                    secondaryColor: "gold"
-                }
-            }
-        },
-        br: {
-            info: {
-                title: "Br",
-                year: "2020",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Photoshop"],
-                roles: ["Frontend Engineer", "UI Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "rgb(164, 179, 119)",
-                    secondaryColor: "0, 0, 0, 0.5"
-                }
-            }
-        },
-        aa: {
-            info: {
-                title: "aA (portfolio)",
-                year: "2021",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Illustrator", "Photoshop", "AutoCAD"],
-                roles: ["Frontend Engineer", "UI Designer", "Graphic Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "orange",
-                    secondaryColor: "gray"
-                }
-            }
-        }
+    //HANDLE CONTEXT
+    const { SetFocusProject } = useContext(FocusProjectContext)
+    function SetFocusedProject(x) {
+        console.log(x.target.attributes)
+        // SetFocusProject({
+        //     project: x.target.attributes.projectKey.value,
+        //     primaryColor:
+        //         projects[x.target.attributes.projectKey.value].styleInfluencers.colors.primaryColor,
+        //     secondaryColor:
+        //         projects[x.target.attributes.projectKey.value].styleInfluencers.colors.secondaryColor,
+        // })
+        // handleButtonStates(x.target.attributes.id.value)
     }
-    const projectKeys = ["avtc", "fire", "simon", "wip", "br", "aa"]
+    function RemoveFocusedProject(x) {
+        SetFocusProject({
+            project: false,
+            primaryColor: false,
+            secondaryColor: false,
+            primaryImage: false
+        })
+        // handleButtonStates(null)
+    }
 
     //MOTION CONSTS
     const ItemContainerAnimation = {
@@ -225,8 +71,14 @@ export default function Work() {
                 <motion.div id="projectsSection" class="work-section" variants={ItemContainerAnimation}>
                     <motion.div id="projectsSectionTitle" class="work-section-title" variants={ItemAnimation}>web apps</motion.div>
                     <motion.div id="projectsSectionBody" variants={ItemContainerAnimation}>
-                        {projectKeys.map((i) => (
-                            <ProjectCard project={projects[i]} projectKey={i} />
+                        {projects.projectKeys.map((i) => (
+                            <ProjectCard 
+                                project={projects[i]} 
+                                projectKey={i}
+                                // onMouseEnter={SetFocusedProject}
+                                onMouseEnter={console.log()}
+                                onMouseLeave={RemoveFocusedProject}
+                            />
                         ))}
                     </motion.div>
                 </motion.div>
