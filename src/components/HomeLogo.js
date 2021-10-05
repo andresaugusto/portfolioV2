@@ -2,6 +2,7 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FocusProjectContext, ContextInfluencers } from "./helpers/appContext";
+import { projects } from "../data"
 
 //COMPS
 import AVTC from "./projects/AVTC" 
@@ -15,7 +16,7 @@ import "./styles/home-logo.css";
 export default function HomeLogo() {
 
 	//OBJECTS
-    const projects = {
+    const proyectos = {
         avtc: {
             primaryColor: "orange",
             secondaryColor: "gray",
@@ -93,11 +94,11 @@ export default function HomeLogo() {
     const { setFocusProject } = useContext(FocusProjectContext)
     function SetFocusedProject(x) {
         setFocusProject({
-            project: x.target.attributes.referencedProject.value,
+            project: x.target.attributes.referencedProjectKey.value,
             primaryColor:
-                projects[x.target.attributes.referencedProject.value].primaryColor,
+                projects[x.target.attributes.referencedProjectKey.value].styleInfluencers.colors.primaryColor,
             secondaryColor:
-                projects[x.target.attributes.referencedProject.value].secondaryColor,
+                projects[x.target.attributes.referencedProjectKey.value].styleInfluencers.colors.secondaryColor,
         })
         handleButtonStates(x.target.attributes.id.value)
     }
@@ -112,9 +113,6 @@ export default function HomeLogo() {
     }
 
     //HANDLE BUTTON FOCUS
-    // const [ButtonContainerStyles, setButtonContainerStyles] = useState({
-    //     zTransformation: "none",
-    // });
     const [ActiveButtonStates, setActiveButtonStates] = useState({
         AO: {
             strokeWidth: buttons.AO.normal.strokeWidth,
@@ -288,7 +286,7 @@ export default function HomeLogo() {
                                 <path
                                     id="O"
                                     className="logo-buttons"
-                                    referencedProject="wip"
+                                    referencedProjectKey="wip"
                                     onMouseEnter={SetFocusedProject}
                                     onMouseLeave={RemoveFocusedProject}
                                     // onMouseEnter={handleButtonStates}
@@ -307,7 +305,7 @@ export default function HomeLogo() {
                                     <path
                                         id="AO"
                                         className="logo-buttons"
-                                        referencedProject="avtc"
+                                        referencedProjectKey="avtc"
                                         onMouseEnter={SetFocusedProject}
                                         onMouseLeave={RemoveFocusedProject}
                                         // onMouseEnter={handleButtonStates}
@@ -326,7 +324,7 @@ export default function HomeLogo() {
                                 <path
                                     id="M"
                                     className="logo-buttons"
-                                    referencedProject="fire"
+                                    referencedProjectKey="fire"
                                     onMouseEnter={SetFocusedProject}
                                     onMouseLeave={RemoveFocusedProject}
                                     // onMouseEnter={handleButtonStates}
