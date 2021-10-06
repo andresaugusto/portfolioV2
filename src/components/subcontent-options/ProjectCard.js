@@ -1,5 +1,7 @@
 //DEPS
 import { useState, useContext } from 'react'
+import { FocusProjectContext, ContextInfluencers } from "../helpers/appContext";
+import { projects } from "../../data"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -12,6 +14,29 @@ export default function ProjectCard( props ) {
     //CONSTS
     const prj = props.project
     const pk = props.projectKey
+
+    //HANDLE CONTEXT
+    const { setFocusProject } = useContext(FocusProjectContext)
+    function SetFocusedProject() {
+        // console.log(pk)
+        setFocusProject({
+            project: pk,
+            primaryColor:
+                projects[pk].styleInfluencers.colors.primaryColor,
+            secondaryColor:
+                projects[pk].styleInfluencers.colors.secondaryColor,
+        })
+        // handleButtonStates(x.target.attributes.id.value)
+    }
+    function RemoveFocusedProject(x) {
+        setFocusProject({
+            project: false,
+            primaryColor: false,
+            secondaryColor: false,
+            primaryImage: false
+        })
+        // handleButtonStates(null)
+    }
     
     //FUNCTIONS
     const rolesArrayMap = (prj) => {
@@ -67,6 +92,8 @@ export default function ProjectCard( props ) {
             key={`${pk}ProjectCard`}
             class="project-card"
             variants={ItemAnimation}
+            onMouseEnter={SetFocusedProject}
+            onMouseLeave={RemoveFocusedProject}
         >
             <div id={`${pk}CardMediaSection`} className="project-card-section">
                 {/* <Link id={`${pk}CardLinkContainer`} className="project-card-link-container" to={`/${pk}`} >

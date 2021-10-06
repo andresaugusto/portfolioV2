@@ -308,7 +308,7 @@
 		border-radius: 3vmin 0;
 		font-size: 3vmin;
 		box-shadow: 
-			6px -9px 10px 0 rgba(76, 70, 61, 0.497),
+			/* 6px -9px 10px 0 rgba(76, 70, 61, 0.497), */
 			0 0px 12px 0 rgba(254, 238, 210, 1),
 			0 0px 5px 0 rgba(254, 238, 210, 1),
 			0 0px 3px 0 rgba(254, 238, 210, 1),
