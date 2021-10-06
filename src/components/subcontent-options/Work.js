@@ -1,7 +1,6 @@
 //DEPS
 import { useState, useContext } from "react";
 import { motion } from "framer-motion";
-import { FocusProjectContext, ContextInfluencers } from "../helpers/appContext";
 import { projects } from "../../data"
 
 //COMPS
@@ -12,29 +11,6 @@ import "../styles/work.css"
 
 //FUNC
 export default function Work() {
-
-    //HANDLE CONTEXT
-    const { SetFocusProject } = useContext(FocusProjectContext)
-    function SetFocusedProject(x) {
-        console.log(x.target.attributes)
-        // SetFocusProject({
-        //     project: x.target.attributes.projectKey.value,
-        //     primaryColor:
-        //         projects[x.target.attributes.projectKey.value].styleInfluencers.colors.primaryColor,
-        //     secondaryColor:
-        //         projects[x.target.attributes.projectKey.value].styleInfluencers.colors.secondaryColor,
-        // })
-        // handleButtonStates(x.target.attributes.id.value)
-    }
-    function RemoveFocusedProject(x) {
-        SetFocusProject({
-            project: false,
-            primaryColor: false,
-            secondaryColor: false,
-            primaryImage: false
-        })
-        // handleButtonStates(null)
-    }
 
     //MOTION CONSTS
     const ItemContainerAnimation = {
@@ -75,9 +51,6 @@ export default function Work() {
                             <ProjectCard 
                                 project={projects[i]} 
                                 projectKey={i}
-                                // onMouseEnter={SetFocusedProject}
-                                onMouseEnter={console.log()}
-                                onMouseLeave={RemoveFocusedProject}
                             />
                         ))}
                     </motion.div>
