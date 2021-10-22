@@ -2,5 +2,5 @@
 import { createContext } from "react"
 
 //VARIABLES
-export const FocusProjectContext = createContext(null)
+export const FocusedProjectContext = createContext(null)
 export const ContextInfluencers = createContext(null)

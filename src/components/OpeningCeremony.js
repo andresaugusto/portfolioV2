@@ -41,7 +41,7 @@ export default function OpeningCeremony() {
             >
                 <img
                     id="backgroundImage" 
-                    src="https://github.com/andresaugusto/portfolioV2/blob/main/media/images/IMG_2695.JPG?raw=true"
+                    src="https://andresaugusto-aa-media.s3.amazonaws.com/images/IMG_2695.JPG"
                     alt='IMG_2695.JPG'
                 />
                 <div className="logo-container">

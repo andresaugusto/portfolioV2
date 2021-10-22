@@ -1,6 +1,80 @@
 export const projects = {
         //ADD ALL PROJECT TITLES TO "projectKeys"
-        projectKeys: ["avtc", "fire", "simon", "wip", "br", "aa"],
+        projectKeys: ["avtc", "wip", "fire", "br", "simon", "aa"],
+        aa: {
+            info: {
+                title: "aA (portfolio)",
+                year: "2021",
+                projectType: "Responsive Website",
+                featuredTechnologies: ["React.js", "Illustrator", "Photoshop", "AutoCAD"],
+                roles: ["Frontend Engineer", "UI Designer", "Graphic Designer"],
+                headline: null,
+                photoHero: null,
+                overview: null,
+                toolsAndMethods: null,
+                problem: null,
+                solution: null,
+                approach: {
+                    research: null,
+                    synthesis: null,
+                    design: null,
+                    delivery: null
+                },
+                prototype: null,
+                nextSteps: null,
+                feSpotlights: {
+                    one: {
+                        text: null,
+                        media: null
+                    },
+                    two: {
+                        text: null,
+                        media: null
+                    },
+                    three: {
+                        text: null,
+                        media: null
+                    },
+                },
+                uiSpotlights: {
+                    one: {
+                        text: null,
+                        media: null
+                    },
+                    two: {
+                        text: null,
+                        media: null
+                    },
+                    three: {
+                        text: null,
+                        media: null
+                    },
+                },
+                genMedia: {
+                    images: {
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-wide.png",
+                        mainTablet: "",
+                        mainPhone: "",
+                    },
+                    videos: {
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/aa-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/aa-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/aa-demo-wide-x4-540p.webm",
+                        },
+                    },
+                },
+            },
+            styleInfluencers: {
+                colors: {
+                    primaryColor: "orange",
+                    secondaryColor: "gray"
+                }
+            }
+        },
         avtc: {
             info: {
                 title: "AVTC",
@@ -52,15 +126,21 @@ export const projects = {
                 },
                 genMedia: {
                     images: {
-                        mainWide: "https://drive.google.com/file/d/1Iinc94LrVwbunCHvZ84ST7zYlEy55Ynv/view?usp=sharing",
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-wide.png",
                         mainTablet: "",
                         mainPhone: "",
                     },
                     videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1DHuICewJW9hwopvg77yvzod-RIquERyf/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/10TPL491BFXIIADRAWSeuxt5cCwVup7qx/view?usp=sharing",
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/avtc-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/avtc-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/avtc-demo-wide-x4-540p.webm",
+                        },
                     },
-                }
+                },
             },
             styleInfluencers: {
                 colors: {
@@ -120,15 +200,21 @@ export const projects = {
                 },
                 genMedia: {
                     images: {
-                        mainWide: "https://drive.google.com/file/d/1hRsjoP-XunFxNlSsNWkU0R28OpMM44cJ/view?usp=sharing",
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/wip-ss-main-wide.png",
                         mainTablet: "",
                         mainPhone: "",
                     },
                     videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1d_2qLYbBCWhcYRhe51CnQKmITYdnIuHR/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/1GiZTixYN34-Lf5f-MGUkCSr0Vx-9Ic8o/view?usp=sharing",
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/wip-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/wip-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/wip-demo-wide-x4-540p.webm",
+                        },
                     },
-                }
+                },
             },
             styleInfluencers: {
                 colors: {
@@ -188,15 +274,21 @@ export const projects = {
                 },
                 genMedia: {
                     images: {
-                        mainWide: "https://drive.google.com/file/d/1bkLg__sHxmwAK56WZ7NauOwN7l1kWRZt/view?usp=sharing",
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-wide.png",
                         mainTablet: "",
                         mainPhone: "",
                     },
                     videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1SKwo2qePnGRdnbX1DCUamV18KyzctEP0/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/1gcu77pCpS67lROOn98-RPxOs2_ebhYh_/view?usp=sharing",
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/fire-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/fire-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/fire-demo-wide-x4-540p.webm",
+                        },
                     },
-                }
+                },
             },
             styleInfluencers: {
                 colors: {
@@ -256,15 +348,21 @@ export const projects = {
                 },
                 genMedia: {
                     images: {
-                        mainWide: "https://drive.google.com/file/d/1FBM1_TVm92NzTLl3Ru5ciAsrwODqFkax/view?usp=sharing",
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-wide.png",
                         mainTablet: "",
                         mainPhone: "",
                     },
                     videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1iyulQxEWzBJIxpF2PmU7MT8OLl84_Onr/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/12x9qTMJ-oYe4duoFfHEu5d0f054EXBGB/view?usp=sharing",
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/br-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/br-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/br-demo-wide-x4-540p.webm",
+                        },
                     },
-                }
+                },
             },
             styleInfluencers: {
                 colors: {
@@ -324,88 +422,26 @@ export const projects = {
                 },
                 genMedia: {
                     images: {
-                        mainWide: "https://drive.google.com/file/d/1NGswjAW-ltHxqCXSYpPsp8CxdLqo10Ey/view?usp=sharing",
+                        mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/simon-ss-main-wide.png",
                         mainTablet: "",
                         mainPhone: "",
                     },
                     videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1TlrULDtqv3JHqBdWSYeRnMF0WG9K0sU0/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/1nKUsvDm10sGN3gK5ycGpL4Lqfy7xpnic/view?usp=sharing",
+                        mainWide1080pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/simon-demo-wide-x4-1080p.mp4",
+                            webm: "",
+                        },
+                        mainWide540pX4: {
+                            mp4: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/simon-demo-wide-x4-540p.mp4",
+                            webm: "https://andresaugusto-aa-media.s3.amazonaws.com/videos/simon-demo-wide-x4-540p.webm",
+                        },
                     },
-                }
+                },
             },
             styleInfluencers: {
                 colors: {
                     primaryColor: "#807a70",
                     secondaryColor: "white"
-                }
-            }
-        },
-        aa: {
-            info: {
-                title: "aA (portfolio)",
-                year: "2021",
-                projectType: "Responsive Website",
-                featuredTechnologies: ["React.js", "Illustrator", "Photoshop", "AutoCAD"],
-                roles: ["Frontend Engineer", "UI Designer", "Graphic Designer"],
-                headline: null,
-                photoHero: null,
-                overview: null,
-                toolsAndMethods: null,
-                problem: null,
-                solution: null,
-                approach: {
-                    research: null,
-                    synthesis: null,
-                    design: null,
-                    delivery: null
-                },
-                prototype: null,
-                nextSteps: null,
-                feSpotlights: {
-                    one: {
-                        text: null,
-                        media: null
-                    },
-                    two: {
-                        text: null,
-                        media: null
-                    },
-                    three: {
-                        text: null,
-                        media: null
-                    },
-                },
-                uiSpotlights: {
-                    one: {
-                        text: null,
-                        media: null
-                    },
-                    two: {
-                        text: null,
-                        media: null
-                    },
-                    three: {
-                        text: null,
-                        media: null
-                    },
-                },
-                genMedia: {
-                    images: {
-                        mainWide: "https://drive.google.com/file/d/1NGswjAW-ltHxqCXSYpPsp8CxdLqo10Ey/view?usp=sharing",
-                        mainTablet: "",
-                        mainPhone: "",
-                    },
-                    videos: {
-                        mainWide1080pX4: "https://drive.google.com/file/d/1ejOHVpneiiyqel6OuM-5CCAVFvWB5ew3/view?usp=sharing",
-                        mainWide540pX4: "https://drive.google.com/file/d/1SKHRIU4-RjMJtB2QC-DZmm1GhjTRGYPv/view?usp=sharing",
-                    },
-                }
-            },
-            styleInfluencers: {
-                colors: {
-                    primaryColor: "orange",
-                    secondaryColor: "gray"
                 }
             }
         }
