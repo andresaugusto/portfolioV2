@@ -174,7 +174,7 @@
 	color: rgba(254, 238, 210, 1);
 }
 .project-card-media-container {
-	background-color: blue;
+	/* background-color: blue; */
 	overflow: hidden;
 	position: absolute;
 	top: 0;
@@ -192,8 +192,9 @@
 		inset .5px 0px 10px -7px rgb(255, 255, 255)
 	; */
 }
+
 .project-card-link-container {
-	background-color: red;
+	background-color: rgba(255, 255, 255, 0.694);
 	overflow: hidden;
 	position: absolute;
 	top: 0;
@@ -204,21 +205,31 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/* box-shadow: 
-		inset 10px 0px 10px -10px rgb(0, 0, 0),
-		inset 8px 0px 10px -7px rgb(0, 0, 0),
-		inset 3px 0px 10px -2px rgb(0, 0, 0),
-		inset 1px 0px 10px -4px rgb(0, 0, 0),
-		inset .5px 0px 10px -7px rgb(0, 0, 0)
-	; */
+	box-shadow: 
+		inset 10px 10px -10px -10px rgb(0, 0, 0),
+		inset 8px 8px -8px -8px rgb(0, 0, 0),
+		inset 3px 3px -3px -3px rgb(0, 0, 0),
+		inset 1px 1px -1px -1px rgb(0, 0, 0),
+		inset .5px .5px -.5px -.5px rgb(0, 0, 0)
+	;
+	/* color: black; */
+	text-decoration: none;
+
+	color: black;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 600;
+	letter-spacing: 3.33px;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .project-card-section:nth-child(1):hover {
-	box-shadow: 
+	/* box-shadow: 
 		inset 13px 0px 10px -10px rgb(255, 255, 255),
 		inset 1px 0px 10px -4px rgb(255, 255, 255),
 		inset .5px 0px 10px -7px rgb(255, 255, 255)
-	;
+	; */
 }
 .project-card-section:nth-child(2) {
 	box-sizing: border-box;

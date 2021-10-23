@@ -1,9 +1,13 @@
 //DEPS
-import { useState, useContext } from 'react'
-import { FocusProjectContext, ContextInfluencers } from "../helpers/appContext";
+import { useState, useEffect, useContext } from 'react'
+import { FocusedProjectContext, ContextInfluencers } from "../helpers/appContext";
 import { projects } from "../../data"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+
+//MEDIA
+// import avtcDemoWide540pX4 from "../../media/videos/avtc-demo-wide-x4-540p.mp4";
+// import fireSSMainWide from "../../media/images/fire-ss-main-wide.png"
 
 //STYLES
 import "../styles/work.css"
@@ -15,27 +19,72 @@ export default function ProjectCard( props ) {
     const prj = props.project
     const pk = props.projectKey
 
+    //FETCH MEDIA
+    // useEffect(() => {fetchCardImage()}, []);
+    // const [ cardImage, setCardImage ] = useState([])
+    // const fetchCardImage = async () => {
+    //     const cardImageData = await fetch("https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-wide.png")
+    //     const cardImage = await cardImageData
+    //     console.log(cardImage)
+    // }
+
     //HANDLE CONTEXT
-    const { setFocusProject } = useContext(FocusProjectContext)
-    function SetFocusedProject() {
-        // console.log(pk)
-        setFocusProject({
-            project: pk,
-            primaryColor:
-                projects[pk].styleInfluencers.colors.primaryColor,
-            secondaryColor:
-                projects[pk].styleInfluencers.colors.secondaryColor,
+    const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
+    function assignFocusedProject(pk) {
+        setFocusedProject({
+            projectKey: pk,
+            genMedia: {
+                images: {
+                    mainWide: projects[pk].info.genMedia.images.mainWide,
+                    mainTablet: null,
+                    mainPhone: null,
+                },
+                videos: {
+                    mainWide1080pX4: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide1080pX4.mp4,
+                        alternative: null,
+                    },
+                    mainWide540pX4: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide540pX4.mp4,
+                        alternative: null,
+                    },
+                },
+            },
+            styleInfluencers: {
+                colors: {
+                    primaryColor: projects[pk].styleInfluencers.colors.primaryColor,
+                    secondaryColor: projects[pk].styleInfluencers.colors.secondaryColor,
+                }
+            }
         })
-        // handleButtonStates(x.target.attributes.id.value)
     }
-    function RemoveFocusedProject(x) {
-        setFocusProject({
-            project: false,
-            primaryColor: false,
-            secondaryColor: false,
-            primaryImage: false
+    function unassignFocusedProject(x) {
+        setFocusedProject({
+            projectKey: null,
+            genMedia: {
+                images: {
+                    mainWide: null,
+                    mainTablet: null,
+                    mainPhone: null,
+                },
+                videos: {
+                    mainWide1080pX4: {
+                        mp4: null,
+                        alternative: null,
+                    },
+                    mainWide540pX4: {
+                        mp4: null,
+                        alternative: null,
+                    },
+                },
+            },
+            styleInfluencers: {
+                colors: {
+                    primaryColor: null,
+                    secondaryColor: null,
+                }
+            }
         })
-        // handleButtonStates(null)
     }
     
     //FUNCTIONS
@@ -48,18 +97,6 @@ export default function ProjectCard( props ) {
             case 4 : return `${prj.info.roles[0]} + ${prj.info.roles[1]} + ${prj.info.roles[2]} + ${prj.info.roles[3]}`
             default : return `${prj.info.roles[0]} + ${prj.info.roles[1]} + (+${prj.info.roles.length-3})`
         }
-    }
-    const cardFeaturedTechs = (prj) => {
-        let cardFeaturedTechs = []
-        prj.info.featuredTechnologies.map((i) => (
-            cardFeaturedTechs.push(i)
-        ))
-        console.log(cardFeaturedTechs)
-        cardFeaturedTechs.map((i)=> (
-            <div id={`CardFeaturedTechnology${prj}${i}`} prj={`cardFeaturedTechnology${prj}${i}`} className="project-card-featured-technology">
-                {i}
-            </div>
-        ))
     }
 
     //MOTION CONSTS
@@ -90,20 +127,39 @@ export default function ProjectCard( props ) {
         <motion.div 
             id={`${pk}ProjectCard`}
             key={`${pk}ProjectCard`}
+            referencedProjectKey={pk}
             class="project-card"
             variants={ItemAnimation}
-            onMouseEnter={SetFocusedProject}
-            onMouseLeave={RemoveFocusedProject}
+            onMouseEnter={(x)=>(assignFocusedProject(pk))}
+            onMouseLeave={(x)=>(unassignFocusedProject(pk))}
         >
             <div id={`${pk}CardMediaSection`} className="project-card-section">
-                {/* <Link id={`${pk}CardLinkContainer`} className="project-card-link-container" to={`/${pk}`} >
-                    <div id={`${pk}CardLink`} className={`project-card-link`}>
-                        view case study
-                    </div>
-                </Link> */}
+                {focusedProject.projectKey===pk ? (
+                    <Link to={`/project/${pk}`} id={`${pk}CardLinkContainer`} className="project-card-link-container">
+                        <div id={`${pk}CardLink`} className={"project-card-link"}>
+                            view case study
+                        </div>
+                    </Link>
+                ) : (null)}
                 <div id={`${pk}CardMediaContainer`} className="project-card-media-container">
                     <div id={`${pk}CardMedia`} className="project-card-media">
-                        image
+                        <video
+                            id={`${pk}CardMediaVideo`}
+                            // class="video-js vjs-16-9"
+                            // controls
+                            // autoplay loop
+                            width="100%"
+                            // height="100%"
+                            preload="auto"
+                            loop="true"
+                            autoplay="muted"
+                            poster={prj.info.genMedia.images.mainWide}
+                            // data-setup="{}"
+                            >
+                                <source src={prj.info.genMedia.videos.mainWide540pX4.mp4} type="video/mp4" />
+                                <source src={prj.info.genMedia.videos.mainWide540pX4.webm} type="video/webm" />
+                        </video>
+                        {/* <img id={`${pk}CardMediaImage`} src={prj.info.genMedia.images.mainWide} style={{height: "100%", width: "100%"}}/> */}
                     </div>
                 </div>
             </div>

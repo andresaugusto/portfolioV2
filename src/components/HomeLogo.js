@@ -1,13 +1,13 @@
 //DEPS
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FocusProjectContext, ContextInfluencers } from "./helpers/appContext";
+import { FocusedProjectContext, ContextInfluencers } from "./helpers/appContext";
 import { projects } from "../data"
 
 //COMPS
-import AVTC from "./projects/AVTC" 
-import WIP from "./projects/WIP" 
-import Fire from "./projects/Fire" 
+// import AVTC from "./projects/AVTC" 
+// import WIP from "./projects/WIP" 
+// import Fire from "./projects/Fire" 
 
 //STYLES
 import "../App.css";
@@ -91,23 +91,89 @@ export default function HomeLogo() {
     }
 
     //HANDLE CONTEXT
-    const { setFocusProject } = useContext(FocusProjectContext)
-    function SetFocusedProject(x) {
-        setFocusProject({
-            project: x.target.attributes.referencedProjectKey.value,
-            primaryColor:
-                projects[x.target.attributes.referencedProjectKey.value].styleInfluencers.colors.primaryColor,
-            secondaryColor:
-                projects[x.target.attributes.referencedProjectKey.value].styleInfluencers.colors.secondaryColor,
+    const { setFocusedProject } = useContext(FocusedProjectContext)
+    //clear focusedProject variable on component mount
+    // setFocusedProject({
+	// 	projectKey: null,
+	// 	genMedia: {
+	// 		images: {
+	// 			mainWide: null,
+	// 			mainTablet: null,
+	// 			mainPhone: null,
+	// 		},
+	// 		videos: {
+	// 			mainWide1080pX4: {
+	// 				mp4: null,
+	// 				alternative: null,
+	// 			},
+	// 			mainWide540pX4: {
+	// 				mp4: null,
+	// 				alternative: null,
+	// 			},
+	// 		},
+	// 	},
+	// 	styleInfluencers: {
+	// 		colors: {
+	// 			primaryColor: null,
+	// 			secondaryColor: null,
+	// 		}
+	// 	}
+	// })
+    function assignFocusedProject(pk) {
+        setFocusedProject({
+            projectKey: pk,
+            genMedia: {
+                images: {
+                    mainWide: projects[pk].info.genMedia.images.mainWide,
+                    mainTablet: null,
+                    mainPhone: null,
+                },
+                videos: {
+                    mainWide1080pX4: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide1080pX4.mp4,
+                        alternative: null,
+                    },
+                    mainWide540pX4: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide540pX4.mp4,
+                        alternative: null,
+                    },
+                },
+            },
+            styleInfluencers: {
+                colors: {
+                    primaryColor: projects[pk].styleInfluencers.colors.primaryColor,
+                    secondaryColor: projects[pk].styleInfluencers.colors.secondaryColor,
+                }
+            }
         })
-        handleButtonStates(x.target.attributes.id.value)
+        handleButtonStates(pk)
     }
-    function RemoveFocusedProject(x) {
-        setFocusProject({
-            project: false,
-            primaryColor: false,
-            secondaryColor: false,
-            primaryImage: false
+    function unassignFocusedProject(pk) {
+        setFocusedProject({
+            projectKey: null,
+            genMedia: {
+                images: {
+                    mainWide: null,
+                    mainTablet: null,
+                    mainPhone: null,
+                },
+                videos: {
+                    mainWide1080pX4: {
+                        mp4: null,
+                        alternative: null,
+                    },
+                    mainWide540pX4: {
+                        mp4: null,
+                        alternative: null,
+                    },
+                },
+            },
+            styleInfluencers: {
+                colors: {
+                    primaryColor: null,
+                    secondaryColor: null,
+                }
+            }
         })
         handleButtonStates(null)
     }
@@ -133,9 +199,30 @@ export default function HomeLogo() {
             underGlow: buttons.AO.normal.underGlow,                
         }
     })
-    function handleButtonStates(x) {
-        switch (x) {
-            case "AO" :
+    function handleButtonStates(pk) {
+        switch (pk) {
+            case null :
+                setActiveButtonStates({
+                    AO: {
+                        strokeWidth: buttons.AO.normal.strokeWidth,
+                        stroke: buttons.AO.normal.stroke,
+                        fill: buttons.AO.normal.fill,
+                        underGlow: buttons.AO.normal.underGlow,
+                    },
+                    M: {
+                        strokeWidth: buttons.M.normal.strokeWidth,
+                        stroke: buttons.M.normal.stroke,
+                        fill: buttons.M.normal.fill,
+                        underGlow: buttons.M.normal.underGlow,
+                    },
+                    O: {
+                        strokeWidth: buttons.O.normal.strokeWidth,
+                        stroke: buttons.O.normal.stroke,
+                        fill: buttons.O.normal.fill,
+                        underGlow: buttons.O.normal.underGlow,                            
+                    }
+                }); break
+            case "avtc" :
                 setActiveButtonStates({
                     AO: {
                         strokeWidth: buttons.AO.focused.strokeWidth,
@@ -156,7 +243,7 @@ export default function HomeLogo() {
                         underGlow: buttons.O.unfocused.underGlow,                            
                     }
                 }); break
-            case "M" :
+            case "wip" :
                 setActiveButtonStates({
                     AO: {
                         strokeWidth: buttons.AO.unfocused.strokeWidth,
@@ -177,7 +264,7 @@ export default function HomeLogo() {
                         underGlow: buttons.O.unfocused.underGlow,                            
                     }
                 }); break
-            case "O" :
+            case "aa" :
                 setActiveButtonStates({
                     AO: {
                         strokeWidth: buttons.AO.unfocused.strokeWidth,
@@ -201,22 +288,22 @@ export default function HomeLogo() {
             default :
                 setActiveButtonStates({
                     AO: {
-                        strokeWidth: buttons.AO.normal.strokeWidth,
-                        stroke: buttons.AO.normal.stroke,
-                        fill: buttons.AO.normal.fill,
-                        underGlow: buttons.AO.normal.underGlow,
+                        strokeWidth: buttons.AO.unfocused.strokeWidth,
+                        stroke: buttons.AO.unfocused.stroke,
+                        fill: buttons.AO.unfocused.fill,
+                        underGlow: buttons.AO.unfocused.underGlow,
                     },
                     M: {
-                        strokeWidth: buttons.M.normal.strokeWidth,
-                        stroke: buttons.M.normal.stroke,
-                        fill: buttons.M.normal.fill,
-                        underGlow: buttons.M.normal.underGlow,
+                        strokeWidth: buttons.M.unfocused.strokeWidth,
+                        stroke: buttons.M.unfocused.stroke,
+                        fill: buttons.M.unfocused.fill,
+                        underGlow: buttons.M.unfocused.underGlow,
                     },
                     O: {
-                        strokeWidth: buttons.O.normal.strokeWidth,
-                        stroke: buttons.O.normal.stroke,
-                        fill: buttons.O.normal.fill,
-                        underGlow: buttons.O.normal.underGlow,                            
+                        strokeWidth: buttons.O.unfocused.strokeWidth,
+                        stroke: buttons.O.unfocused.stroke,
+                        fill: buttons.O.unfocused.fill,
+                        underGlow: buttons.O.unfocused.underGlow,                            
                     }
                 }); break
         }
@@ -256,7 +343,9 @@ export default function HomeLogo() {
 	return (
 		<div
 			id="homeContainer"
+            // onMouseEnter={()=>(assignFocusedProject(null))}
 		>
+            {/* {()=>(assignFocusedProject(null))} */}
 			<div
 				id="logoCard"
 				onMouseMove={CreateOrbitalValue}
@@ -282,13 +371,15 @@ export default function HomeLogo() {
 						pointerEvents="visiblePainted"
 					>
 						<g id="_x30_">
-                            <Link to="/WIP">
+                            <Link to={`/project/aa`}>
                                 <path
                                     id="O"
                                     className="logo-buttons"
-                                    referencedProjectKey="wip"
-                                    onMouseEnter={SetFocusedProject}
-                                    onMouseLeave={RemoveFocusedProject}
+                                    referencedProjectKey="aa"
+                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                    onMouseLeave={(x)=>(unassignFocusedProject(null))}
+                                    // onMouseEnter={(x)=>(console.log(x.target.attributes.referencedProjectKey.value))}
+                                    // onMouseLeave={(x)=>(console.log(x.target.attributes.referencedProjectKey.value))}
                                     // onMouseEnter={handleButtonStates}
                                     // onMouseLeave={handleButtonStates}
                                     d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
@@ -300,14 +391,14 @@ export default function HomeLogo() {
                                     }}
                                 />
                             </Link>
-                            <Link to="/AVTC">
+                            <Link to="project/avtc">
                                 {/* <a href="https://www.google.com/search?q=elvin+me+lo+mama&oq=elvin+me+lo+mama&aqs=chrome..69i57j33i160l3j33i299l2.7910j1j1&sourceid=chrome&ie=UTF-8"> */}
                                     <path
                                         id="AO"
                                         className="logo-buttons"
                                         referencedProjectKey="avtc"
-                                        onMouseEnter={SetFocusedProject}
-                                        onMouseLeave={RemoveFocusedProject}
+                                        onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                        onMouseLeave={(x)=>(unassignFocusedProject(null))}
                                         // onMouseEnter={handleButtonStates}
                                         // onMouseLeave={handleButtonStates}
                                         d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
@@ -320,13 +411,13 @@ export default function HomeLogo() {
                                     />
                                 {/* </a> */}
                             </Link>
-                            <Link to="/Fire">
+                            <Link to="project/wip">
                                 <path
                                     id="M"
                                     className="logo-buttons"
-                                    referencedProjectKey="fire"
-                                    onMouseEnter={SetFocusedProject}
-                                    onMouseLeave={RemoveFocusedProject}
+                                    referencedProjectKey="wip"
+                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                    onMouseLeave={(x)=>(unassignFocusedProject(null))}
                                     // onMouseEnter={handleButtonStates}
                                     // onMouseLeave={handleButtonStates}
                                     d="M380.664,431.123 435.105,342.457 500.904,601.17z"
