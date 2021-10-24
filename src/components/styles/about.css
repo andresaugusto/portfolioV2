@@ -4,7 +4,6 @@
 	overflow-y: scroll;
 	width: 100%;
 	/* max-height: 72vh; */
-	scrollbar-color: #87ceeb #ff5621;
 }
 
 #aboutContent {
