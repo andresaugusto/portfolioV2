@@ -192,7 +192,7 @@ export default function Background ( props ) {
                             poster={props.focusedProject.genMedia.images.mainWide}
                             style={{
                                 minWidth: "100vw",
-                                filter: "blur(0vmin) brightness(20%)"
+                                filter: "blur(0vmin) brightness(90%)"
                             }}
                         >
                                 <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
