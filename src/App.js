@@ -33,11 +33,11 @@ export default function App() {
 			videos: {
 				mainWide1080pX4: {
 					mp4: null,
-					alternative: null,
+					webm: null,
 				},
 				mainWide540pX4: {
 					mp4: null,
-					alternative: null,
+					webm: null,
 				},
 			},
 		},

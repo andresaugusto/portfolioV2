@@ -154,6 +154,43 @@ export default function Background ( props ) {
     //         )
     //     })
     // }
+    
+    //  //  //  OPTION 4    //  //  //
+    // const [ currentMovie, setCurrentMovie ] = useState({movieKey: null, movie: null});    
+    // useEffect(() => {
+    //     props.focusedProject.projectKey === null||undefined ? (
+    //         setCurrentMovie({
+    //             movieKey: null,
+    //             moviePoster: null,
+    //             movie: {
+    //                 mainWide1080pX4: {
+    //                     mp4: null,
+    //                     webm: null,
+    //                 },
+    //                 mainWide540pX4: {
+    //                     mp4: null,
+    //                     alternative: null,
+    //                 }
+    //             },
+    //         })
+    //     ) : (
+    //         setCurrentMovie({
+    //             movieTitle: props.focusedProject.projectKey,
+    //             moviePoster: props.focusedProject.genMedia.images.mainWide,
+    //             movie: {
+    //                 mainWide1080pX4: {
+    //                     mp4: props.focusedProject.genMedia.videos.mainWide1080pX4.mp4,
+    //                     webm: props.focusedProject.genMedia.videos.mainWide1080pX4.webm,
+    //                 },
+    //                 mainWide540pX4: {
+    //                     mp4: props.focusedProject.genMedia.videos.mainWide540pX4.mp4,
+    //                     alternative: props.focusedProject.genMedia.videos.mainWide540pX4.webm,
+    //                 }
+    //             },
+    //         })
+    //         // console.log(props.focusedProject.genMedia.videos.mainWide1080pX4.mp4)
+    //     )
+    // }, [props]);
 
     
     return (
@@ -184,21 +221,43 @@ export default function Background ( props ) {
                     {props.focusedProject.projectKey === null ? (
                         null
                     ) : (
+                        // Movie
+                            <video
+                                key={props.focusedProject.projectKey+"MainWide"}
+                                id={`BackgroundMediaVideo`}
+                                preload="true"
+                                loop="true"
+                                autoPlay="muted"
+                                poster={props.focusedProject.genMedia.images.mainWide}
+                                style={{
+                                    minWidth: "100vw",
+                                    filter: "blur(0vmin) brightness(90%)"
+                                }}
+                            >
+                                    <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+                                    <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+                            </video>
+                    )}
+
+                {/* OPT 4 */}
+                    {/* {props.focusedProject.projectKey === null ? (
+                        null
+                    ) : (
                         <video
                             id={`BackgroundMediaVideo`}
                             preload="true"
                             loop="true"
                             autoPlay="muted"
-                            poster={props.focusedProject.genMedia.images.mainWide}
+                            poster={currentMovie.moviePoster}
                             style={{
                                 minWidth: "100vw",
                                 filter: "blur(0vmin) brightness(90%)"
                             }}
                         >
-                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
-                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+                                <source src={currentMovie.movie.mainWide1080pX4.mp4} type="video/mp4" />
+                                <source src={currentMovie.movie.mainWide1080pX4.webm} type="video/webm" />
                         </video>
-                    )}
+                    )} */}
             </div>
         </>
     )
