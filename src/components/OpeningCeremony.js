@@ -15,15 +15,14 @@ export default function OpeningCeremony() {
         initial: { pathLength: 0, opacity: 0 },
         animate: { pathLength: 1, opacity: 1 },
     }
-
     const welcomeDisappear = {
         initial: { opacity: 1, pointerEvents: "all" },
         animate: { opacity: 0, pointerEvents: "none" },
     }
-
-
-    // setTimeout(() => {
-    // }, 1000);
+    //REDIRECT AFTER ANIMATION'
+    setTimeout(() => {
+        window.location.href='/featured'
+    }, 10000);
 
 
 

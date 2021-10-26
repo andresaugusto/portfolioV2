@@ -64,7 +64,7 @@ export default function App() {
 					<Background focusedProject={ focusedProject }/>
 
 					<Switch>
-						{/* {/* <Route exact path="/" component={OpeningCeremony}/> */}
+						<Route exact path="/" component={OpeningCeremony}/>
 						<Route exact path="/featured" component={HomeLogo}/>
 						{/* <Route exact path='project/:projectKey' component={CaseStudy} /> */}
 						{/* <Route exact path="/AVTC" component={AVTC}/>

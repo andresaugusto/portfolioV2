@@ -424,5 +424,5 @@ export default function Nav() {
 				{(nav.subcontent.open)&&(nav.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
 			</div>
 		</div>
-	);
+	)
 }
