@@ -7,13 +7,19 @@
 
 #animationWindow {
   z-index: +1000;
-  width: 100%;
+  box-sizing: border-box;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
   position: absolute;
+  background-position: 50% 50%;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  
 }
 
 #animationWindow .logo-container {
@@ -42,7 +48,7 @@
   fill: none;
 }
 
-#animationWindow #backgroundImage {
+/* #animationWindow #backgroundImage {
   z-index: +101;
   display: block;
   margin-left: auto;
@@ -54,19 +60,18 @@
   overflow: hidden;
   left: 50%;
   top: 50%;
-  /* -webkit-filter: blur(0px) brightness(120%) contrast(1.1) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(10%);
-  filter: blur(0px) brightness(120%) contrast(1.1) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(10%); */
   -webkit-filter: blur(0px) brightness(110%) contrast(1.05) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(80%);
   filter: blur(0px) brightness(110%) contrast(1.05) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) opacity(100%) saturate(80%);
-}
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   #animationWindow {
-    animation: openingCeremonyWindow 10s ease-in-out
-  }
-  #animationWindow #backgroundImage {
+    /* animation: openingCeremonyWindow 10s ease-in-out */
     animation: openingCeremonyImg 10s ease
   }
+  /* #animationWindow #backgroundImage {
+    animation: openingCeremonyImg 10s ease
+  } */
   #animationWindow .letter-fill {
     animation: openingCeremonyLetterFill 10s ease-in-out
   }
@@ -118,9 +123,9 @@
 
 /* SCREEN SIZE QUERIES */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #animationWindow #backgroundImage {
     height: 100%;
     min-width: 100vw;
   }
-}
+} */

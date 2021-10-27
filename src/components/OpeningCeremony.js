@@ -1,11 +1,7 @@
 //DEPS
 import { motion } from "framer-motion"
 
-// COMPS
-import HomeLogo from "./HomeLogo"
-
 //STYLES
-// import "./../App.css"
 import "./styles/opening-ceremony.css"
 
 
@@ -21,7 +17,7 @@ export default function OpeningCeremony() {
     }
     //REDIRECT AFTER ANIMATION'
     setTimeout(() => {
-        window.location.href='/featured'
+        window.location.href="/featured"
     }, 10000);
 
 
@@ -34,15 +30,18 @@ export default function OpeningCeremony() {
                 variants={welcomeDisappear}
                 initial="initial"
                 animate="animate"
+                style={{
+                    backgroundImage: "url(https://andresaugusto-aa-media.s3.amazonaws.com/images/IMG_2695.JPG)"
+                }}
                 transition={{
                     default: { delay: 10 },
                 }}
             >
-                <img
+                {/* <img
                     id="backgroundImage" 
                     src="https://andresaugusto-aa-media.s3.amazonaws.com/images/IMG_2695.JPG"
                     alt='IMG_2695.JPG'
-                />
+                /> */}
                 <div className="logo-container">
                     <motion.svg
                         id="aomLogo"

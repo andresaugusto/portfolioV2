@@ -221,22 +221,27 @@ export default function Background ( props ) {
                     {props.focusedProject.projectKey === null ? (
                         null
                     ) : (
-                        // Movie
+                        <div>
                             <video
                                 key={props.focusedProject.projectKey+"MainWide"}
-                                id={`BackgroundMediaVideo`}
+                                id={`backgroundMediaVideo`}
                                 preload="true"
                                 loop="true"
                                 autoPlay="muted"
                                 poster={props.focusedProject.genMedia.images.mainWide}
                                 style={{
-                                    minWidth: "100vw",
-                                    filter: "blur(0vmin) brightness(90%)"
+                                    minHeight: "110vh",
+                                    // width: "100vw",
+                                    filter: "blur(0vmin) brightness(90%)",
                                 }}
                             >
-                                    <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
-                                    <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
                             </video>
+                            <div
+                                id="backgroundMediaFrame"
+                            />
+                        </div>
                     )}
 
                 {/* OPT 4 */}
