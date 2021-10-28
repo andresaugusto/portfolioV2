@@ -149,7 +149,6 @@ export default function ProjectCard( props ) {
                             // controls
                             // autoplay loop
                             width="100%"
-                            // height="100%"
                             preload="auto"
                             loop="true"
                             autoplay="muted"

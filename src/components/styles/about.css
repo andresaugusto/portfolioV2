@@ -4,18 +4,17 @@
 	overflow-y: scroll;
 	width: 100%;
 	/* max-height: 72vh; */
-	scrollbar-color: #87ceeb #ff5621;
 }
 
 #aboutContent {
 	box-sizing: border-box;
+	padding: 0 5vmin;
 	
 	display: flex;
-	/* flex-basis: 75%; */
-	column-gap: 5vmin;
+	column-gap: 5vw;
 	row-gap: 7vmin;
 	flex-flow: row wrap;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-content: stretch;
 	
 	padding-top: 19px;
@@ -52,7 +51,7 @@
 	flex-flow: column nowrap;
 	justify-content: stretch;
 
-	max-width: 850px;
+	max-width: 888px;
 
 	/* font-size: 1.1vmin; */
 	font-size: 14px;

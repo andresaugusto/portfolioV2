@@ -73,7 +73,28 @@ export const projects = {
                     primaryColor: "orange",
                     secondaryColor: "gray"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCinema:
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["aa"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up aa")}
+            //                     <source src={projects["aa"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["aa"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         },
         avtc: {
             info: {
@@ -147,7 +168,28 @@ export const projects = {
                     primaryColor: "orange",
                     secondaryColor: "gray"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCinema: 
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["avtc"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up avtc")}
+            //                     <source src={projects["avtc"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["avtc"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         },
         wip: {
             info: {
@@ -221,7 +263,28 @@ export const projects = {
                     primaryColor: "maroon",
                     secondaryColor: "gold"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCinema:
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["wip"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up wip")}
+            //                     <source src={projects["wip"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["wip"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         },
         fire: {
             info: {
@@ -295,7 +358,28 @@ export const projects = {
                     primaryColor: "olive",
                     secondaryColor: "purple"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCinema: 
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["fire"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up fire")}
+            //                     <source src={projects["fire"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["fire"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         },
         br: {
             info: {
@@ -369,7 +453,28 @@ export const projects = {
                     primaryColor: "rgb(164, 179, 119)",
                     secondaryColor: "0, 0, 0, 0.5"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCinema:
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["br"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up br")}
+            //                     <source src={projects["br"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["br"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         },
         simon: {
             info: {
@@ -443,6 +548,28 @@ export const projects = {
                     primaryColor: "#807a70",
                     secondaryColor: "white"
                 }
-            }
+            },
+            // mediaElements: {
+            //     video: {
+            //         backgroundCineman: 
+            //             <video
+            //                 id={`BackgroundMediaVideo`}
+            //                 preload="true"
+            //                 loop="true"
+            //                 autoPlay="muted"
+            //                 poster={projects["simon"].info.genMedia.images.mainWide}
+            //                 style={{
+            //                     minWidth: "100vw",
+            //                     filter: "blur(.3vmin) brightness(20%)"
+            //                 }}
+            //                 >
+            //                     {console.log("set up avtc")}
+            //                     <source src={projects["avtc"].info.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
+            //                     <source src={projects["avtc"].info.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+            //             </video>,
+            //     },
+            //     images: {}
+            // }
         }
 }
+

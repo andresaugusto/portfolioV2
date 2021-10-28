@@ -345,7 +345,6 @@ export default function HomeLogo() {
 			id="homeContainer"
             // onMouseEnter={()=>(assignFocusedProject(null))}
 		>
-            {/* {()=>(assignFocusedProject(null))} */}
 			<div
 				id="logoCard"
 				onMouseMove={CreateOrbitalValue}

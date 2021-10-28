@@ -7,6 +7,9 @@ import About from "./subcontent-options/About";
 import Work from "./subcontent-options/Work";
 import Contact from "./subcontent-options/Contact";
 
+//CONSTS
+import { localBaseName, deployedBaseName } from "./helpers/baseName"
+
 //STYLES
 import "./styles/nav.css";
 
@@ -382,6 +385,12 @@ export default function Nav() {
 				}}
 			>
 				<div id="menuButtonContainer">
+					{console.log(window.location.href)}
+					{window.location.href===(`${localBaseName}/`||`${deployedBaseName}/`)||(`${localBaseName}/featured`||`${deployedBaseName}/featured`) ? (
+						<div></div>
+					) : (
+						<div>la machine</div>
+					)}
 					<div id="menuButton" class="button" onClick={toggleNav}>
 						{!nav.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
 						{nav.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
@@ -424,5 +433,5 @@ export default function Nav() {
 				{(nav.subcontent.open)&&(nav.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
 			</div>
 		</div>
-	);
+	)
 }
