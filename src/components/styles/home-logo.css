@@ -14,7 +14,6 @@
 	left: 50%;
 	top: 50%; */
 }
-
 #logoCard {
   transform-style: preserve-3d;
   z-index: +1;
@@ -38,7 +37,6 @@
   /* border-radius: 30px;
   box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2), 0px 0px 50px rgba(255, 255, 255, 0.2) */
 }
-
 #buttonContainer {
   position: fixed;
   display: flex;
@@ -48,7 +46,6 @@
   transition: all 0.5s ease-out;
   transform: translateZ(40px);
 }
-
 #glowContainer {
   position: fixed;
   display: flex;
@@ -59,7 +56,6 @@
   stroke-width: 30;
   filter: blur(8px);
 }
-
 #aomLogo {
   z-index: 5px;
   position: fixed;
@@ -71,11 +67,9 @@
   max-width: 720px;
   max-height: 60vh;
 }
-
 #aomLogo #O, #aomLogo #AO, #aomLogo #M {
   display: inline;
 }
-
 #aomLogoGlow {
   position: fixed;
   overflow: clip;
@@ -86,33 +80,27 @@
   max-width: 720px;
   max-height: 60vh;
 }
-
 #aomLogoGlow #O, #aomLogoGlow #AO, #aomLogoGlow #M {
   display: inline;
 }
-
 #logoCard #aomLogo {
     /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
     stroke: none;
 }
-
 #logoCard #aomLogo #AO, #logoCard #aomLogo #M {
   /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
   fill: rgba(0, 0, 0, 0.949);
   stroke: none;
   /* transform: translateZ(1px) */
 }
-
 #logoCard #aomLogo #O {
   /* fill: rgba(251, 192, 192, 0.14); */
   fill: rgba(255, 255, 255, 0.0);
   transition: all 0.17s ease-in-out;
 }
-
 #logoCard #aomLogo #O:hover {
   /* filter: drop-shadow( -3px 10px 0px rgba(255, 255, 255, 0.774)); */
 }
-
 #logoCard #aomLogoGlow #AO, #logoCard #aomLogoGlow #M {
   /* filter: drop-shadow( 0 6px 10px rgba(255, 255, 255, 0.9)); */
   filter: blur(8px);
@@ -124,7 +112,6 @@
   transition: all 0.25s ease-out;
   
 }
-
 #logoCard #aomLogoGlow #O {
   filter: blur(8px);
   fill: rgba(0, 0, 0, 0);
@@ -368,7 +355,6 @@
 }
 
 /* SCREEN SIZE QUERIES */
-
 @media (max-width: 850px) {
 
   #aomLogo, #aomLogoGlow {

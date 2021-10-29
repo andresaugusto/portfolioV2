@@ -1,2 +1,2 @@
-export const localBaseName = "http://localhost:3000";
-export const deployedBaseName = "http://andresaugusto.com";
+export const devBaseName = "http://localhost:3000";
+export const prodBaseName = "http://andresaugusto.com";

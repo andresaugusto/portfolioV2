@@ -1,10 +1,15 @@
 #navScreen {
-	width: 100vw;
-	height: 100vh;
-	position: absolute;
+    z-index: +1000;
+	pointer-events: auto;
+
+	
+	position: fixed;
+	bottom: 0;
 	box-sizing: border-box;
-	overflow: hidden;
-	pointer-events: none;
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
 
 	font-family: "Exo 2", sans-serif;
 	font-style: normal;
@@ -17,18 +22,31 @@
 	/* border: solid 2px rgb(255, 255, 137);
     background-color: rgba(255, 255, 137, 0.2); */
 
-	position: absolute;
-	bottom: 0;
+	
+	z-index: +1000;
+	pointer-events: auto;
+
+	position: relative;
 	box-sizing: border-box;
-	width: 100vw;
+    /* width: 100%;
+    height: 100%; */
+
 	display: flex;
 	flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 
 	pointer-events: auto;
 
+	font-family: "Exo 2", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	text-transform: uppercase;
+	transition: ease-in-out 2s;
+
 	/* transform: translateY(50%); */
 	transform: translateY(7vh);
-	transition: ease-in-out 0.2s;
+	transition: ease-in 0.3s;
 }
 
 #menuButtonContainer {
@@ -41,6 +59,8 @@
 	align-items: stretch;
 
 	background-color: rgba(255, 0, 0, 0);
+
+	transition: ease-in 0.3s;
 }
 
 #menuButton {
@@ -48,6 +68,24 @@
 	width: 30px;
 	fill: none;
 	stroke-width: 1.5;
+	transition: ease-in 0.3s;
+}
+
+#featuredGalleryButton {
+	margin: 0 3.8vw;
+	box-sizing: border-box;
+	width: 67px;
+	overflow: clip;
+	/* transition: ease-in 0.3s; */
+}
+
+#aomLogoNavButton {
+	/* height: 50vmin; */
+	
+	/* max-width: 720px;
+	max-height: 864px; */
+	/* max-width: 720px;
+	max-height: 60vh; */
 }
 
 #navButtonsContainer {
@@ -120,6 +158,7 @@
 #infoContainer {
 	z-index: +10;
 	box-sizing: border-box;
+	width: 100vw;
 	max-height: 80vh;
 	/* min-height: 0vh; */
 	display: flex;
