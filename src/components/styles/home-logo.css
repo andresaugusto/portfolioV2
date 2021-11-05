@@ -23,6 +23,7 @@
   justify-content: center;
 }
 #buttonContainer {
+  z-index: +40;
   position: fixed;
   display: flex;
   align-items: center;

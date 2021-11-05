@@ -24,7 +24,8 @@ export default function HomeLogo() {
             focused: {
                 stroke: null,
                 strokeWidth: null,
-                fill: "white",
+                // fill: "rgba(254, 238, 210, 0.719)",
+                fill: null,
                 underGlow: null,
             },
             unfocused: {
@@ -44,7 +45,8 @@ export default function HomeLogo() {
             focused: {
                 stroke: null,
                 strokeWidth: null,
-                fill: "white",
+                // fill: "rgba(254, 238, 210, 0.719)",
+                fill: null,
                 underGlow: null,
             },
             unfocused: {
@@ -62,7 +64,8 @@ export default function HomeLogo() {
             },
             focused: {
                 stroke: "white",
-                fill: "white",
+                fill: "rgba(254, 238, 210, 0.719)",
+                // fill: "white",
                 underGlow: "rgba(254, 238, 210, 0.719)",
             },
             unfocused: {
@@ -391,7 +394,7 @@ export default function HomeLogo() {
                                     className="logo-buttons"
                                     referencedProjectKey="aa"
                                     onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
-                                    onMouseLeave={(x)=>(unassignFocusedProject(null))}
+                                    onMouseLeave={()=>(unassignFocusedProject(null))}
                                     onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
                                     d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
                                     style={{
@@ -408,7 +411,7 @@ export default function HomeLogo() {
                                     className="logo-buttons"
                                     referencedProjectKey="avtc"
                                     onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
-                                    onMouseLeave={(x)=>(unassignFocusedProject(null))}
+                                    onMouseLeave={()=>(unassignFocusedProject(null))}
                                     onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
                                     d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
                                     style={{
@@ -425,7 +428,7 @@ export default function HomeLogo() {
                                     className="logo-buttons"
                                     referencedProjectKey="wip"
                                     onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
-                                    onMouseLeave={(x)=>(unassignFocusedProject(null))}
+                                    onMouseLeave={()=>(unassignFocusedProject(null))}
                                     onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
                                     d="M380.664,431.123 435.105,342.457 500.904,601.17z"
                                     style={{
