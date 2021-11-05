@@ -228,7 +228,7 @@ export default function Background ( props ) {
                                 preload="true"
                                 loop="true"
                                 autoPlay="muted"
-                                // poster={props.focusedProject.genMedia.images.mainWide}
+                                poster={props.focusedProject.genMedia.videos.mainWide1080pFiltered.poster}
                                 style={{
                                     minHeight: "110vh",
                                     // width: "100vw",

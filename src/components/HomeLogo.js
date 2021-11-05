@@ -24,7 +24,7 @@ export default function HomeLogo() {
             focused: {
                 stroke: null,
                 strokeWidth: null,
-                fill: null,
+                fill: "white",
                 underGlow: null,
             },
             unfocused: {
@@ -44,7 +44,7 @@ export default function HomeLogo() {
             focused: {
                 stroke: null,
                 strokeWidth: null,
-                fill: null,
+                fill: "white",
                 underGlow: null,
             },
             unfocused: {
@@ -62,7 +62,7 @@ export default function HomeLogo() {
             },
             focused: {
                 stroke: "white",
-                fill: "rgba(254, 238, 210, 0.719)",
+                fill: "white",
                 underGlow: "rgba(254, 238, 210, 0.719)",
             },
             unfocused: {
@@ -130,6 +130,7 @@ export default function HomeLogo() {
                 },
                 videos: {
                     mainWide1080pFiltered: {
+                        poster: projects[pk].info.genMedia.videos.mainWide1080pFiltered.poster,
                         mp4: projects[pk].info.genMedia.videos.mainWide1080pFiltered.mp4,
                         webm: projects[pk].info.genMedia.videos.mainWide1080pFiltered.webm,
                     },
@@ -163,6 +164,7 @@ export default function HomeLogo() {
                 },
                 videos: {
                     mainWide1080pFiltered: {
+                        poster: null,
                         mp4: null,
                         webm: null,
                     },

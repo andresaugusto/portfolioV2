@@ -111,9 +111,6 @@
 	/* padding: .2vh .5vw .2vh .8vw; */
 	border-radius: 10%;
 	fill: none;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 
 	/* font-size: 1.35vmin; */
 	font-size: 18px;
@@ -187,6 +184,10 @@
 	#menuButton {
 		width: 4.5vmin;
 		stroke-width: 4;
+	}
+
+	#featuredGalleryButton {
+		width: 12vmin;
 	}
 	.button {
 		font-size: 3vmin;

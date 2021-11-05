@@ -32,6 +32,7 @@ export default function ProjectCard( props ) {
                 },
                 videos: {
                     mainWide1080pFiltered: {
+                        poster: projects[pk].info.genMedia.videos.mainWide1080pFiltered.poster,
                         mp4: projects[pk].info.genMedia.videos.mainWide1080pFiltered.mp4,
                         webm: projects[pk].info.genMedia.videos.mainWide1080pFiltered.webm,
                     },
@@ -64,6 +65,7 @@ export default function ProjectCard( props ) {
                 },
                 videos: {
                     mainWide1080pFiltered: {
+                        poster: null,
                         mp4: null,
                         webm: null,
                     },
