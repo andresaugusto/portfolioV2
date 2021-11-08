@@ -9,7 +9,7 @@ export default function OpeningCeremony() {
 
 	const logoOutlining = {
         initial: { pathLength: 0, opacity: 0 },
-        animate: { pathLength: 1, opacity: 1 },
+        animate: { pathLength: 1, opacity: .6 },
     }
     const welcomeDisappear = {
         initial: { opacity: 1, pointerEvents: "all" },
@@ -18,7 +18,7 @@ export default function OpeningCeremony() {
     //REDIRECT AFTER ANIMATION'
     setTimeout(() => {
         window.location.href="/featured"
-    }, 10000);
+    }, 9000);
 
 
 
@@ -34,7 +34,7 @@ export default function OpeningCeremony() {
                     backgroundImage: "url(https://andresaugusto-aa-media.s3.amazonaws.com/images/IMG_2695.JPG)"
                 }}
                 transition={{
-                    default: { delay: 10 },
+                    default: { delay: 7 },
                 }}
             >
                 {/* <img
@@ -65,8 +65,8 @@ export default function OpeningCeremony() {
                                 initial="initial"
                                 animate="animate"
                                 transition={{
-                                    default: { duration: 3, ease: [1, 0.8, 1, 1], delay: 3 },
-                                    opacity: { duration: .15, ease: "easeInOut", delay: 3 }
+                                    default: { duration: 3.75, ease: "easeInOut", delay: 2 },
+                                    opacity: { duration: .5, ease: "easeInOut", delay: 2 }
                                 }}
                             />
                             <motion.path
@@ -77,8 +77,8 @@ export default function OpeningCeremony() {
                                 initial="initial"
                                 animate="animate"
                                 transition={{
-                                    default: { duration: 2.5, ease: [1, 1, 0.8, 1], delay: 5.5 },
-                                    opacity: { duration: .5, ease: "easeInOut", delay: 5.5 }
+                                    default: { duration: 2.5, ease: "easeOut", delay: 4.5 },
+                                    opacity: { duration: .5, ease: "easeInOut", delay: 4.5 }
                                 }}
                             />                            
                             <motion.path
@@ -89,8 +89,8 @@ export default function OpeningCeremony() {
                                 initial="initial"
                                 animate="animate"
                                 transition={{
-                                    default: { duration: 2, ease: [1, 0.8, 0.8, 1], delay: 5.2 },
-                                    opacity: { duration: .5, ease: "easeInOut", delay: 5.2 }
+                                    default: { duration: 2, ease: "easeOut", delay: 4.2 },
+                                    opacity: { duration: .5, ease: "easeInOut", delay: 4.2 }
                                 }}
                             />
 

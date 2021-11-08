@@ -55,12 +55,9 @@ export const projects = {
                 images: {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-wide.png",
                     onDevice: {
-                        mainDesktop: null,
-                        mainTablet: null,
-                        mainPhone: null,
-                        // mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-desktop.png",
-                        // mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-tablet.png",
-                        // mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-phone.png"
+                        mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-desktop.png",
+                        mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-tablet.png",
+                        mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-phone.png"
                     }
                 },
                 videos: {
@@ -141,12 +138,9 @@ export const projects = {
                 images: {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-wide.png",
                     onDevice: {
-                        mainDesktop: null,
-                        mainTablet: null,
-                        mainPhone: null,
-                        // mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-desktop.png",
-                        // mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-tablet.png",
-                        // mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-phone.png"
+                        mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-desktop.png",
+                        mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-tablet.png",
+                        mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-phone.png"
                     }
                 },
                 videos: {
@@ -227,12 +221,9 @@ export const projects = {
                 images: {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/wip-ss-main-wide.png",
                     onDevice: {
-                        mainDesktop: null,
+                        mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/wip-ss-main-desktop.png",
                         mainTablet: null,
-                        mainPhone: null,
-                        // mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/wip-ss-main-desktop.png",
-                        // mainTablet: null,
-                        // mainPhone: null
+                        mainPhone: null
                     }
                 },
                 videos: {
@@ -313,12 +304,9 @@ export const projects = {
                 images: {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-wide.png",
                     onDevice: {
-                        mainDesktop: null,
-                        mainTablet: null,
-                        mainPhone: null,
-                        // mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-desktop.png",
-                        // mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-tablet.png",
-                        // mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-phone.png"
+                        mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-desktop.png",
+                        mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-tablet.png",
+                        mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/fire-ss-main-phone.png"
                     }
                 },
                 videos: {
@@ -399,12 +387,9 @@ export const projects = {
                 images: {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-wide.png",
                     onDevice: {
-                        mainDesktop: null,
-                        mainTablet: null,
-                        mainPhone: null,
-                        // mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-desktop.png",
-                        // mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-tablet.png",
-                        // mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-phone.png"
+                        mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-desktop.png",
+                        mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-tablet.png",
+                        mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/br-ss-main-phone.png"
                     }
                 },
                 videos: {

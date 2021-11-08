@@ -27,6 +27,7 @@ export default function App() {
 		open: false,
 		navLinks: {
 			featuredGallery: false,
+            caseStudyInfoCard: false,
 		},
 		translateY: null,
 		subcontent: {

@@ -1,6 +1,6 @@
 //DEPS
 import { useState, useEffect, useContext } from 'react'
-import { FocusedProjectContext, ContextInfluencers } from "../helpers/appContext";
+import { FocusedProjectContext, NavStateContext } from "../helpers/appContext";
 import { projects } from "../../data"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -21,6 +21,25 @@ export default function ProjectCard( props ) {
 
     //HANDLE CONTEXT
     const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
+    const { navState, setNavState } = useContext(NavStateContext)
+
+    //HANDLE NAV
+    function closeNav() {
+        setNavState((prevState) => ({
+            isShowing: true,
+            open: false,
+            navLinks: prevState.navLinks,
+            translateY: null,
+            subcontent: {
+                open: false,
+                title: prevState.subcontent.title,
+                jsx: prevState.subcontent.jsx,
+            },
+        }))
+    }
+
+
+    //HANDLE FOCUSED PROJECT
     function assignFocusedProject(pk) {
         setFocusedProject({
             projectKey: pk,
@@ -137,7 +156,11 @@ export default function ProjectCard( props ) {
             <div id={`${pk}CardMediaSection`} className="project-card-section">
                 {focusedProject.projectKey===pk ? (
                     <Link key={pk} to={`/project/${pk}`} id={`${pk}CardLinkContainer`} className="project-card-link-container">
-                        <div id={`${pk}CardLink`} className={"project-card-link"}>
+                        <div 
+                            id={`${pk}CardLink`} 
+                            className={"project-card-link"}
+                            onClick={(closeNav)}
+                        >
                             view case study
                         </div>
                     </Link>

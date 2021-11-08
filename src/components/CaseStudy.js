@@ -1,5 +1,9 @@
-import { useEffect, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { FocusedProjectContext, NavStateContext } from "./helpers/appContext"
+
+import { projects } from "../data"
+
+import "./styles/case-study.css"
 
 
 
@@ -9,23 +13,13 @@ export default function CaseStudy() {
     const { setFocusedProject } = useContext(FocusedProjectContext)
     const { setNavState } = useContext(NavStateContext)
     useEffect(() => {
-        setNavState((prevState) => ({
-            isShowing: true,
-            open: false,
-            navLinks: prevState.navLinks,
-            translateY: null,
-            subcontent: {
-                open: false,
-                title: prevState.subcontent.title,
-                jsx: prevState.subcontent.jsx,
-            },
-        }))
         setTimeout(() => {
             setNavState((prevState) => ({
                 isShowing: prevState.isShowing,
                 open: prevState.open,
                 navLinks: {
                     featuredGallery: true,
+                    caseStudyInfoCard: prevState.navLinks.caseStudyInfoCard,
                 },
                 translateY: prevState.translateY,
                 subcontent: {
@@ -35,14 +29,27 @@ export default function CaseStudy() {
                 },
             }))
         }, 1500)
-        console.log("llegamos al CaseStudy")
-        // console.log("nav closed and focusedProject set")
     }, [])
-    console.log("llegamos al CaseStudy")
+
+    function defineCaseStudyName() {
+        console.log(window.location.href)
+    }
+    defineCaseStudyName()
+
+    //CASE STUDY STATE
+    const [ caseStudyState, setCaseStudyState ] = useState({
+        showInfoCard: true,
+    })
+
+    const InfoCard = (
+        <div id="caseStudyInfoCard">
+            la mamachine
+        </div>
+    )
 
     return (
-        <>
-            <div style={{position: "fixed", zIndex: "-10"}}>La Machine</div>
-        </>
+        <div id="caseStudyContainer">
+            {caseStudyState.showInfoCard?(InfoCard):(null)}
+        </div>
     )
 }

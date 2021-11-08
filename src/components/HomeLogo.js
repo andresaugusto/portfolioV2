@@ -98,6 +98,7 @@ export default function HomeLogo() {
                 open: prevState.open,
                 navLinks: {
                     featuredGallery: false,
+                    caseStudyInfoCard: prevState.navLinks.caseStudyInfoCard,
                 },
                 translateY: prevState.translateY,
                 subcontent: {
