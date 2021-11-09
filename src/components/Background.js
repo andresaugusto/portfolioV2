@@ -228,15 +228,15 @@ export default function Background ( props ) {
                                 preload="true"
                                 loop="true"
                                 autoPlay="muted"
-                                poster={props.focusedProject.genMedia.images.mainWide}
+                                poster={props.focusedProject.genMedia.videos.mainWide1080pFiltered.poster}
                                 style={{
                                     minHeight: "110vh",
                                     // width: "100vw",
-                                    filter: "blur(0vmin) brightness(90%)",
+                                    filter: "blur(2px) brightness(90%)",
                                 }}
                             >
-                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.mp4} type="video/mp4" />
-                                <source src={props.focusedProject.genMedia.videos.mainWide1080pX4.webm} type="video/webm" />
+                                <source src={props.focusedProject.genMedia.videos.mainWide1080pFiltered.mp4} type="video/mp4" />
+                                <source src={props.focusedProject.genMedia.videos.mainWide1080pFiltered.webm} type="video/webm" />
                             </video>
                             <div
                                 id="backgroundMediaFrame"

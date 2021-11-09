@@ -1,29 +1,44 @@
 //DEPS
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { Switch, Route } from "react-router-dom";
-import { FocusedProjectContext, ContextInfluencers } from "./components/helpers/appContext"
 
-//COMPS
+//VARIABLES
+import { FocusedProjectContext, NavStateContext } from "./components/helpers/appContext";
+
+//COMPONENTS
 import OpeningCeremony from "./components/OpeningCeremony"
 import Background from "./components/Background"
 import Nav from "./components/Nav"
-
 import HomeLogo from "./components/HomeLogo"
+import CaseStudy from "./components/CaseStudy"
+
+//CONSTS
+// import { devBaseName, prodBaseName } from "./components/helpers/baseName"
 
 //STYLES
 import "./App.css"
 
 export default function App() {
 
-	// const bgChange = () => {
-	// 	document.body.style.backgroundColor = "red";
-	// 	document.body.style.backgroundImage = "none";
-	// };
-
 	//CONTEXT MASTER SETTINGS
+	const [ navState, setNavState ] = useState({
+		isShowing: false,
+		open: false,
+		navLinks: {
+			featuredGallery: false,
+            caseStudyInfoCard: false,
+		},
+		translateY: null,
+		subcontent: {
+			open: false,
+			title: null,
+			jsx: null,
+		},
+	});
 	const [ focusedProject, setFocusedProject ] = useState({
 		projectKey: null,
+		caseStudyKey: null,
 		genMedia: {
 			images: {
 				mainWide: null,
@@ -31,11 +46,15 @@ export default function App() {
 				mainPhone: null,
 			},
 			videos: {
-				mainWide1080pX4: {
+				mainWide1080pFiltered: {
 					mp4: null,
 					webm: null,
 				},
-				mainWide540pX4: {
+				mainWide1080p: {
+					mp4: null,
+					webm: null,
+				},
+				mainWide540p: {
 					mp4: null,
 					webm: null,
 				},
@@ -45,37 +64,119 @@ export default function App() {
 			colors: {
 				primaryColor: null,
 				secondaryColor: null,
-			}
-		}
+			},
+		},
 	})
+
+	const providerNavState = useMemo (() => ({ navState, setNavState }), [ navState, setNavState ])
 	const providerFocusedProject = useMemo (() => ({ focusedProject, setFocusedProject }), [ focusedProject, setFocusedProject ])
 
-	const [ contextInfluencers, setContextInfluencers ] = useState(false)
-	const providerContextInfluencers = useMemo (() => ({ contextInfluencers, setContextInfluencers }), [ contextInfluencers, setContextInfluencers ])
+	//CONTENT MANAGEMENT THROUGH PAGE NAVIGATION - [difficulties with client side address vs server side address]
+	// const neutralAddresses = [`${devBaseName}`, `${devBaseName}/`, `${devBaseName}/featured`, `${devBaseName}/featured/`, `${prodBaseName}`, `${prodBaseName}/`, `${prodBaseName}/featured`, `${prodBaseName}/featured/`]
+	// const [ outgoingPage, setOutgoingPage ] = useState(null)
+
+	// useEffect(() => {
+	// 	neutralAddresses.includes(window.location.href) ? (
+	// 		// setFocusedProject({
+	// 		// 	projectKey: null,
+	// 		// 	genMedia: {
+	// 		// 		images: {
+	// 		// 			mainWide: null,
+	// 		// 			mainTablet: null,
+	// 		// 			mainPhone: null,
+	// 		// 		},
+	// 		// 		videos: {
+	// 		// 			mainWide1080pFiltered: {
+	// 		// 				mp4: null,
+	// 		// 				webm: null,
+	// 		// 			},
+	// 		// 			mainWide1080p: {
+	// 		// 				mp4: null,
+	// 		// 				webm: null,
+	// 		// 			},
+	// 		// 			mainWide540p: {
+	// 		// 				mp4: null,
+	// 		// 				webm: null,
+	// 		// 			},
+	// 		// 		},
+	// 		// 	},
+	// 		// 	styleInfluencers: {
+	// 		// 		colors: {
+	// 		// 			primaryColor: null,
+	// 		// 			secondaryColor: null,
+	// 		// 		},
+	// 		// 	},
+	// 		// })
+	// 		console.log(`home or featured`)
+	// 	) : (
+	// 		console.log(`NOT home or featured`)
+	// 	)
+	// })
+
+	// function handlePageChange() {
+	// 	neutralAddresses.includes(window.location.href) ? (
+	// 		// setNav((prevState) => ({
+	// 		// 	open: false,
+	// 		// 	navLinks: {
+	// 		// 		featuredGallery: false,
+	// 		// 	},
+	// 		// 	translateY: null,
+	// 		// 	subcontent: {
+	// 		// 		open: false,
+	// 		// 		title: prevState.subcontent.title,
+	// 		// 		jsx: prevState.subcontent.jsx,
+	// 		// 	},
+	// 		// }))
+	// 		console.log("set neutral address: "+window.location.href)
+	// 	) : (
+	// 		// setNav((prevState) => ({
+	// 		// 	open: false,
+	// 		// 	navLinks: {
+	// 		// 		featuredGallery: true,
+	// 		// 	},
+	// 		// 	translateY: null,
+	// 		// 	subcontent: {
+	// 		// 		open: false,
+	// 		// 		title: prevState.subcontent.title,
+	// 		// 		jsx: prevState.subcontent.jsx,
+	// 		// 	},
+	// 		// }))
+	// 		console.log("set NON neutral address: "+window.location.href)
+	// 	)
+	// 	setOutgoingPage(window.location.href)
+	// 	console.log(outgoingPage)
+	// }
+	// // console.log(document.location.href + " " + window.location.href)
+
+	// useEffect(() => {
+	// 	window.location.href!==outgoingPage ? (
+	// 		handlePageChange()
+	// 		// console.log(document.location.href + " " + window.location.href)
+	// 	) : (
+	// 		console.log()
+	// 	)
+	// })
+
 	
 
 	return (
 		<div>
 
-			<FocusedProjectContext.Provider value={ providerFocusedProject }>
-				<ContextInfluencers.Provider value={ providerContextInfluencers }>
+			<NavStateContext.Provider value={ providerNavState }>
+				<FocusedProjectContext.Provider value={ providerFocusedProject }>
 
-					{/* <OpeningCeremony /> */}
-					<Background focusedProject={ focusedProject }/>
+					<Background focusedProject={ focusedProject } />
 
 					<Switch>
-						<Route exact path="/" component={OpeningCeremony}/>
-						<Route exact path="/featured" component={HomeLogo}/>
-						{/* <Route exact path='project/:projectKey' component={CaseStudy} /> */}
-						{/* <Route exact path="/AVTC" component={AVTC}/>
-						<Route exact path="/Fire" component={Fire}/>
-						<Route exact path="/WIP" component={WIP}/> */}
+						<Route exact path="/" component={ OpeningCeremony } />
+						<Route exact path="/featured" component={ HomeLogo } />
+						<Route exact path="/project/:pk" component={ CaseStudy } />
 					</Switch>
 
 					<Nav />
 
-				</ContextInfluencers.Provider>
-			</FocusedProjectContext.Provider>
+				</FocusedProjectContext.Provider>
+			</NavStateContext.Provider>
 
 		</div>
 	)

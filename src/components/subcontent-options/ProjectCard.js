@@ -1,6 +1,6 @@
 //DEPS
-import { useState, useEffect, useContext } from 'react'
-import { FocusedProjectContext, ContextInfluencers } from "../helpers/appContext";
+import { useContext } from 'react'
+import { FocusedProjectContext, NavStateContext } from "../helpers/appContext";
 import { projects } from "../../data"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -19,34 +19,48 @@ export default function ProjectCard( props ) {
     const prj = props.project
     const pk = props.projectKey
 
-    //FETCH MEDIA
-    // useEffect(() => {fetchCardImage()}, []);
-    // const [ cardImage, setCardImage ] = useState([])
-    // const fetchCardImage = async () => {
-    //     const cardImageData = await fetch("https://andresaugusto-aa-media.s3.amazonaws.com/images/avtc-ss-main-wide.png")
-    //     const cardImage = await cardImageData
-    //     console.log(cardImage)
-    // }
-
     //HANDLE CONTEXT
     const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
+    const { navState, setNavState } = useContext(NavStateContext)
+
+    //HANDLE NAV
+    function closeNav() {
+        setNavState((prevState) => ({
+            isShowing: true,
+            open: false,
+            navLinks: prevState.navLinks,
+            translateY: null,
+            subcontent: {
+                open: false,
+                title: prevState.subcontent.title,
+                jsx: prevState.subcontent.jsx,
+            },
+        }))
+    }
+
+    //HANDLE FOCUSED PROJECT
     function assignFocusedProject(pk) {
         setFocusedProject({
             projectKey: pk,
             genMedia: {
                 images: {
                     mainWide: projects[pk].info.genMedia.images.mainWide,
-                    mainTablet: null,
-                    mainPhone: null,
+                    mainTablet: projects[pk].info.genMedia.images.mainTablet,
+                    mainPhone: projects[pk].info.genMedia.images.mainPhone,
                 },
                 videos: {
-                    mainWide1080pX4: {
-                        mp4: projects[pk].info.genMedia.videos.mainWide1080pX4.mp4,
-                        alternative: null,
+                    mainWide1080pFiltered: {
+                        poster: projects[pk].info.genMedia.videos.mainWide1080pFiltered.poster,
+                        mp4: projects[pk].info.genMedia.videos.mainWide1080pFiltered.mp4,
+                        webm: projects[pk].info.genMedia.videos.mainWide1080pFiltered.webm,
                     },
-                    mainWide540pX4: {
-                        mp4: projects[pk].info.genMedia.videos.mainWide540pX4.mp4,
-                        alternative: null,
+                    mainWide1080p: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide1080p.mp4,
+                        webm: projects[pk].info.genMedia.videos.mainWide1080p.webm,
+                    },
+                    mainWide540p: {
+                        mp4: projects[pk].info.genMedia.videos.mainWide540p.mp4,
+                        webm: projects[pk].info.genMedia.videos.mainWide540p.webm,
                     },
                 },
             },
@@ -54,8 +68,8 @@ export default function ProjectCard( props ) {
                 colors: {
                     primaryColor: projects[pk].styleInfluencers.colors.primaryColor,
                     secondaryColor: projects[pk].styleInfluencers.colors.secondaryColor,
-                }
-            }
+                },
+            },
         })
     }
     function unassignFocusedProject(x) {
@@ -68,13 +82,18 @@ export default function ProjectCard( props ) {
                     mainPhone: null,
                 },
                 videos: {
-                    mainWide1080pX4: {
+                    mainWide1080pFiltered: {
+                        poster: null,
                         mp4: null,
-                        alternative: null,
+                        webm: null,
                     },
-                    mainWide540pX4: {
+                    mainWide1080p: {
                         mp4: null,
-                        alternative: null,
+                        webm: null,
+                    },
+                    mainWide540p: {
+                        mp4: null,
+                        webm: null,
                     },
                 },
             },
@@ -82,8 +101,8 @@ export default function ProjectCard( props ) {
                 colors: {
                     primaryColor: null,
                     secondaryColor: null,
-                }
-            }
+                },
+            },
         })
     }
     
@@ -127,16 +146,27 @@ export default function ProjectCard( props ) {
         <motion.div 
             id={`${pk}ProjectCard`}
             key={`${pk}ProjectCard`}
+            // ref={focusedProjectCard}
             referencedProjectKey={pk}
             class="project-card"
             variants={ItemAnimation}
             onMouseEnter={(x)=>(assignFocusedProject(pk))}
             onMouseLeave={(x)=>(unassignFocusedProject(pk))}
+            onClick={(x)=>(assignFocusedProject(pk))}
         >
             <div id={`${pk}CardMediaSection`} className="project-card-section">
                 {focusedProject.projectKey===pk ? (
-                    <Link to={`/project/${pk}`} id={`${pk}CardLinkContainer`} className="project-card-link-container">
-                        <div id={`${pk}CardLink`} className={"project-card-link"}>
+                    <Link
+                        id={`${pk}CardLinkContainer`}
+                        key={pk}
+                        to={`/project/${pk}`}
+                        className="project-card-link-container"
+                        onClick={(closeNav)}
+                    >
+                        <div 
+                            id={`${pk}CardLink`} 
+                            className={"project-card-link"}
+                        >
                             view case study
                         </div>
                     </Link>
@@ -145,6 +175,8 @@ export default function ProjectCard( props ) {
                     <div id={`${pk}CardMedia`} className="project-card-media">
                         <video
                             id={`${pk}CardMediaVideo`}
+                            className="project-card-video"
+                            pointerEvents="none"
                             // class="video-js vjs-16-9"
                             // controls
                             // autoplay loop
@@ -155,8 +187,8 @@ export default function ProjectCard( props ) {
                             poster={prj.info.genMedia.images.mainWide}
                             // data-setup="{}"
                             >
-                                <source src={prj.info.genMedia.videos.mainWide540pX4.mp4} type="video/mp4" />
-                                <source src={prj.info.genMedia.videos.mainWide540pX4.webm} type="video/webm" />
+                                <source src={prj.info.genMedia.videos.mainWide540p.mp4} type="video/mp4" />
+                                <source src={prj.info.genMedia.videos.mainWide540p.webm} type="video/webm" />
                         </video>
                         {/* <img id={`${pk}CardMediaImage`} src={prj.info.genMedia.images.mainWide} style={{height: "100%", width: "100%"}}/> */}
                     </div>

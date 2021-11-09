@@ -1,5 +1,5 @@
 //DEPS
-import { useState, useContext } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { projects } from "../../data"
 

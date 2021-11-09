@@ -1,21 +1,22 @@
 //DEPS
-import { useState, useContext } from "react";
+import { useContext } from "react";
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
-//COMPS
+//COMPONENTS
 import About from "./subcontent-options/About";
 import Work from "./subcontent-options/Work";
 import Contact from "./subcontent-options/Contact";
 
-//CONSTS
-import { localBaseName, deployedBaseName } from "./helpers/baseName"
+//VARIABLES
+import { FocusedProjectContext, NavStateContext } from "./helpers/appContext";
+// import { devBaseName, prodBaseName } from "./helpers/baseName"
 
 //STYLES
 import "./styles/nav.css";
 
 //FUNC
 export default function Nav() {
-
 
 	//OBJECTS
 	const navButtonOptions = {
@@ -53,7 +54,7 @@ export default function Nav() {
 							y1="21.25"
 							x2="37"
 							y2="1.25"
-							stroke="white"
+							stroke="rgba(254, 238, 210, 1)"
 							// stroke-width="1.5"
 						>
 							<animate
@@ -112,7 +113,7 @@ export default function Nav() {
 							y1="21.25"
 							x2="37"
 							y2="1.25"
-							stroke="white"
+							stroke="rgba(254, 238, 210, 1)"
 							// stroke-width="1.5"
 						>
 							<animate
@@ -160,7 +161,7 @@ export default function Nav() {
 							y1="1.25"
 							x2="37"
 							y2="1.25"
-							stroke="white"
+							stroke="rgba(254, 238, 210, 1)"
 							// stroke-width="1.5"
 						>
 							<animate
@@ -235,6 +236,47 @@ export default function Nav() {
 				)
 			},
 		},
+		featuredGallery: {
+			title: "featuredGallery",
+			jsx: (
+				<Link key="featuredGallery" to="/featured">
+					<svg
+						id="aomLogoNavButton"
+						version="1.1"
+						x="0px"
+						y="0px"
+						// width="720px"
+						// height="864px"
+						viewBox="0 0 720 864"
+						enable-background="new 0 0 720 864"
+						pointerEvents="visiblePainted"
+					>
+						<g id="_x30_">
+							<path
+								id="AO"
+								className="logo-buttons"
+								d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
+								style={{
+									// strokeWidth: "18px",
+									// stroke: "rgba(255, 255, 255, 1)",
+									fill: "rgba(254, 238, 210, .75)",
+								}}
+							/>
+							<path
+								id="M"
+								className="logo-buttons"
+								d="M380.664,431.123 435.105,342.457 500.904,601.17z"
+								style={{
+									// strokeWidth: "18px",
+									// stroke: "rgba(255, 255, 255, 1)",
+									fill: "rgba(254, 238, 210, .75)",
+								}}
+							/>
+						</g>
+					</svg>
+				</Link>
+			)
+		}
 	};
 	const navSubcontentOptions = {
 		about: {
@@ -263,49 +305,46 @@ export default function Nav() {
 		},
 	};
 
-	//NAV STATE
-	const [nav, setNav] = useState({
-		open: false,
-		translateY: null,
-		subcontent: {
-			open: false,
-			title: null,
-			jsx: null,
-		},
-	});
+	//HANDLE CONTEXT
+    const { navState, setNavState } = useContext(NavStateContext)
 
 	//NAV TOGGLING
 	const toggleNav = () => {
-		nav.open === false
-			? setNav((prevState) => ({
-					open: !nav.open,
-					translateY: "translateY(0)",
-					subcontent: {
-						open: !nav.subcontent.open,
-						title: prevState.subcontent.title,
-						jsx: prevState.subcontent.jsx,
-					},
-			  }))
-			: setNav((prevState) => ({
-					open: !nav.open,
-					translateY: null,
-					subcontent: {
-						open: !nav.subcontent.open,
-						title: prevState.subcontent.title,
-						jsx: prevState.subcontent.jsx,
-					},
-			  }));
+		!navState.open
+			? setNavState((prevState) => ({
+				isShowing: prevState.isShowing,
+				open: !navState.open,
+				navLinks: prevState.navLinks,
+				translateY: "translateY(0vh)",
+				subcontent: {
+					open: !navState.subcontent.open,
+					title: prevState.subcontent.title,
+					jsx: prevState.subcontent.jsx,
+				},
+			}))
+			: setNavState((prevState) => ({
+				isShowing: prevState.isShowing,
+				open: !navState.open,
+				navLinks: prevState.navLinks,
+				translateY: null,
+				subcontent: {
+					open: !navState.subcontent.open,
+					title: prevState.subcontent.title,
+					jsx: prevState.subcontent.jsx,
+				},
+			}));
 	};
 
 	//SUBCONTENT
 	const toggleSubcontent = (x) => {
 		switch (x) {
 			// (to close open option)
-			case nav.subcontent.title: {
-				setNav((prevState) => ({
+			case navState.subcontent.title: {
+				setNavState((prevState) => ({
+					isShowing: prevState.isShowing,
 					open: prevState.open,
+					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
-					buttons: prevState.buttons,
 					subcontent: {
 						open: false,
 						title: null,
@@ -316,10 +355,11 @@ export default function Nav() {
 			}
 			// (to open/switch option)
 			case navSubcontentOptions.about.title: {
-				setNav((prevState) => ({
+				setNavState((prevState) => ({
+					isShowing: prevState.isShowing,
 					open: prevState.open,
+					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
-					buttons: prevState.buttons,
 					subcontent: {
 						open: true,
 						title: navSubcontentOptions.about.title,
@@ -329,10 +369,11 @@ export default function Nav() {
 				break;
 			}
 			case navSubcontentOptions.work.title: {
-				setNav((prevState) => ({
+				setNavState((prevState) => ({
+					isShowing: prevState.isShowing,
 					open: prevState.open,
+					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
-					buttons: prevState.buttons,
 					subcontent: {
 						open: true,
 						title: navSubcontentOptions.work.title,
@@ -342,10 +383,11 @@ export default function Nav() {
 				break;
 			}
 			case navSubcontentOptions.contact.title: {
-				setNav((prevState) => ({
+				setNavState((prevState) => ({
+					isShowing: prevState.isShowing,
 					open: prevState.open,
+					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
-					buttons: prevState.buttons,
 					subcontent: {
 						open: true,
 						title: navSubcontentOptions.contact.title,
@@ -360,46 +402,80 @@ export default function Nav() {
 	};
 
 	
-    // //  //  //  ITEM HIGHLIGHT  //  //  //
-    // const [focusHome, setFocusHome] = useState(false)
-    // const [focusGallery, setFocusGallery] = useState(false)
-    // const [focusResidentArtists, setFocusResidentArtists] = useState(false)
-    // const [focusMerchandise, setFocusMerchandise] = useState(false)
-    // const [focusContactUs, setFocusContactUs] = useState(false)
-    // const closeAndUnfocusTitles = () => {
-    //     setFocusHome(false)
-    //     setFocusGallery(false)
-    //     setFocusResidentArtists(false)
-    //     setFocusMerchandise(false)
-    //     setFocusContactUs(false)
-    // }
+    // //  //  //  SECTION TITLE HIGHLIGHT  //  //  //
+    // const [focusWork, setFocusWork] = useState(false)
+    // const [focusContact, setFocusContact] = useState(false)
+    // const [focusAbout, setFocusAbout] = useState(false)
+
+
+    const ItemContainerAnimation = {
+        hidden: { y: 100, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+            delayChildren: .10,
+            staggerChildren: .10
+            }
+        },
+        exit: { y: 100, opacity: 0 }
+    };
+    const ItemAnimation = {
+        hidden: { y: 10, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        },
+        exit: { y: 10, opacity: 0 }
+    };
+    const MenuButtonAnimation = {
+        hidden: { y: 10, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1
+        },
+        exit: { y: 10, opacity: 0 }
+    };
+    const FeaturedGalleryButtonAnimation = {
+        hidden: { x: -50, opacity: 0 },
+        visible: {
+            x: 0,
+            opacity: 1
+        },
+        exit: { y: -50, opacity: 0 }
+    };
 
 
 	//RETURN
 	return (
-		<div id="navScreen">
+		<motion.div
+			id="navScreen"
+            initial="hidden"
+            animate="visible"
+		>
 			<div
 				id="navBar"
 				style={{
-					transform: nav.translateY,
+					transform: navState.translateY,
 				}}
 			>
 				<div id="menuButtonContainer">
-					{console.log(window.location.href)}
-					{window.location.href===(`${localBaseName}/`||`${deployedBaseName}/`)||(`${localBaseName}/featured`||`${deployedBaseName}/featured`) ? (
-						<div></div>
-					) : (
-						<div>la machine</div>
-					)}
-					<div id="menuButton" class="button" onClick={toggleNav}>
-						{!nav.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
-						{nav.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
-					</div>
+					{navState.navLinks.featuredGallery? (
+						<motion.div id="featuredGalleryButton" variants={FeaturedGalleryButtonAnimation} exit={FeaturedGalleryButtonAnimation.exit} style={{transition: "ease-out 1s"}}>
+							{navButtonOptions.featuredGallery.jsx}
+						</motion.div>
+					) : ( null )}
+					{navState.isShowing? (
+						<motion.div id="menuButton" className="button" onClick={toggleNav} variants={MenuButtonAnimation} style={{transition: "ease-out 0.05s"}}>
+							{!navState.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
+							{navState.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
+						</motion.div>
+					) : ( null )}
 				</div>
 				<div id="navButtonsContainer">
 					<div
 						id="workButton"
-						class="button"
+						className="button"
 						subcontent="work"
 						onClick={(x) =>
 							toggleSubcontent(x.target.attributes.subcontent.value)
@@ -409,7 +485,7 @@ export default function Nav() {
 					</div>
 					<div
 						id="contactButton"
-						class="button"
+						className="button"
 						subcontent="contact"
 						onClick={(x) =>
 							toggleSubcontent(x.target.attributes.subcontent.value)
@@ -419,7 +495,7 @@ export default function Nav() {
 					</div>
 					<div
 						id="aboutButton"
-						class="button"
+						className="button"
 						subcontent="about"
 						onClick={(x) =>
 							toggleSubcontent(x.target.attributes.subcontent.value)
@@ -428,10 +504,10 @@ export default function Nav() {
 						 about
 					</div>
 				</div>
-				{(nav.subcontent.open)&&(nav.subcontent.title==="work") ? navSubcontentOptions.work.jsx : null}
-				{(nav.subcontent.open)&&(nav.subcontent.title==="contact") ? navSubcontentOptions.contact.jsx : null}
-				{(nav.subcontent.open)&&(nav.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
+				{(navState.subcontent.open)&&(navState.subcontent.title==="work") ? navSubcontentOptions.work.jsx : null}
+				{(navState.subcontent.open)&&(navState.subcontent.title==="contact") ? navSubcontentOptions.contact.jsx : null}
+				{(navState.subcontent.open)&&(navState.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
 			</div>
-		</div>
+		</motion.div>
 	)
 }
