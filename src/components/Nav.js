@@ -254,7 +254,7 @@ export default function Nav() {
 						<g id="_x30_">
 							<path
 								id="AO"
-								classNameName="logo-buttons"
+								className="logo-buttons"
 								d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
 								style={{
 									// strokeWidth: "18px",
@@ -306,7 +306,6 @@ export default function Nav() {
 	};
 
 	//HANDLE CONTEXT
-    const { setFocusedProject } = useContext(FocusedProjectContext)
     const { navState, setNavState } = useContext(NavStateContext)
 
 	//NAV TOGGLING

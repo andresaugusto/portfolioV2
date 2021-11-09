@@ -22,7 +22,7 @@ export const projects = {
                 delivery: "aA is deployed and hosted through github and github-pages; an AWS S3 Bucket used for media referencing."
             },
             prototype: null,
-            nextSteps: "1) Gyroscopic AOM logo functionality for mobile devices. 2) Updates to way-finding and tap responses for mobile devices. 3) Add project sections for different mediums and trades.",
+            nextSteps: ["Gyroscopic AOM logo functionality for mobile devices", "Updates to way-finding and tap responses for mobile devices", "Add project sections for different mediums and trades"],
             feSpotlights: {
                 one: {
                     text: "preserve-3d + translateZ(40px) + One orbiting card with onMouseEnter, onMouseMove, and onMouseLeaves functions fired.",
@@ -105,7 +105,7 @@ export const projects = {
                 delivery: "AVTC is deployed and hosted through github and github-pages and the bespoke avtckenosha.com; an AWS S3 Bucket used for media referencing."
             },
             prototype: null,
-            nextSteps: "1) Updates to way-finding and tap interactions for mobile devices. 2) Add project sections for different mediums and trades. 3) Create an opening animation for the website.",
+            nextSteps: ["Updates to way-finding and tap interactions for mobile devices", "Add project sections for different mediums and trades", "Create an opening animation for the website"],
             feSpotlights: {
                 one: {
                     text: null,
@@ -188,7 +188,7 @@ export const projects = {
                 delivery: "WIP is deployed on Heroku while the files are kept in a GitHub repository; an AWS S3 Bucket used for media referencing."
             },
             prototype: null,
-            nextSteps: "1) Expand support for mobile device viewing. 2) Search capabilities. 3) Improve overall way-finding experience",
+            nextSteps: ["Expand support for mobile device viewing", "Search capabilities", "Improve overall way-finding experience"],
             feSpotlights: {
                 one: {
                     text: null,
@@ -271,7 +271,7 @@ export const projects = {
                 delivery: "Fire is deployed and hosted through github and github-pages; media is referred from decentralized sources."
             },
             prototype: null,
-            nextSteps: "1) Expand home page for more comprehensive collections with titles and other important quick-view aspects. 2) Optimizations to desktop and widescreen views. 3) User profiles to propose accountability for information publishing.",
+            nextSteps: ["Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "User profiles to propose accountability for information publishing"],
             feSpotlights: {
                 one: {
                     text: null,
@@ -354,7 +354,7 @@ export const projects = {
                 delivery: "Br is deployed and hosted through github and github-pages; media is referred from decentralized sources."
             },
             prototype: null,
-            nextSteps: "1) Expand home page for more comprehensive collections with titles and other important quick-view aspects. 2) Optimizations to desktop and widescreen views. 3) Overall format upgrades and refactoring.",
+            nextSteps: ["Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring"],
             feSpotlights: {
                 one: {
                     text: null,
@@ -437,7 +437,7 @@ export const projects = {
                 delivery: "sim[]n is deployed and hosted through github and github-pages."
             },
             prototype: null,
-            nextSteps: "1) Expand game modes and input interactions. 2) Optimizations to desktop and widescreen views. 3) Overall format upgrades and refactoring.",
+            nextSteps: ["Expand game modes and input interactions", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring"],
             feSpotlights: {
                 one: {
                     text: null,

@@ -80,6 +80,9 @@ export default function HomeLogo() {
     const { setFocusedProject } = useContext(FocusedProjectContext)
     const { setNavState } = useContext(NavStateContext)
     useEffect(() => {
+        setTimeout(() => {
+            closeNav()
+        }, 190)
         unassignFocusedProject()
         setNavState((prevState) => ({
             isShowing: prevState.isShowing,
@@ -121,11 +124,11 @@ export default function HomeLogo() {
                 },
             }))
         }, 3500)
-        // console.log("nav closed and focusedProject set")
-    }, [])
+    }, [window.location.href])
     function assignFocusedProject(pk) {
-        setFocusedProject({
+        setFocusedProject((prevState) => ({
             projectKey: pk,
+		    caseStudyKey: prevState.caseStudyKey,
             genMedia: {
                 images: {
                     mainWide: projects[pk].info.genMedia.images.mainWide,
@@ -154,7 +157,7 @@ export default function HomeLogo() {
                     secondaryColor: projects[pk].styleInfluencers.colors.secondaryColor,
                 },
             },
-        })
+        }))
         handleButtonStates(pk)
     }
     function unassignFocusedProject(pk) {
@@ -356,6 +359,21 @@ export default function HomeLogo() {
     //HANDLE CHOSEN PROJECT
     function handleChosenProject(pk) {
         assignFocusedProject(pk)
+    }   
+    
+    //HANDLE NAV
+    function closeNav() {
+        setNavState((prevState) => ({
+            isShowing: true,
+            open: false,
+            navLinks: prevState.navLinks,
+            translateY: null,
+            subcontent: {
+                open: false,
+                title: prevState.subcontent.title,
+                jsx: prevState.subcontent.jsx,
+            },
+        }))
     }
 
     //RETURN
@@ -385,7 +403,7 @@ export default function HomeLogo() {
 						// width="720px"
 						// height="864px"
 						viewBox="0 0 720 864"
-						enable-background="new 0 0 720 864"
+						enableBackground="new 0 0 720 864"
 						pointerEvents="visiblePainted"
 					>
 						<g id="_x30_">
@@ -454,7 +472,7 @@ export default function HomeLogo() {
 						// width="720px"
 						// height="864px"
 						viewBox="0 0 720 864"
-						enable-background="new 0 0 720 864"
+						enableBackground="new 0 0 720 864"
 						pointerxents="visiblePainted"
 					>
 						<g id="_x30_">

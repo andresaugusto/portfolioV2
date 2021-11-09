@@ -38,6 +38,7 @@ export default function App() {
 	});
 	const [ focusedProject, setFocusedProject ] = useState({
 		projectKey: null,
+		caseStudyKey: null,
 		genMedia: {
 			images: {
 				mainWide: null,

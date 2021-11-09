@@ -1,5 +1,5 @@
 //DEPS
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { FocusedProjectContext, NavStateContext } from "../helpers/appContext";
 import { projects } from "../../data"
 import { Link } from 'react-router-dom'
@@ -37,7 +37,6 @@ export default function ProjectCard( props ) {
             },
         }))
     }
-
 
     //HANDLE FOCUSED PROJECT
     function assignFocusedProject(pk) {
@@ -147,19 +146,26 @@ export default function ProjectCard( props ) {
         <motion.div 
             id={`${pk}ProjectCard`}
             key={`${pk}ProjectCard`}
+            // ref={focusedProjectCard}
             referencedProjectKey={pk}
             class="project-card"
             variants={ItemAnimation}
             onMouseEnter={(x)=>(assignFocusedProject(pk))}
             onMouseLeave={(x)=>(unassignFocusedProject(pk))}
+            onClick={(x)=>(assignFocusedProject(pk))}
         >
             <div id={`${pk}CardMediaSection`} className="project-card-section">
                 {focusedProject.projectKey===pk ? (
-                    <Link key={pk} to={`/project/${pk}`} id={`${pk}CardLinkContainer`} className="project-card-link-container">
+                    <Link
+                        id={`${pk}CardLinkContainer`}
+                        key={pk}
+                        to={`/project/${pk}`}
+                        className="project-card-link-container"
+                        onClick={(closeNav)}
+                    >
                         <div 
                             id={`${pk}CardLink`} 
                             className={"project-card-link"}
-                            onClick={(closeNav)}
                         >
                             view case study
                         </div>
@@ -169,6 +175,8 @@ export default function ProjectCard( props ) {
                     <div id={`${pk}CardMedia`} className="project-card-media">
                         <video
                             id={`${pk}CardMediaVideo`}
+                            className="project-card-video"
+                            pointerEvents="none"
                             // class="video-js vjs-16-9"
                             // controls
                             // autoplay loop

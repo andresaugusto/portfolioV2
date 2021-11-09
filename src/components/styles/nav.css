@@ -36,8 +36,6 @@
     align-items: center;
     justify-content: flex-end;
 
-	pointer-events: auto;
-
 	font-family: "Exo 2", sans-serif;
 	font-style: normal;
 	font-weight: normal;
@@ -178,10 +176,10 @@
 
 @media (max-width: 500px) {
 	#menuButtonContainer {
-		max-height: 20px;
+		max-height: 70px;
 	}
 	#navButtonsContainer {
-		max-height: 20px;
+		max-height: 50px;
 	}
 	#menuButton {
 		width: 4.5vmin;
