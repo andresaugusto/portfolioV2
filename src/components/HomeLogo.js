@@ -90,6 +90,7 @@ export default function HomeLogo() {
             navLinks: prevState.navLinks,
             translateY: prevState.translateY,
             subcontent: {
+                visible: prevState.subcontent.visible,
                 open: prevState.subcontent.open,
                 title: prevState.subcontent.title,
                 jsx: prevState.subcontent.jsx,
@@ -105,6 +106,7 @@ export default function HomeLogo() {
                 },
                 translateY: prevState.translateY,
                 subcontent: {
+                    visible: prevState.subcontent.visible,
                     open: prevState.subcontent.open,
                     title: prevState.subcontent.title,
                     jsx: prevState.subcontent.jsx,
@@ -118,6 +120,7 @@ export default function HomeLogo() {
                 navLinks: prevState.navLinks,
                 translateY: prevState.translateY,
                 subcontent: {
+                    visible: prevState.subcontent.visible,
                     open: prevState.subcontent.open,
                     title: prevState.subcontent.title,
                     jsx: prevState.subcontent.jsx,
@@ -369,6 +372,7 @@ export default function HomeLogo() {
             navLinks: prevState.navLinks,
             translateY: null,
             subcontent: {
+                visible: false,
                 open: false,
                 title: prevState.subcontent.title,
                 jsx: prevState.subcontent.jsx,

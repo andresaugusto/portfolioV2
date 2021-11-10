@@ -182,6 +182,7 @@ export default function CaseStudy() {
                 },
                 translateY: prevState.translateY,
                 subcontent: {
+			        visible: prevState.subcontent.visible,
                     open: prevState.subcontent.open,
                     title: prevState.subcontent.title,
                     jsx: prevState.subcontent.jsx,
@@ -190,7 +191,7 @@ export default function CaseStudy() {
         }, 1000)
         setTimeout(() => {
             setCaseStudyState((prevState) => ({
-                showInfo: !navState.open,
+                showInfo: !navState.subcontent.visible,
                 projectKey: prevState.project,
                 case: prevState.case
             }))
@@ -302,10 +303,11 @@ export default function CaseStudy() {
                         className="c-s-body"
                         style={{
                             height: "100%",
-                            overflow: "scroll",
+                            overflowX: "scroll",
+                            overflowY: "hidden",
                             display: "flex",
                             flexFlow: "row nowrap",
-                            gap: "3vw",
+                            gap: "2vw",
                             padding: "2vmin 15vw 2vmin 5vw"
                         }}
                     >
@@ -405,7 +407,6 @@ export default function CaseStudy() {
                                 maxWidth: "500px",
                                 display: "flex",
                                 flexFlow: "column nowrap",
-                                gap: "1.5vw"
                             }}
                         >
                             <div
@@ -420,60 +421,106 @@ export default function CaseStudy() {
                                 >design</div>
                                 {caseStudyState.case.info.approach.design}
                             </div>
+                        </div>
+                        <div
+                            style={{
+                                height: "inherit",
+                                maxHeight: "425px",
+                                width: "75vw",
+                                maxWidth: "500px",
+                                overflowX: "hidden",
+                                display: "flex",
+                                flexFlow: "column nowrap",
+                                gap: "1.5vw"
+                            }}
+                        >
                             <div
-                                id="cSDelivery"
                                 style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
+                                    height: "100%",
+                                    overflowY: "scroll",
                                 }}
                             >
                                 <div
-                                    className="c-s-body-topic"
-                                >delivery</div>
-                                {caseStudyState.case.info.approach.delivery}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    id="cSNextStepsContainer"
-                        style={{
-                            width: "90vw",
-                            overflow: "hidden",
-                            marginBottom: "5vmin",
-                        }}
-                >
-                    <div
-                        className="c-s-body-topic"
-                        style={{
-                        }}
-                    >next steps</div>
-                    <div
-                        className="c-s-body"
-                        style={{
-                            height: "100%",
-                        }}
-                    >
-                        <div 
-                            id="cSNextStepsCards"
-                            style={{
-                                height: "100%",
-                                margin: "6px 0vmin",
-                                display: "flex",
-                                flexFlow: "row nowrap",
-                                gap: "3px",
-                            }}
-                        >
-                            {caseStudyState.case.info.nextSteps.map((i) => (
-                                <motion.div
-                                    id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
-                                    className="c-s-next-step"
+                                    id="cSDeliveryTitle"
                                     style={{
+                                        width: "inherit",
+                                        maxWidth: "400px"
                                     }}
                                 >
-                                    {i}
-                                </motion.div>
-                            ))}
+                                    <div
+                                        className="c-s-body-topic"
+                                    >delivery</div>
+                                    {caseStudyState.case.info.approach.delivery}
+                                </div>
+                                <div
+                                    id="cSNextStepsContainer"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px",
+                                        //
+                                        flexGrow: "1",
+                                        //
+                                    }}
+                                >
+                                    <div
+                                        id="cSNextStepsTitle"
+                                        className="c-s-body-topic"
+                                        style={{
+                                            paddingLeft: "6.7px",
+                                        }}
+                                    >next steps</div>
+                                    <div
+                                        className="c-s-body"
+                                        style={{
+                                            overflow: "wrap",
+                                        }}
+                                    >
+                                        <div
+                                            id="cSNextStepsWindow"
+                                            style={{
+                                                // height: "100%",
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            <div
+                                                id="cSNextStepsCards"
+                                                style={{
+                                                    boxSizing: "border-box",
+                                                    height: "100%",
+                                                    width: "60vw",
+                                                    maxWidth: "400px",
+                                                    margin: "6px 0vmin",
+                                                    // overflow: "scroll",
+                                                    display: "flex",
+                                                    flexFlow: "column nowrap",
+                                                    justifyContent: "flex-start",
+                                                    gap: "3px",
+                                                }}
+                                            >
+                                                {caseStudyState.case.info.nextSteps.map((i) => (
+                                                    <motion.div
+                                                        id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
+                                                        className="c-s-next-step"
+                                                        style={{
+                                                                boxSizing: "border-box",
+                                                                width: "45vw",
+                                                                maxWidth: "375px",
+                                                            }}
+                                                        >
+                                                        <div
+                                                            style={{
+                                                                boxSizing: "border-box",
+                                                                width: "45vw",
+                                                                maxWidth: "375px",
+                                                            }}
+                                                        >{i}</div>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -626,7 +673,7 @@ export default function CaseStudy() {
             style={{ transition: "1s ease-in-out"}}
             onClick={()=>(console.log(caseStudyState))}
         >
-            {!navState.open?(InfoCard):(null)}
+            {!navState.subcontent.visible?(InfoCard):(null)}
         </motion.div>
     )
 
