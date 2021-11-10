@@ -346,6 +346,7 @@ export default function Nav() {
 					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
 					subcontent: {
+						visible: false,
 						open: false,
 						title: null,
 						jsx: null,
@@ -361,6 +362,7 @@ export default function Nav() {
 					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
 					subcontent: {
+						visible: true,
 						open: true,
 						title: navSubcontentOptions.about.title,
 						jsx: navSubcontentOptions.about.jsx,
@@ -375,6 +377,7 @@ export default function Nav() {
 					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
 					subcontent: {
+						visible: true,
 						open: true,
 						title: navSubcontentOptions.work.title,
 						jsx: navSubcontentOptions.work.jsx,
@@ -389,6 +392,7 @@ export default function Nav() {
 					navLinks: prevState.navLinks,
 					translateY: prevState.translateY,
 					subcontent: {
+						visible: true,
 						open: true,
 						title: navSubcontentOptions.contact.title,
 						jsx: navSubcontentOptions.contact.jsx,

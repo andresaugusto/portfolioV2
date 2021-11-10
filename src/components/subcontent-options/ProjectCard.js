@@ -31,6 +31,7 @@ export default function ProjectCard( props ) {
             navLinks: prevState.navLinks,
             translateY: null,
             subcontent: {
+                visible: false,
                 open: false,
                 title: prevState.subcontent.title,
                 jsx: prevState.subcontent.jsx,

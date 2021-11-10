@@ -166,6 +166,11 @@ export default function CaseStudy() {
         setTimeout(() => {
             closeNav()
         }, 190)
+        setCaseStudyState((prevState) => ({
+            showInfo: false,
+            projectKey: prevState.project,
+            case: prevState.case
+        }))
         defineCaseStudy()
         setTimeout(() => {
             setNavState((prevState) => ({
@@ -177,6 +182,7 @@ export default function CaseStudy() {
                 },
                 translateY: prevState.translateY,
                 subcontent: {
+			        visible: prevState.subcontent.visible,
                     open: prevState.subcontent.open,
                     title: prevState.subcontent.title,
                     jsx: prevState.subcontent.jsx,
@@ -185,7 +191,7 @@ export default function CaseStudy() {
         }, 1000)
         setTimeout(() => {
             setCaseStudyState((prevState) => ({
-                showInfo: !navState.open,
+                showInfo: !navState.subcontent.visible,
                 projectKey: prevState.project,
                 case: prevState.case
             }))
@@ -216,122 +222,96 @@ export default function CaseStudy() {
 
     //ELEMENTS
     const InfoCard = (
-            caseStudyState.case===null?(
-                <div>NO PROJECT AVAILABLE BY THAT NAME</div>
-            ):(
-                <div id="caseStudyInfoCard" 
-                    variants={ItemAnimation}
-                    style={{ transition: "1s ease-in-out"}}
+        caseStudyState.case===null?(
+            <div>NO PROJECT AVAILABLE BY THAT NAME</div>
+        ):(
+            <div id="caseStudyInfoCard" 
+                variants={ItemAnimation}
+                style={{ transition: "1s ease-in-out"}}
+            >
+                <div
+                    style={{
+                        width: "90vw",
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-start",
+                    }}
+                >
+                    <div id="csHeader">
+                        <span id="cSTitle" className="c-s-name">
+                            {caseStudyState.case.info.title}
+                        </span>
+                        <span id="cSYear" className="c-s-subtitle-2">
+                            {caseStudyState.case.info.year}
+                        </span>
+                        <div id="cSProjectType" className="c-s-subtitle-2">
+                            {caseStudyState.case.info.projectType}
+                        </div>
+                        <div 
+                            id="cSFeauredTechnologies"
+                            style={{
+                                width: "90vw",
+                                overflow: "wrap",
+                                display: "flex",
+                                flexFlow: "row wrap",
+                                gap: "6px",
+                                margin: "6px 0vmin"
+                            }}
+                        >
+                            {caseStudyState.case.info.featuredTechnologies.map((i) => (
+                                <motion.div
+                                    id={`cSFeaturedTechnology${i.replaceAll(" ", "")}`}
+                                    className="c-s-featured-technology"
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center"
+                                    }}
+                                >
+                                    {i}
+                                </motion.div>
+                            ))}
+                        </div>
+                        <div id="cSRoles" className="c-s-subtitle-2" style={{width: "90vw"}}>
+                            {rolesArrayMap(caseStudyState.project)}
+                        </div>
+                    </div>
+                </div>
+                <div
+                    id="headlineSection"
+                    className="c-s-subtitle-1"
+                    style={{
+                        width: "90vw",
+                        marginTop: "4vmin",
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-start",
+                    }}
+                >
+                    <div>
+                        {caseStudyState.case.info.headline}
+                    </div>
+                </div>
+                <div
+                    id="csBody"
+                    style={{
+                        width: "100vw",
+                        overflow: "hidden"
+                    }}
                 >
                     <div
+                        className="c-s-body"
                         style={{
-                            width: "90vw",
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "flex-start",
-                        }}
-                    >
-                        <div id="csHeader">
-                            <span id="cSTitle">
-                                {caseStudyState.case.info.title}
-                            </span>
-                            <span id="cSYear">
-                                {caseStudyState.case.info.year}
-                            </span>
-                            <div id="cSProjectType">
-                                {caseStudyState.case.info.projectType}
-                            </div>
-                            <div 
-                                id="cSFeauredTechnologies"
-                                style={{
-                                    width: "90vw",
-                                    overflow: "wrap",
-                                    display: "flex",
-                                    flexFlow: "row wrap",
-                                }}
-                            >
-                                {caseStudyState.case.info.featuredTechnologies.map((i) => (
-                                    <motion.div
-                                        id={`cSFeaturedTechnology${i.replaceAll(" ", "")}`}
-                                        className="c-s-featured-technology"
-                                    >
-                                        {i}
-                                    </motion.div>
-                                ))}
-                            </div>
-                            <div id={`cSRoles`} style={{width: "90vw"}}>
-                                {rolesArrayMap(caseStudyState.project)}
-                            </div>
-                            <span id="cSWebsite">
-                                <a
-                                    href={caseStudyState.case.info.projectSite}
-                                    id="cSWebsiteAnchor"
-                                    style={{
-                                        color: "inherit",
-                                        textDecoration: "none"
-                                    }}
-                                >
-                                    VISIT SITE
-                                </a>
-                            </span>
-                            <span id="cSWebsite">
-                                <a
-                                    href={caseStudyState.case.info.projectRepo}
-                                    id="cSWebsiteAnchor"
-                                    style={{
-                                        color: "inherit",
-                                        textDecoration: "none"
-                                    }}
-                                >
-                                    VISIT REPO
-                                </a>
-                            </span>
-                            {caseStudyState.case.info.prototype!==null?(
-                                <span id="cSWebsite">
-                                    <a
-                                        href={caseStudyState.case.info.prototype}
-                                        id="cSWebsiteAnchor"
-                                        style={{
-                                            color: "inherit",
-                                            textDecorations: "none"
-                                        }}
-                                    >
-                                        VISIT FIGMA
-                                    </a>
-                                </span>
-                            ):(
-                                null
-                            )}
-                        </div>
-                    </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <div
-                        style={{
-                            width: "90vw",
-                            display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "flex-start",
-                        }}
-                    >
-                        <div>
-                            {caseStudyState.case.info.headline}
-                        </div>
-                    </div>
-                    <br/>
-                    <div 
-                        id="csBody" 
-                        style={{ 
-                            width: "90vw",
-                            // maxHeight: "150px",
-                            overflow: "scroll",
+                            height: "100%",
+                            overflowX: "scroll",
+                            overflowY: "hidden",
                             display: "flex",
                             flexFlow: "row nowrap",
-                            gap: "3vw"
+                            gap: "2vw",
+                            padding: "2vmin 15vw 2vmin 5vw"
                         }}
                     >
-                        <div 
+                        <div
                             style={{
                                 width: "75vw",
                                 maxWidth: "500px",
@@ -339,15 +319,17 @@ export default function CaseStudy() {
                                 gap: "1.5vw"
                             }}
                         >
-                            <div 
+                            <div
                                 id="cSOverview"
                                 style={{
                                     width: "inherit",
                                     maxWidth: "400px"
                                 }}
                             >
-                                <div>overview</div>
-                                {caseStudyState.case.info.overview}
+                                <div
+                                    className="c-s-body-topic"
+                                >overview</div>
+                                <div>{caseStudyState.case.info.overview}</div>
                             </div>
                         </div>
                         <div
@@ -366,17 +348,21 @@ export default function CaseStudy() {
                                     maxWidth: "400px"
                                 }}
                             >
-                                <div>problem</div>
+                                <div
+                                    className="c-s-body-topic"
+                                >problem</div>
                                 {caseStudyState.case.info.problem}
                             </div>
                             <div
                                 id="cSSolution"
                                 style={{
                                     width: "inherit",
-                                    maxWidth: "400px"
+                                    maxWidth: "400px",
                                 }}
                             >
-                                <div>solution</div>
+                                <div
+                                    className="c-s-body-topic"
+                                >solution</div>
                                 {caseStudyState.case.info.solution}
                             </div>
                         </div>
@@ -397,7 +383,9 @@ export default function CaseStudy() {
                                     maxWidth: "400px"
                                 }}
                             >
-                                <div>research</div>
+                                <div
+                                    className="c-s-body-topic"
+                                >research</div>
                                 {caseStudyState.case.info.approach.research}
                             </div>
                             <div
@@ -407,9 +395,20 @@ export default function CaseStudy() {
                                     maxWidth: "400px"
                                 }}
                             >
-                                <div>synthesis</div>
+                                <div
+                                    className="c-s-body-topic"
+                                >synthesis</div>
                                 {caseStudyState.case.info.approach.synthesis}
                             </div>
+                        </div>
+                        <div
+                            style={{
+                                width: "75vw",
+                                maxWidth: "500px",
+                                display: "flex",
+                                flexFlow: "column nowrap",
+                            }}
+                        >
                             <div
                                 id="cSDesign"
                                 style={{
@@ -417,158 +416,253 @@ export default function CaseStudy() {
                                     maxWidth: "400px"
                                 }}
                             >
-                                <div>design</div>
+                                <div
+                                    className="c-s-body-topic"
+                                >design</div>
                                 {caseStudyState.case.info.approach.design}
                             </div>
                         </div>
-                    </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <div
-                        id="cSCloser"
-                        style={{
-                            display: "flex",
-                            flexFlow: "column nowrap",
-                            gap: "1.5vw"
-                        }}
-                    >
                         <div
-                            id="cSDelivery"
                             style={{
-                                width: "90vw",
+                                height: "inherit",
+                                maxHeight: "425px",
+                                width: "75vw",
+                                maxWidth: "500px",
+                                overflowX: "hidden",
+                                display: "flex",
+                                flexFlow: "column nowrap",
+                                gap: "1.5vw"
                             }}
                         >
-                            <div>delivery</div>
-                            <div>
-                                {caseStudyState.case.info.approach.delivery}
+                            <div
+                                style={{
+                                    height: "100%",
+                                    overflowY: "scroll",
+                                }}
+                            >
+                                <div
+                                    id="cSDeliveryTitle"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px"
+                                    }}
+                                >
+                                    <div
+                                        className="c-s-body-topic"
+                                    >delivery</div>
+                                    {caseStudyState.case.info.approach.delivery}
+                                </div>
+                                <div
+                                    id="cSNextStepsContainer"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px",
+                                        //
+                                        flexGrow: "1",
+                                        //
+                                    }}
+                                >
+                                    <div
+                                        id="cSNextStepsTitle"
+                                        className="c-s-body-topic"
+                                        style={{
+                                            paddingLeft: "6.7px",
+                                        }}
+                                    >next steps</div>
+                                    <div
+                                        className="c-s-body"
+                                        style={{
+                                            overflow: "wrap",
+                                        }}
+                                    >
+                                        <div
+                                            id="cSNextStepsWindow"
+                                            style={{
+                                                // height: "100%",
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            <div
+                                                id="cSNextStepsCards"
+                                                style={{
+                                                    boxSizing: "border-box",
+                                                    height: "100%",
+                                                    width: "60vw",
+                                                    maxWidth: "400px",
+                                                    margin: "6px 0vmin",
+                                                    // overflow: "scroll",
+                                                    display: "flex",
+                                                    flexFlow: "column nowrap",
+                                                    justifyContent: "flex-start",
+                                                    gap: "3px",
+                                                }}
+                                            >
+                                                {caseStudyState.case.info.nextSteps.map((i) => (
+                                                    <motion.div
+                                                        id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
+                                                        className="c-s-next-step"
+                                                        style={{
+                                                                boxSizing: "border-box",
+                                                                width: "45vw",
+                                                                maxWidth: "375px",
+                                                            }}
+                                                        >
+                                                        <div
+                                                            style={{
+                                                                boxSizing: "border-box",
+                                                                width: "45vw",
+                                                                maxWidth: "375px",
+                                                            }}
+                                                        >{i}</div>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <br/>
+                </div>
+                <div
+                    id="cSDevicesContainer"
+                    style={{
+                        width: "90vw",
+                        margin: "2vmin",
+                        paddingLeft: "0px",
+                        display: "flex",
+                        flexFlow: "row nowrap",
+                        justifyContent: "center",
+                        alignItems: "flex-end"
+                    }}
+                >
+                    {caseStudyState.case.info.genMedia.images.onDevice.mainDesktop!==null?(
                         <div
-                            id="cSNextStepsContainer"
                             style={{
+                                // width: "12px",
+                                minWidth: "200px",
+                                display: "flex",
+                                justifyContent: "center"
                             }}
                         >
-                            <div>next steps</div>
-                            <div
-                                id="cSNextSteps"
+                            <img
+                                src={caseStudyState.case.info.genMedia.images.onDevice.mainDesktop}
+                                alt="cSDeviceMainDesktop"
+                                key={caseStudyState.case.info.genMedia.images.onDevice.mainDesktop}
+                                id="cSDeviceMainDesktop"
                                 style={{
-                                    width: "90vw",
+                                    zIndex: "0",
+                                    height: "30vmin",
                                     display: "flex",
                                     justifyContent: "flex-start",
                                     alignItems: "flex-start",
                                 }}
-                            >
-                            <div 
-                                id="cSFeauredTechnologies"
-                                style={{
-                                    width: "90vw",
-                                    display: "flex",
-                                    flexFlow: "row wrap",
-                                }}
-                            >
-                                {caseStudyState.case.info.nextSteps.map((i) => (
-                                    <motion.div
-                                        id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
-                                    >
-                                        {i}
-                                    </motion.div>
-                                ))}
-                            </div>
-                            </div>
-                            <br/>
+                            />
                         </div>
+                    ):(null)}
+                    {caseStudyState.case.info.genMedia.images.onDevice.mainTablet!==null?(
                         <div
-                            id="cSDevicesContainer"
                             style={{
-                                width: "90vw",
+                                width: "5vmin",
                                 display: "flex",
-                                flexFlow: "row nowrap",
-                                justifyContent: "center",
-                                alignItems: "flex-end",
-                                // gap: "10vw"
+                                justifyContent: "flex-end"
                             }}
                         >
-                            {caseStudyState.case.info.genMedia.images.onDevice.mainDesktop!==null?(
-                                <div
-                                    style={{
-                                        width: "12vw",
-                                        minWidth: "200px",
-                                        display: "flex",
-                                        justifyContent: "center"
-                                    }}
-                                >
-                                    <img
-                                        src={caseStudyState.case.info.genMedia.images.onDevice.mainDesktop}
-                                        alt="cSDeviceMainDesktop"
-                                        key={caseStudyState.case.info.genMedia.images.onDevice.mainDesktop}
-                                        id="cSDeviceMainDesktop"
-                                        style={{
-                                            zIndex: "",
-                                            height: "30vmin",
-                                            display: "flex",
-                                            justifyContent: "flex-start",
-                                            alignItems: "flex-start",
-                                        }}
-                                    />
-                                </div>
-                            ):(null)}
-                            {caseStudyState.case.info.genMedia.images.onDevice.mainPhone!==null?(
-                                <div
-                                    style={{
-                                        width: "1vw",
-                                        display: "flex",
-                                        justifyContent: "center"
-                                    }}
-                                >
-                                    <img
-                                        src={caseStudyState.case.info.genMedia.images.onDevice.mainPhone}
-                                        alt="cSDeviceMainPhone"
-                                        key={caseStudyState.case.info.genMedia.images.onDevice.mainPhone}
-                                        id="cSDeviceMainPhone"
-                                        style={{
-                                            zIndex: "+20",
-                                            height: "10vmin",
-                                            display: "flex",
-                                            justifyContent: "flex-start",
-                                            alignItems: "flex-start",
-                                            // transform: "translateX(20vw)"
-                                        }}
-                                    />
-                                </div>
-                            ):(null)}
-                            {caseStudyState.case.info.genMedia.images.onDevice.mainTablet!==null?(
-                                <div
-                                    style={{
-                                        width: "5vw",
-                                        minWidth: "150px",
-                                        display: "flex",
-                                        justifyContent: "center"
-                                    }}
-                                >
-                                    <img
-                                        src={caseStudyState.case.info.genMedia.images.onDevice.mainTablet}
-                                        alt="cSDeviceMainTablet"
-                                        key={caseStudyState.case.info.genMedia.images.onDevice.mainTablet}
-                                        id="cSDeviceMainTablet"
-                                        style={{
-                                            zIndex: "+10",
-                                            height: "18vmin",
-                                            display: "flex",
-                                            justifyContent: "flex-start",
-                                            alignItems: "flex-start",
-                                        }}
-                                    />
-                                </div>
-                            ):(null)}
-                            
-                            <br/>
+                            <img
+                                src={caseStudyState.case.info.genMedia.images.onDevice.mainTablet}
+                                alt="cSDeviceMainTablet"
+                                key={caseStudyState.case.info.genMedia.images.onDevice.mainTablet}
+                                id="cSDeviceMainTablet"
+                                style={{
+                                    zIndex: "+10",
+                                    height: "18vmin",
+                                    display: "flex",
+                                    justifyContent: "flex-start",
+                                    alignItems: "flex-start",
+                                }}
+                            />
                         </div>
-                        
+                    ):(null)}
+                    {caseStudyState.case.info.genMedia.images.onDevice.mainPhone!==null?(
+                        <div
+                            style={{
+                                width: "0px",
+                                display: "flex",
+                                justifyContent: "center"
+                            }}
+                        >
+                            <img
+                                src={caseStudyState.case.info.genMedia.images.onDevice.mainPhone}
+                                alt="cSDeviceMainPhone"
+                                key={caseStudyState.case.info.genMedia.images.onDevice.mainPhone}
+                                id="cSDeviceMainPhone"
+                                style={{
+                                    zIndex: "+20",
+                                    height: "10vmin",
+                                    display: "flex",
+                                    justifyContent: "flex-start",
+                                    alignItems: "flex-start",
+                                    transform: "translateX(-13vmin)"
+                                }}
+                            />
+                        </div>
+                    ):(null)}
                 </div>
-            )
+                <div
+                    id="cSLinks"
+                    style={{
+                        width: "90vw",
+                        padding: "2vmin 6vmin",
+                        display: "flex",
+                        flexFlow: "row nowrap",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "2vmin",
+                    }}
+                >
+                    <div id="cSWebsite">
+                        <a
+                            href={caseStudyState.case.info.projectSite}
+                            id="cSWebsiteAnchor"
+                            className="c-s-link"
+                            style={{
+                                textDecoration: "none"
+                            }}
+                        >
+                            VISIT SITE
+                        </a>
+                    </div>
+                    <div id="cSRepo">
+                        <a
+                            href={caseStudyState.case.info.projectRepo}
+                            id="cSRepoAnchor"
+                            className="c-s-link"
+                            style={{
+                                textDecoration: "none"
+                            }}
+                        >
+                            VISIT REPO
+                        </a>
+                    </div>
+                    {caseStudyState.case.info.prototype!==null?(
+                        <div id="cSFigma">
+                            <a
+                                href={caseStudyState.case.info.prototype}
+                                id="cSFigmaAnchor"
+                                className="c-s-link"
+                                style={{
+                                    textDecorations: "none"
+                                }}
+                            >
+                                VISIT FIGMA
+                            </a>
+                        </div>
+                    ):(
+                        null
+                    )}
+                </div>
+            </div>
+        )
     )
     const CSInfo = (
         <motion.div id="caseStudyContainer" 
@@ -579,7 +673,7 @@ export default function CaseStudy() {
             style={{ transition: "1s ease-in-out"}}
             onClick={()=>(console.log(caseStudyState))}
         >
-            {!navState.open?(InfoCard):(null)}
+            {!navState.subcontent.visible?(InfoCard):(null)}
         </motion.div>
     )
 

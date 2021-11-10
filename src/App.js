@@ -31,6 +31,7 @@ export default function App() {
 		},
 		translateY: null,
 		subcontent: {
+			visible: false,
 			open: false,
 			title: null,
 			jsx: null,

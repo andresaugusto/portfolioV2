@@ -171,7 +171,7 @@ export const projects = {
         info: {
             title: "WIP",
             year: "2020",
-            projectType: "Responsive Website",
+            projectType: "Desktop Website",
             projectSite: "https://wip--gallery.herokuapp.com/",
             projectRepo: "https://github.com/4thquarter",
             featuredTechnologies: ["React.js", "Python", "Django"],
@@ -354,7 +354,7 @@ export const projects = {
                 delivery: "Br is deployed and hosted through github and github-pages; media is referred from decentralized sources."
             },
             prototype: null,
-            nextSteps: ["Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring"],
+            nextSteps: ["Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring", "Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring", "Expand home page for more comprehensive collections with titles and other important quick-view aspects", "Optimizations to desktop and widescreen views", "Overall format upgrades and refactoring"],
             feSpotlights: {
                 one: {
                     text: null,
