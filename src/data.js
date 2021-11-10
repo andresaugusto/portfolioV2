@@ -171,7 +171,7 @@ export const projects = {
         info: {
             title: "WIP",
             year: "2020",
-            projectType: "Responsive Website",
+            projectType: "Desktop Website",
             projectSite: "https://wip--gallery.herokuapp.com/",
             projectRepo: "https://github.com/4thquarter",
             featuredTechnologies: ["React.js", "Python", "Django"],
