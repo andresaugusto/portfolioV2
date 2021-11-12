@@ -12,7 +12,7 @@ import { motion } from 'framer-motion'
 //STYLES
 import "../styles/work.css"
 
-
+//FUNC
 export default function ProjectCard( props ) {
 
     //CONSTS
@@ -148,8 +148,8 @@ export default function ProjectCard( props ) {
             id={`${pk}ProjectCard`}
             key={`${pk}ProjectCard`}
             // ref={focusedProjectCard}
-            referencedProjectKey={pk}
-            class="project-card"
+            referencedprojectkey={pk}
+            className="project-card"
             variants={ItemAnimation}
             onMouseEnter={(x)=>(assignFocusedProject(pk))}
             onMouseLeave={(x)=>(unassignFocusedProject(pk))}
@@ -178,13 +178,13 @@ export default function ProjectCard( props ) {
                             id={`${pk}CardMediaVideo`}
                             className="project-card-video"
                             pointerEvents="none"
-                            // class="video-js vjs-16-9"
+                            // className="video-js vjs-16-9"
                             // controls
                             // autoplay loop
                             width="100%"
                             preload="auto"
-                            loop="true"
-                            autoplay="muted"
+                            loop={true}
+                            autoPlay="muted"
                             poster={prj.info.genMedia.images.mainWide}
                             // data-setup="{}"
                             >
@@ -201,7 +201,7 @@ export default function ProjectCard( props ) {
                 <div id={`${pk}CardProjectType`} className="project-card-section-item">{prj.info.projectType}</div>
                 <div id={`${pk}CardFeaturedTechnologies`} className="project-card-section-item" variants={ItemContainerAnimation}>
                     {prj.info.featuredTechnologies.map((i) => (
-                        <motion.div id={`${pk}CardFeaturedTechnology${i}`} className="project-card-featured-technology" variants={ItemAnimation}>
+                        <motion.div id={`${pk}CardFeaturedTechnology${i}`} key={`${pk}CardFeaturedTechnology${i}`} className="project-card-featured-technology" variants={ItemAnimation}>
                             {i}
                         </motion.div>
                     ))}

@@ -3,13 +3,13 @@
     position: fixed;
     height: 100%;
     width: 100vw;
-	padding: 10vmin 0 20vmin 0;
+	padding: 5vh 0 15vh 0;
     overflow-y: scroll;
     overflow-x: fixed;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
 	font-family: "Exo 2", sans-serif;
     /* font-family: 'Vollkorn', serif; */
@@ -41,8 +41,8 @@
 
 #caseStudyInfoCard {
     box-sizing: border-box;
-    width: 95vw;
-    max-width: 1500px;
+    width: 90vw;
+    /* max-width: 1500px; */
 
     display: flex;
     flex-flow: column nowrap;
@@ -140,6 +140,7 @@
 }
 
 .c-s-link {
+	cursor: pointer;
     box-sizing: border-box;
 	padding: 4px 6vmin 6.7px 6vmin;
 	/* border: solid 1px rgba(255, 255, 255, 0.8); */

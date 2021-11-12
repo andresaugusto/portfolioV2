@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 
 import { projects } from "../data"
 
+import Signature from "./subcontent-options/Signature"
+
 import "./styles/case-study.css"
 
 
@@ -12,7 +14,7 @@ import "./styles/case-study.css"
 export default function CaseStudy() {
 
     //HANDLE CONTEXT
-    const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
+    // const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
     const { navState, setNavState } = useContext(NavStateContext)
 
     //HANDLE CASE LOADING
@@ -37,8 +39,6 @@ export default function CaseStudy() {
         }))
     }
 
-
-    
     //GATHER CASE STUDY DATA
     function defineCaseStudy() {
         let ferh = Array.from(window.location.href.toString()).reverse()
@@ -166,11 +166,11 @@ export default function CaseStudy() {
         setTimeout(() => {
             closeNav()
         }, 190)
-        setCaseStudyState((prevState) => ({
-            showInfo: false,
-            projectKey: prevState.project,
-            case: prevState.case
-        }))
+        // setCaseStudyState((prevState) => ({
+        //     showInfo: false,
+        //     projectKey: prevState.project,
+        //     case: prevState.case
+        // }))
         defineCaseStudy()
         setTimeout(() => {
             setNavState((prevState) => ({
@@ -188,7 +188,7 @@ export default function CaseStudy() {
                     jsx: prevState.subcontent.jsx,
                 },
             }))
-        }, 1000)
+        }, 5300)
         setTimeout(() => {
             setCaseStudyState((prevState) => ({
                 showInfo: !navState.subcontent.visible,
@@ -229,15 +229,15 @@ export default function CaseStudy() {
                 variants={ItemAnimation}
                 style={{ transition: "1s ease-in-out"}}
             >
-                <div
+                <div id="cSHeader"
                     style={{
-                        width: "90vw",
+                        width: "100%",
                         display: "flex",
                         justifyContent: "flex-start",
                         alignItems: "flex-start",
                     }}
                 >
-                    <div id="csHeader">
+                    <div id="cSHeaderWrapper">
                         <span id="cSTitle" className="c-s-name">
                             {caseStudyState.case.info.title}
                         </span>
@@ -247,8 +247,7 @@ export default function CaseStudy() {
                         <div id="cSProjectType" className="c-s-subtitle-2">
                             {caseStudyState.case.info.projectType}
                         </div>
-                        <div 
-                            id="cSFeauredTechnologies"
+                        <div id="cSFeauredTechnologies"
                             style={{
                                 width: "90vw",
                                 overflow: "wrap",
@@ -277,171 +276,90 @@ export default function CaseStudy() {
                         </div>
                     </div>
                 </div>
-                <div
-                    id="headlineSection"
+                <div id="cSheadline"
                     className="c-s-subtitle-1"
                     style={{
-                        width: "90vw",
+                        width: "100%",
                         marginTop: "4vmin",
                         display: "flex",
                         justifyContent: "flex-start",
                         alignItems: "flex-start",
                     }}
                 >
-                    <div>
+                    <div id="cSheadlineWrapper">
                         {caseStudyState.case.info.headline}
                     </div>
                 </div>
-                <div
-                    id="csBody"
+                <div id="csBody"
+                    className="c-s-body"
                     style={{
+                        height: "100%",
                         width: "100vw",
-                        overflow: "hidden"
+                        overflow: "hidden",
                     }}
                 >
-                    <div
-                        className="c-s-body"
+                    <div id="csBodyWrapper"
                         style={{
                             height: "100%",
+                            maxHeight: "50vh",
                             overflowX: "scroll",
                             overflowY: "hidden",
                             display: "flex",
                             flexFlow: "row nowrap",
                             gap: "2vw",
-                            padding: "2vmin 15vw 2vmin 5vw"
+                            padding: "2vmax 5vmax 2vmax 5vmax",
                         }}
                     >
-                        <div
+                        <div id="cSBodyColumn1"
                             style={{
+                                maxHeight: "inherit",
                                 width: "75vw",
                                 maxWidth: "500px",
-                                flexFlow: "column nowrap",
-                                gap: "1.5vw"
                             }}
                         >
-                            <div
-                                id="cSOverview"
-                                style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >overview</div>
-                                <div>{caseStudyState.case.info.overview}</div>
+                            <div id="cSBodyColumn1Wrapper"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px",
+                                        height: "100%",
+                                        overflowY: "scroll",
+                                        display: "flex",
+                                        flexFlow: "column nowrap",
+                                        gap: "1.5vw"
+                                    }}
+                                >
+                                    <div id="cSOverview"
+                                        style={{
+                                            width: "inherit",
+                                            maxWidth: "400px"
+                                        }}
+                                    >
+                                        <div
+                                            className="c-s-body-topic"
+                                        >overview</div>
+                                        <div>{caseStudyState.case.info.overview}</div>
+                                    </div>
                             </div>
                         </div>
-                        <div
+                        <div id="cSBodyColumn2"
                             style={{
+                                maxHeight: "inherit",
                                 width: "75vw",
                                 maxWidth: "500px",
-                                display: "flex",
-                                flexFlow: "column nowrap",
-                                gap: "1.5vw"
                             }}
                         >
-                            <div
-                                id="cSProblem"
-                                style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >problem</div>
-                                {caseStudyState.case.info.problem}
-                            </div>
-                            <div
-                                id="cSSolution"
+                            <div id="cSBodyColumn2Wrapper"
                                 style={{
                                     width: "inherit",
                                     maxWidth: "400px",
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >solution</div>
-                                {caseStudyState.case.info.solution}
-                            </div>
-                        </div>
-                        <div
-                            id="cSApproach"
-                            style={{
-                                width: "75vw",
-                                maxWidth: "500px",
-                                display: "flex",
-                                flexFlow: "column nowrap",
-                                gap: "1.5vw"
-                            }}
-                        >
-                            <div
-                                id="cSResearch"
-                                style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >research</div>
-                                {caseStudyState.case.info.approach.research}
-                            </div>
-                            <div
-                                id="cSSynthesis"
-                                style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >synthesis</div>
-                                {caseStudyState.case.info.approach.synthesis}
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                width: "75vw",
-                                maxWidth: "500px",
-                                display: "flex",
-                                flexFlow: "column nowrap",
-                            }}
-                        >
-                            <div
-                                id="cSDesign"
-                                style={{
-                                    width: "inherit",
-                                    maxWidth: "400px"
-                                }}
-                            >
-                                <div
-                                    className="c-s-body-topic"
-                                >design</div>
-                                {caseStudyState.case.info.approach.design}
-                            </div>
-                        </div>
-                        <div
-                            style={{
-                                height: "inherit",
-                                maxHeight: "425px",
-                                width: "75vw",
-                                maxWidth: "500px",
-                                overflowX: "hidden",
-                                display: "flex",
-                                flexFlow: "column nowrap",
-                                gap: "1.5vw"
-                            }}
-                        >
-                            <div
-                                style={{
                                     height: "100%",
                                     overflowY: "scroll",
+                                    display: "flex",
+                                    flexFlow: "column nowrap",
+                                    gap: "1.5vw"
                                 }}
                             >
-                                <div
-                                    id="cSDeliveryTitle"
+                                <div id="cSProblem"
                                     style={{
                                         width: "inherit",
                                         maxWidth: "400px"
@@ -449,74 +367,143 @@ export default function CaseStudy() {
                                 >
                                     <div
                                         className="c-s-body-topic"
-                                    >delivery</div>
-                                    {caseStudyState.case.info.approach.delivery}
+                                    >problem</div>
+                                    {caseStudyState.case.info.problem}
                                 </div>
-                                <div
-                                    id="cSNextStepsContainer"
+                                <div id="cSSolution"
                                     style={{
                                         width: "inherit",
                                         maxWidth: "400px",
-                                        //
-                                        flexGrow: "1",
-                                        //
                                     }}
                                 >
                                     <div
-                                        id="cSNextStepsTitle"
                                         className="c-s-body-topic"
-                                        style={{
-                                            paddingLeft: "6.7px",
-                                        }}
-                                    >next steps</div>
+                                    >solution</div>
+                                    {caseStudyState.case.info.solution}
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cSBodyColumn3"
+                            style={{
+                                maxHeight: "inherit",
+                                width: "75vw",
+                                maxWidth: "500px",
+                            }}
+                        >
+                            <div id="cSBodyColumn3Wrapper"
+                                style={{
+                                    width: "inherit",
+                                    maxWidth: "400px",
+                                    height: "100%",
+                                    overflowY: "scroll",
+                                    display: "flex",
+                                    flexFlow: "column nowrap",
+                                    gap: "1.5vw"
+                                }}>
+                                <div id="cSResearchContainer"
+                                >
                                     <div
-                                        className="c-s-body"
-                                        style={{
-                                            overflow: "wrap",
-                                        }}
+                                        className="c-s-body-topic"
+                                    >research</div>
+                                    {caseStudyState.case.info.approach.research}
+                                </div>
+                                <div id="cSSynthesisContainer"
+                                >
+                                    <div
+                                        className="c-s-body-topic"
+                                    >synthesis</div>
+                                    {caseStudyState.case.info.approach.synthesis}
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cSBodyColumn4"
+                            style={{
+                                maxHeight: "inherit",
+                                width: "75vw",
+                                maxWidth: "500px",
+                            }}
+                        >
+                            <div id="cSBodyColumn4Wrapper"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px",
+                                        height: "100%",
+                                        overflowY: "scroll",
+                                        display: "flex",
+                                        flexFlow: "column nowrap",
+                                        gap: "1.5vw"
+                                    }}
+                                >
+                                <div id="cSDesign"
+                                    style={{
+                                        width: "inherit",
+                                        maxWidth: "400px"
+                                    }}
+                                >
+                                    <div
+                                        className="c-s-body-topic"
+                                    >design</div>
+                                    {caseStudyState.case.info.approach.design}
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cSBodyColumn5"
+                            style={{
+                                maxHeight: "inherit",
+                                width: "75vw",
+                                maxWidth: "500px",
+                            }}
+                        >
+                            <div id="cSBodyColumn5Wrapper"
+                                style={{
+                                    width: "inherit",
+                                    maxWidth: "400px",
+                                    height: "100%",
+                                    overflowY: "scroll",
+                                    display: "flex",
+                                    flexFlow: "column nowrap",
+                                    gap: "1.5vw"
+                                }}
+                            >
+                                <div id="cSDeliveryContainer">
+                                    <div id="cSDeliveryTitle"
+                                        className="c-s-body-topic"
+                                    >delivery</div>
+                                    {caseStudyState.case.info.approach.delivery}
+                                </div>
+                                <div id="cSNextStepsContainer"
+                                    style={{
+                                        flexGrow: "1",
+                                    }}
+                                >
+                                    <div id="cSNextStepsTitle"
+                                        className="c-s-body-topic"
+                                        // style={{
+                                        //     paddingLeft: "6.7px",
+                                        // }}
+                                    >next steps</div>
+                                    <div id="cSNextStepsWindow"
                                     >
-                                        <div
-                                            id="cSNextStepsWindow"
+                                        <div id="cSNextStepsCards"
                                             style={{
-                                                // height: "100%",
-                                                overflow: "hidden",
+                                                boxSizing: "border-box",
+                                                height: "100%",
+                                                width: "100%",
+                                                margin: "6px 0vmin",
+                                                display: "flex",
+                                                flexFlow: "column nowrap",
+                                                justifyContent: "flex-start",
+                                                gap: "3px",
                                             }}
                                         >
-                                            <div
-                                                id="cSNextStepsCards"
-                                                style={{
-                                                    boxSizing: "border-box",
-                                                    height: "100%",
-                                                    width: "60vw",
-                                                    maxWidth: "400px",
-                                                    margin: "6px 0vmin",
-                                                    // overflow: "scroll",
-                                                    display: "flex",
-                                                    flexFlow: "column nowrap",
-                                                    justifyContent: "flex-start",
-                                                    gap: "3px",
-                                                }}
-                                            >
-                                                {caseStudyState.case.info.nextSteps.map((i) => (
-                                                    <motion.div
-                                                        id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
-                                                        className="c-s-next-step"
-                                                        style={{
-                                                                boxSizing: "border-box",
-                                                                width: "45vw",
-                                                                maxWidth: "375px",
-                                                            }}
-                                                        >
-                                                        <div
-                                                            style={{
-                                                                boxSizing: "border-box",
-                                                                width: "45vw",
-                                                                maxWidth: "375px",
-                                                            }}
-                                                        >{i}</div>
-                                                    </motion.div>
-                                                ))}
-                                            </div>
+                                            {caseStudyState.case.info.nextSteps.map((i) => (
+                                                <motion.div
+                                                    id={`cSnextStep${caseStudyState.case.info.nextSteps.indexOf(i)}`}
+                                                    className="c-s-next-step"
+                                                >
+                                                    <div>{i}</div>
+                                                </motion.div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -524,8 +511,7 @@ export default function CaseStudy() {
                         </div>
                     </div>
                 </div>
-                <div
-                    id="cSDevicesContainer"
+                <div id="cSDevicesContainer"
                     style={{
                         width: "90vw",
                         margin: "2vmin",
@@ -539,8 +525,8 @@ export default function CaseStudy() {
                     {caseStudyState.case.info.genMedia.images.onDevice.mainDesktop!==null?(
                         <div
                             style={{
-                                // width: "12px",
-                                minWidth: "200px",
+                                width: "64vmin",
+                                // minWidth: "200px",
                                 display: "flex",
                                 justifyContent: "center"
                             }}
@@ -552,7 +538,7 @@ export default function CaseStudy() {
                                 id="cSDeviceMainDesktop"
                                 style={{
                                     zIndex: "0",
-                                    height: "30vmin",
+                                    height: "50vmin",
                                     display: "flex",
                                     justifyContent: "flex-start",
                                     alignItems: "flex-start",
@@ -575,7 +561,7 @@ export default function CaseStudy() {
                                 id="cSDeviceMainTablet"
                                 style={{
                                     zIndex: "+10",
-                                    height: "18vmin",
+                                    height: "28vmin",
                                     display: "flex",
                                     justifyContent: "flex-start",
                                     alignItems: "flex-start",
@@ -598,20 +584,18 @@ export default function CaseStudy() {
                                 id="cSDeviceMainPhone"
                                 style={{
                                     zIndex: "+20",
-                                    height: "10vmin",
+                                    height: "15vmin",
                                     display: "flex",
                                     justifyContent: "flex-start",
                                     alignItems: "flex-start",
-                                    transform: "translateX(-13vmin)"
+                                    transform: "translateX(-19vmin)"
                                 }}
                             />
                         </div>
                     ):(null)}
                 </div>
-                <div
-                    id="cSLinks"
+                <div id="cSLinks"
                     style={{
-                        width: "90vw",
                         padding: "2vmin 6vmin",
                         display: "flex",
                         flexFlow: "row nowrap",
@@ -661,6 +645,7 @@ export default function CaseStudy() {
                         null
                     )}
                 </div>
+                <Signature />
             </div>
         )
     )
@@ -673,7 +658,8 @@ export default function CaseStudy() {
             style={{ transition: "1s ease-in-out"}}
             onClick={()=>(console.log(caseStudyState))}
         >
-            {!navState.subcontent.visible?(InfoCard):(null)}
+            {/* {!navState.subcontent.visible?(InfoCard):(null)} */}
+            {InfoCard}
         </motion.div>
     )
 

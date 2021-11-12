@@ -7,21 +7,21 @@
 }
 
 #aboutContent {
+    width: 100%;
+    
 	box-sizing: border-box;
 	padding: 0 5vmin;
 	
 	display: flex;
-	column-gap: 5vw;
-	row-gap: 7vmin;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
 	justify-content: center;
-	align-content: stretch;
+	align-items: center;
 	
 	padding-top: 19px;
 	padding-bottom: 9vh;
 	/* width: 100%; */
 	/* max-width: 1500px; */
-	/* border: solid 2px rgba(254, 238, 210, 10); */
+	/* border: solid 2px rgba(254, 238, 210, 1); */
 	border: solid 1px rgba(255, 255, 255, 0.8);
 
 	box-shadow: 
@@ -40,17 +40,28 @@
 		inset 0 0px 1.5px 0 rgba(254, 238, 210, 0.15),
         inset 0 0px 1px 0 rgba(254, 238, 210, .35)
 		/* inset 0 0px 0px 0 rgba(254, 238, 210, 0.15); */
-	;
+	;}
+
+#aboutWrapper {
+	box-sizing: border-box;
+	padding: 0 5vmin;
+	
+	display: flex;
+	column-gap: 5vw;
+	/* row-gap: 7vmin; */
+	flex-flow: row wrap;
+	justify-content: center;
+	align-content: stretch;
 }
 
 .about-section {
-	padding: 3vh 3vmin;
+	max-width: 888px;
+	padding: 3vh 3vmin 0 3vmin;
 	box-sizing: border-box;
+
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: stretch;
-
-	max-width: 888px;
 
 	/* font-size: 1.1vmin; */
 	font-size: 14px;
@@ -74,25 +85,6 @@
 	text-transform: uppercase;
 }
 
-.about-section-body {
-}
-
-/* #bioSection {
-	text-shadow: 
-		0 0px 19px 0 white,
-		0 0px 18px 0 white,
-		0 0px 17px 0 white,
-		0 0px 16px 0 white,
-		0 0px 15px 0 white,
-		0 0px 10px 0 white,
-		0 0px 5px 0 white,
-        0 0px 4px 0 white,
-        0 0px 3px 0 white,
-        0 0px 2px 0 white,
-        0 0px 1px 0 white,
-        0 0px 0px 0 white
-	;
-} */
 #bioTextBody {
 	text-indent: 6vmin;
 }
@@ -107,18 +99,13 @@
 	text-indent: 0px;
 }
 
-#toolkitSection {
-}
-
 #toolkitItems {
-	/* margin: 2vh; */
 	height: 100%;
 	padding: 19px 0 46px 0;
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	justify-content: stretch;
 	align-content: stretch;
-	flex-flow: row wrap;
 }
 
 .tool-card {

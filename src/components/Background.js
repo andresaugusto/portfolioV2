@@ -19,8 +19,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["aa"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -35,8 +35,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["avtc"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -51,8 +51,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["wip"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -67,8 +67,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["fire"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -83,8 +83,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["br"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -99,8 +99,8 @@ export default function Background ( props ) {
     //         <video
     //             id={`BackgroundMediaVideo`}
     //             preload="true"
-    //             loop="true"
-    //             autoPlay="muted"
+    //             loop={true}
+    //             autoPlay={true}
     //             poster={projects["simon"].info.genMedia.images.mainWide}
     //             style={{
     //                 minWidth: "100vw",
@@ -140,8 +140,8 @@ export default function Background ( props ) {
     //             <video
     //                 id={`BackgroundMediaVideo`}
     //                 preload="true"
-    //                 loop="true"
-    //                 autoPlay="muted"
+    //                 loop={true}
+    //                 autoPlay={true}
     //                 poster={props.focusedProject.genMedia.images.mainWide}
     //                 style={{
     //                     minWidth: "100vw",
@@ -226,8 +226,8 @@ export default function Background ( props ) {
                                 key={props.focusedProject.projectKey+"MainWide"}
                                 id={`backgroundMediaVideo`}
                                 preload="true"
-                                loop="true"
-                                autoPlay="muted"
+                                loop={true}
+                                autoPlay={true}
                                 poster={props.focusedProject.genMedia.videos.mainWide1080pFiltered.poster}
                                 style={{
                                     minHeight: "110vh",
@@ -251,8 +251,8 @@ export default function Background ( props ) {
                         <video
                             id={`BackgroundMediaVideo`}
                             preload="true"
-                            loop="true"
-                            autoPlay="muted"
+                            loop={true}
+                            autoPlay={true}
                             poster={currentMovie.moviePoster}
                             style={{
                                 minWidth: "100vw",
