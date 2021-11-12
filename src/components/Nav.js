@@ -48,7 +48,7 @@ export default function Nav() {
 					rotateY: null,
 				},
 				jsx: (
-					<svg viewBox="0 0 37 22">
+					<svg viewBox="0 0 37 22" style={{height: "100%", width: "100%"}}>
 						<line
 							x1="6.55671e-08"
 							y1="21.25"
@@ -241,14 +241,14 @@ export default function Nav() {
 			jsx: (
 				<Link key="featuredGallery" to="/featured">
 					<svg
-						id="aomLogoNavButton"
+						// id="aomLogoNavButton"
 						version="1.1"
 						x="0px"
 						y="0px"
 						// width="720px"
 						// height="864px"
 						viewBox="0 0 720 864"
-						enable-background="new 0 0 720 864"
+						enableBackground="new 0 0 720 864"
 						pointerEvents="visiblePainted"
 					>
 						<g id="_x30_">
@@ -317,6 +317,7 @@ export default function Nav() {
 				navLinks: prevState.navLinks,
 				translateY: "translateY(0vh)",
 				subcontent: {
+					visible: !navState.subcontent.visible,
 					open: !navState.subcontent.open,
 					title: prevState.subcontent.title,
 					jsx: prevState.subcontent.jsx,
@@ -328,6 +329,7 @@ export default function Nav() {
 				navLinks: prevState.navLinks,
 				translateY: null,
 				subcontent: {
+					visible: !navState.subcontent.visible,
 					open: !navState.subcontent.open,
 					title: prevState.subcontent.title,
 					jsx: prevState.subcontent.jsx,
@@ -452,66 +454,70 @@ export default function Nav() {
 
 	//RETURN
 	return (
-		<motion.div
-			id="navScreen"
-            initial="hidden"
-            animate="visible"
-		>
-			<div
-				id="navBar"
-				style={{
-					transform: navState.translateY,
-				}}
+		navState.isShowing? (
+			<motion.div
+				id="navScreen"
+						initial="hidden"
+						animate="visible"
 			>
-				<div id="menuButtonContainer">
-					{navState.navLinks.featuredGallery? (
-						<motion.div id="featuredGalleryButton" variants={FeaturedGalleryButtonAnimation} exit={FeaturedGalleryButtonAnimation.exit} style={{transition: "ease-out 1s"}}>
-							{navButtonOptions.featuredGallery.jsx}
-						</motion.div>
-					) : ( null )}
-					{navState.isShowing? (
-						<motion.div id="menuButton" className="button" onClick={toggleNav} variants={MenuButtonAnimation} style={{transition: "ease-out 0.05s"}}>
-							{!navState.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
-							{navState.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
-						</motion.div>
-					) : ( null )}
+				<div
+					id="navBar"
+					style={{
+						transform: navState.translateY,
+					}}
+				>
+					<div id="navButtonsContainer">
+						<div id="menuButtonContainer">
+							{navState.navLinks.featuredGallery? (
+								<motion.div id="featuredGalleryButton" variants={FeaturedGalleryButtonAnimation} exit={FeaturedGalleryButtonAnimation.exit} style={{transition: "ease-out 1s"}}>
+									{navButtonOptions.featuredGallery.jsx}
+								</motion.div>
+							) : ( null )}
+							{navState.isShowing? (
+								<motion.div id="menuButton" className="button" onClick={toggleNav} variants={MenuButtonAnimation} style={{transition: "ease-out 0.05s"}}>
+									{!navState.open?navButtonOptions.menuButton.menuIsClosed.jsx:null}
+									{navState.open?navButtonOptions.menuButton.menuIsOpen.jsx:null}
+								</motion.div>
+							) : ( null )}
+						</div>
+						<div id="navSubcontentButtonsContainer">
+							<div
+								id="workButton"
+								className="button"
+								subcontent="work"
+								onClick={(x) =>
+									toggleSubcontent(x.target.attributes.subcontent.value)
+								}
+							>
+								work
+							</div>
+							<div
+								id="contactButton"
+								className="button"
+								subcontent="contact"
+								onClick={(x) =>
+									toggleSubcontent(x.target.attributes.subcontent.value)
+								}
+							>
+								contact
+							</div>
+							<div
+								id="aboutButton"
+								className="button"
+								subcontent="about"
+								onClick={(x) =>
+									toggleSubcontent(x.target.attributes.subcontent.value)
+								}
+							>
+								about
+							</div>
+						</div>
+					</div>
+					{(navState.subcontent.open)&&(navState.subcontent.title==="work") ? navSubcontentOptions.work.jsx : null}
+					{(navState.subcontent.open)&&(navState.subcontent.title==="contact") ? navSubcontentOptions.contact.jsx : null}
+					{(navState.subcontent.open)&&(navState.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
 				</div>
-				<div id="navButtonsContainer">
-					<div
-						id="workButton"
-						className="button"
-						subcontent="work"
-						onClick={(x) =>
-							toggleSubcontent(x.target.attributes.subcontent.value)
-						}
-					>
-						 work
-					</div>
-					<div
-						id="contactButton"
-						className="button"
-						subcontent="contact"
-						onClick={(x) =>
-							toggleSubcontent(x.target.attributes.subcontent.value)
-						}
-					>
-						 contact
-					</div>
-					<div
-						id="aboutButton"
-						className="button"
-						subcontent="about"
-						onClick={(x) =>
-							toggleSubcontent(x.target.attributes.subcontent.value)
-						}
-					>
-						 about
-					</div>
-				</div>
-				{(navState.subcontent.open)&&(navState.subcontent.title==="work") ? navSubcontentOptions.work.jsx : null}
-				{(navState.subcontent.open)&&(navState.subcontent.title==="contact") ? navSubcontentOptions.contact.jsx : null}
-				{(navState.subcontent.open)&&(navState.subcontent.title==="about") ? navSubcontentOptions.about.jsx : null}
-			</div>
-		</motion.div>
+			</motion.div>
+		):(null)
 	)
 }

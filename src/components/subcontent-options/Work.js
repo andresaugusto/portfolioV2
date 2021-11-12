@@ -5,6 +5,7 @@ import { projects } from "../../data"
 
 //COMPS
 import ProjectCard from "./ProjectCard"
+import Signature from "../subcontent-options/Signature"
 
 //STYLES
 import "../styles/work.css"
@@ -44,17 +45,19 @@ export default function Work() {
             exit="exit"
         >
             <div id="workContent">
-                <motion.div id="projectsSection" class="work-section" variants={ItemContainerAnimation}>
-                    <motion.div id="projectsSectionTitle" class="work-section-title" variants={ItemAnimation}>web apps</motion.div>
+                <motion.div id="projectsSection" className="work-section" variants={ItemContainerAnimation}>
+                    <motion.div id="projectsSectionTitle" className="work-section-title" variants={ItemAnimation}>web apps</motion.div>
                     <motion.div id="projectsSectionBody" variants={ItemContainerAnimation}>
                         {projects.projectKeys.map((i) => (
-                            <ProjectCard 
+                            <ProjectCard id={`projectCard${i}`}
+                                key={`projectCard${i}`}
                                 project={projects[i]} 
                                 projectKey={i}
                             />
                         ))}
                     </motion.div>
                 </motion.div>
+                <Signature />
             </div>
         </motion.div>
     )

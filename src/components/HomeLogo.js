@@ -79,55 +79,6 @@ export default function HomeLogo() {
     //HANDLE CONTEXT
     const { setFocusedProject } = useContext(FocusedProjectContext)
     const { setNavState } = useContext(NavStateContext)
-    useEffect(() => {
-        setTimeout(() => {
-            closeNav()
-        }, 190)
-        unassignFocusedProject()
-        setNavState((prevState) => ({
-            isShowing: prevState.isShowing,
-            open: prevState.open,
-            navLinks: prevState.navLinks,
-            translateY: prevState.translateY,
-            subcontent: {
-                visible: prevState.subcontent.visible,
-                open: prevState.subcontent.open,
-                title: prevState.subcontent.title,
-                jsx: prevState.subcontent.jsx,
-            },
-        }))
-        setTimeout(() => {
-            setNavState((prevState) => ({
-                isShowing: prevState.isShowing,
-                open: prevState.open,
-                navLinks: {
-                    featuredGallery: false,
-                    caseStudyInfoCard: prevState.navLinks.caseStudyInfoCard,
-                },
-                translateY: prevState.translateY,
-                subcontent: {
-                    visible: prevState.subcontent.visible,
-                    open: prevState.subcontent.open,
-                    title: prevState.subcontent.title,
-                    jsx: prevState.subcontent.jsx,
-                },
-            }))
-        }, 150)
-        setTimeout(() => {
-            setNavState((prevState) => ({
-                isShowing: true,
-                open: prevState.open,
-                navLinks: prevState.navLinks,
-                translateY: prevState.translateY,
-                subcontent: {
-                    visible: prevState.subcontent.visible,
-                    open: prevState.subcontent.open,
-                    title: prevState.subcontent.title,
-                    jsx: prevState.subcontent.jsx,
-                },
-            }))
-        }, 3500)
-    }, [window.location.href])
     function assignFocusedProject(pk) {
         setFocusedProject((prevState) => ({
             projectKey: pk,
@@ -367,7 +318,7 @@ export default function HomeLogo() {
     //HANDLE NAV
     function closeNav() {
         setNavState((prevState) => ({
-            isShowing: true,
+            isShowing: prevState.isShowing,
             open: false,
             navLinks: prevState.navLinks,
             translateY: null,
@@ -379,6 +330,58 @@ export default function HomeLogo() {
             },
         }))
     }
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            closeNav()
+        }, 190)
+        unassignFocusedProject()
+        setNavState((prevState) => ({
+            // isShowing: prevState.isShowing,
+            isShowing: false,
+            open: prevState.open,
+            navLinks: prevState.navLinks,
+            translateY: prevState.translateY,
+            subcontent: {
+                visible: prevState.subcontent.visible,
+                open: prevState.subcontent.open,
+                title: prevState.subcontent.title,
+                jsx: prevState.subcontent.jsx,
+            },
+        }))
+        setTimeout(() => {
+            setNavState((prevState) => ({
+                isShowing: prevState.isShowing,
+                open: prevState.open,
+                navLinks: {
+                    featuredGallery: false,
+                    caseStudyInfoCard: prevState.navLinks.caseStudyInfoCard,
+                },
+                translateY: prevState.translateY,
+                subcontent: {
+                    visible: prevState.subcontent.visible,
+                    open: prevState.subcontent.open,
+                    title: prevState.subcontent.title,
+                    jsx: prevState.subcontent.jsx,
+                },
+            }))
+        }, 150)
+        setTimeout(() => {
+            setNavState((prevState) => ({
+                isShowing: true,
+                open: prevState.open,
+                navLinks: prevState.navLinks,
+                translateY: prevState.translateY,
+                subcontent: {
+                    visible: prevState.subcontent.visible,
+                    open: prevState.subcontent.open,
+                    title: prevState.subcontent.title,
+                    jsx: prevState.subcontent.jsx,
+                },
+            }))
+        }, 4000)
+    }, [window.location.href])
 
     //RETURN
 	return (
@@ -415,10 +418,10 @@ export default function HomeLogo() {
                                 <path
                                     id="O"
                                     className="logo-buttons"
-                                    referencedProjectKey="aa"
-                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                    referencedprojectkey="aa"
+                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedprojectkey.value))}
                                     onMouseLeave={()=>(unassignFocusedProject(null))}
-                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
+                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedprojectkey.value)}
                                     d="M259.279,543.898c0-28.795,23.344-52.139,52.139-52.139c28.796,0,52.139,23.344,52.139,52.139c0,28.796-23.343,52.139-52.139,52.139C282.623,596.037,259.279,572.694,259.279,543.898L259.279,543.898z"
                                     style={{
                                         strokeWidth: ActiveButtonStates["O"].strokeWidth,
@@ -432,10 +435,10 @@ export default function HomeLogo() {
                                 <path
                                     id="AO"
                                     className="logo-buttons"
-                                    referencedProjectKey="avtc"
-                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                    referencedprojectkey="avtc"
+                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedprojectkey.value))}
                                     onMouseLeave={()=>(unassignFocusedProject(null))}
-                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
+                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedprojectkey.value)}
                                     d="M363.557,543.898c0,28.796-23.344,52.139-52.139,52.139c-28.796,0-52.139-23.343-52.139-52.139c0-28.795,23.343-52.139,52.139-52.139C340.213,491.76,363.557,515.104,363.557,543.898L363.557,543.898zM207.14,215.823v432.353h305.719L207.14,215.823z"
                                     style={{
                                         strokeWidth: ActiveButtonStates["AO"].strokeWidth,
@@ -449,10 +452,10 @@ export default function HomeLogo() {
                                 <path
                                     id="M"
                                     className="logo-buttons"
-                                    referencedProjectKey="wip"
-                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedProjectKey.value))}
+                                    referencedprojectkey="wip"
+                                    onMouseEnter={(x)=>(assignFocusedProject(x.target.attributes.referencedprojectkey.value))}
                                     onMouseLeave={()=>(unassignFocusedProject(null))}
-                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedProjectKey.value)}
+                                    onClick={(x) => handleChosenProject(x.target.attributes.referencedprojectkey.value)}
                                     d="M380.664,431.123 435.105,342.457 500.904,601.17z"
                                     style={{
                                         strokeWidth: ActiveButtonStates["M"].strokeWidth,

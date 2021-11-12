@@ -1,6 +1,6 @@
 #navScreen {
     z-index: +1000;
-	pointer-events: auto;
+	pointer-events: none;
 
 	
 	position: fixed;
@@ -16,6 +16,11 @@
 	font-weight: normal;
 	text-transform: uppercase;
 	transition: ease-in-out 2s;
+}
+
+#featuredGalleryButton a {
+	box-shadow: none;
+	text-decoration: none;
 }
 
 #navBar {
@@ -43,14 +48,32 @@
 	transition: ease-in-out 2s;
 
 	/* transform: translateY(50%); */
-	transform: translateY(7vh);
+	transform: translateY(10vh);
 	transition: ease-in 0.3s;
+	box-shadow:
+		0 0px 50px 0 rgba(154, 138, 110, 0.15),
+		0 0px 25px 0 rgba(154, 138, 110, 0.15),
+		0 0px 23px 0 rgba(254, 238, 210, .35),
+		0 0px 12.5px 0 rgba(154, 138, 110, 0.15),
+        0 0px 15px 0 rgba(254, 238, 210, .35),
+		0 0px 6.15px 0 rgba(154, 138, 110, 0.15),
+        0 0px 6px 0 rgba(254, 238, 210, .35),
+        0 0px 4px 0 rgba(254, 238, 210, .35),
+		0 0px 1.5px 0 rgba(154, 138, 110, 0.15),
+        0 0px 1px 0 rgba(254, 238, 210, .35);
+}
+
+#navButtonsContainer {
+	width: 100%;
+	height: 100%;
+    backdrop-filter: blur(5px) saturate(0%) brightness(60%);
 }
 
 #menuButtonContainer {
+	/* cursor: pointer; */
 	box-sizing: border-box;
 	height: 10vh;
-	max-height: 110px;
+	/* max-height: 110px; */
 	width: 100vw;
 	display: flex;
 	flex-flow: row nowrap;
@@ -63,6 +86,7 @@
 }
 
 #menuButton {
+	cursor: pointer;
 	box-sizing: border-box;
 	width: 30px;
 	max-width: 5vh;
@@ -71,31 +95,27 @@
 	transition: ease-in 0.3s;
 }
 
+
 #featuredGalleryButton {
 	margin: 0 3.8vw;
 	box-sizing: border-box;
 	width: 67px;
 	max-width: 10vh;
 	overflow: clip;
-	/* transition: ease-in 0.3s; */
+	transition: ease-in 0.3s;
 }
 
-#aomLogoNavButton {
-	/* height: 50vmin; */
-	
-	/* max-width: 720px;
-	max-height: 864px; */
-	/* max-width: 720px;
-	max-height: 60vh; */
+#featuredGalleryButton:hover {
+	cursor: pointer;
 }
 
-#navButtonsContainer {
+#navSubcontentButtonsContainer {
 	/* border: solid 2px olive;
     background-color: rgba(128, 128, 0, 0.5); */
 
 	box-sizing: border-box;
 	height: 10vh;
-	max-height: 80px;
+	/* max-height: 80px; */
 	width: 100vw;
 	display: flex;
 
@@ -176,10 +196,10 @@
 
 @media (max-width: 500px) {
 	#menuButtonContainer {
-		max-height: 70px;
+		/* max-height: 70px; */
 	}
 	#navButtonsContainer {
-		max-height: 50px;
+		/* max-height: 50px; */
 	}
 	#menuButton {
 		width: 4.5vmin;
@@ -196,10 +216,10 @@
 }
 @media (max-height: 500px) {
 	#menuButtonContainer{
-		max-height: 20px;
+		/* max-height: 20px; */
 	}
 	#navButtonsContainer {
-		max-height: 40px;
+		/* max-height: 40px; */
 	}
 	#menuButton {
 		width: 4.5vmin;

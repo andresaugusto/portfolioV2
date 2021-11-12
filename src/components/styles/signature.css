@@ -1,0 +1,34 @@
+#signatureContainer { 
+	max-width: 888px;
+	margin-top: 15vh;
+	padding-left: 1.11px;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: center;
+    align-items: center;
+
+	/* font-size: 1.1vmin; */
+	font-size: 14px;
+	line-height: 35px;
+	font-weight: 500;
+	letter-spacing: 1.11px;
+	color: rgba(255, 255, 255, .25);
+	text-transform: none;
+	text-align: justify;
+	transition: ease-in-out .15s;
+}
+
+#signatureContainer:hover { 
+	color: rgba(255, 255, 255, .9);
+}
+
+@media (max-width: 500px) {
+    #signaureContainer {
+		font-size: 3vmin;
+	}
+}@media (max-height: 500px) {
+    #signaureContainer {
+		font-size: 3vmin;
+	}
+}
