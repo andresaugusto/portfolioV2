@@ -18,7 +18,7 @@ export const projects = {
             approach: {
                 research: "A curated collection of web developer portfolios were studied, the likes of recent bootcamp grads all the way to established professionals like Bruno Simon and his axonometric driving experience.",
                 synthesis: "A person will begin to pay less attention to the medium as the interaction progresses positively, also causing the experience to rise immensely in value. The objective becomes a platform that can interact with the user and inform deeper without loosing a sense of place.",
-                design: "An opening ceremony, inviting and responsive 'onMouseMove' animation for an orbiting SVG, and a menu that sorts topics and data into levels of detail, all while preserving 'white space' (or 'black mirror-esque space') that features item prominence and allows background media shows to transform the experience in to one that is project-specific.",
+                design: "An opening ceremony, inviting and responsive 'onMouseMove' animation for an orbiting SVG, and a menu that sorts topics and data into levels of detail, all while preserving 'white space' (or 'black mirror-esque space') that features item prominence and allows background media shows to transform the experience into one that is project-specific.",
                 delivery: "aA is deployed and hosted through github and github-pages; an AWS S3 Bucket used for media referencing."
             },
             prototype: null,
@@ -56,8 +56,8 @@ export const projects = {
                     mainWide: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-wide.png",
                     onDevice: {
                         mainDesktop: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-desktop.png",
-                        mainTablet: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-tablet.png",
-                        mainPhone: "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-ss-main-phone.png"
+                        mainTablet: null,
+                        mainPhone: null
                     }
                 },
                 videos: {
