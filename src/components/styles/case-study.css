@@ -20,10 +20,8 @@
 	/* text-transform: uppercase; */
 	transition: ease-in-out 2s;
 
-	background-color: rgba(76, 79, 77, 0.7);
+	/* background-color: rgba(76, 79, 77, 0.7);
 	box-shadow: 
-		/* inset 90px 0 70px 10px rgba(159, 166, 161, 0.15),
-        inset -90px 0 70px 10px rgba(159, 166, 161, 0.15), */
 		inset 0 0px 50px 0 rgba(159, 166, 161, 0.15),
 		inset 0 0px 25px 0 rgba(159, 166, 161, 0.15),
 		inset 0 0px 23px 0 rgba(220, 230, 223, .35),
@@ -31,12 +29,13 @@
         inset 0 0px 15px 0 rgba(220, 230, 223, .35),
 		inset 0 0px 6.15px 0 rgba(159, 166, 161, 0.15),
         inset 0 0px 6px 0 rgba(220, 230, 223, .35),
-		/* inset 0 0px 3px 0 rgba(159, 166, 161, 0.15), */
         inset 0 0px 4px 0 rgba(220, 230, 223, .35),
 		inset 0 0px 1.5px 0 rgba(159, 166, 161, 0.15),
-        inset 0 0px 1px 0 rgba(220, 230, 223, .35)
-		/* inset 0 0px 0px 0 rgba(159, 166, 161, 0.15); */;
-    backdrop-filter: blur(5px);
+        inset 0 0px 1px 0 rgba(220, 230, 223, .35); */
+
+	
+    backdrop-filter: blur(20px) brightness(30%);
+	-webkit-backdrop-filter: blur(20px) brightness(30%);
 }
 
 #caseStudyInfoCard {

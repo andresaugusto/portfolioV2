@@ -511,6 +511,68 @@ export default function CaseStudy() {
                         </div>
                     </div>
                 </div>
+                <br/>
+                <div id="cSLinks"
+                    style={{
+                        padding: "2vmin 6vmin",
+                        display: "flex",
+                        flexFlow: "row nowrap",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        gap: "2vmin",
+                    }}
+                >
+                    <div id="cSWebsite">
+                        <a
+                            href={caseStudyState.case.info.projectSite}
+                            id="cSWebsiteAnchor"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="c-s-link"
+                            style={{
+                                textDecoration: "none"
+                            }}
+                        >
+                            VISIT SITE
+                        </a>
+                    </div>
+                    <div id="cSRepo">
+                        <a
+                            href={caseStudyState.case.info.projectRepo}
+                            id="cSRepoAnchor"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="c-s-link"
+                            style={{
+                                textDecoration: "none"
+                            }}
+                        >
+                            VISIT REPO
+                        </a>
+                    </div>
+                    {caseStudyState.case.info.prototype!==null?(
+                        <div id="cSFigma">
+                            <a
+                                href={caseStudyState.case.info.prototype}
+                                id="cSFigmaAnchor"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="c-s-link"
+                                style={{
+                                    textDecorations: "none"
+                                }}
+                            >
+                                VISIT FIGMA
+                            </a>
+                        </div>
+                    ):(
+                        null
+                    )}
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <div id="cSDevicesContainer"
                     style={{
                         width: "90vw",
@@ -593,57 +655,6 @@ export default function CaseStudy() {
                             />
                         </div>
                     ):(null)}
-                </div>
-                <div id="cSLinks"
-                    style={{
-                        padding: "2vmin 6vmin",
-                        display: "flex",
-                        flexFlow: "row nowrap",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "2vmin",
-                    }}
-                >
-                    <div id="cSWebsite">
-                        <a
-                            href={caseStudyState.case.info.projectSite}
-                            id="cSWebsiteAnchor"
-                            className="c-s-link"
-                            style={{
-                                textDecoration: "none"
-                            }}
-                        >
-                            VISIT SITE
-                        </a>
-                    </div>
-                    <div id="cSRepo">
-                        <a
-                            href={caseStudyState.case.info.projectRepo}
-                            id="cSRepoAnchor"
-                            className="c-s-link"
-                            style={{
-                                textDecoration: "none"
-                            }}
-                        >
-                            VISIT REPO
-                        </a>
-                    </div>
-                    {caseStudyState.case.info.prototype!==null?(
-                        <div id="cSFigma">
-                            <a
-                                href={caseStudyState.case.info.prototype}
-                                id="cSFigmaAnchor"
-                                className="c-s-link"
-                                style={{
-                                    textDecorations: "none"
-                                }}
-                            >
-                                VISIT FIGMA
-                            </a>
-                        </div>
-                    ):(
-                        null
-                    )}
                 </div>
                 <Signature />
             </div>
