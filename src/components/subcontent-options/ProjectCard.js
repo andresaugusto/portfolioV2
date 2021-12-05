@@ -5,10 +5,6 @@ import { projects } from "../../data"
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-//MEDIA
-// import avtcDemoWide540pX4 from "../../media/videos/avtc-demo-wide-x4-540p.mp4";
-// import fireSSMainWide from "../../media/images/fire-ss-main-wide.png"
-
 //STYLES
 import "../styles/work.css"
 
@@ -21,7 +17,7 @@ export default function ProjectCard( props ) {
 
     //HANDLE CONTEXT
     const { focusedProject, setFocusedProject } = useContext(FocusedProjectContext)
-    const { navState, setNavState } = useContext(NavStateContext)
+    const { setNavState } = useContext(NavStateContext)
 
     //HANDLE NAV
     function closeNav() {
@@ -178,15 +174,11 @@ export default function ProjectCard( props ) {
                             id={`${pk}CardMediaVideo`}
                             className="project-card-video"
                             pointerEvents="none"
-                            // className="video-js vjs-16-9"
-                            // controls
-                            // autoplay loop
                             width="100%"
                             preload="auto"
                             loop={true}
                             autoPlay="muted"
-                            poster={prj.info.genMedia.images.mainWide}
-                            // data-setup="{}"
+                            poster={prj.info.genMedia.images.mainWide} 
                             >
                                 <source src={prj.info.genMedia.videos.mainWide540p.mp4} type="video/mp4" />
                                 <source src={prj.info.genMedia.videos.mainWide540p.webm} type="video/webm" />

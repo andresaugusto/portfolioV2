@@ -1,5 +1,5 @@
 export const projects = {
-    //ADD ALL PROJECT TITLES TO "projectKeys"
+    //ADD ALL PROJECT TITLES TO "projectKeys" IN ORDER OF DESIRED APPEARANCE
     projectKeys: ["avtc", "wip", "fire", "br", "simon", "aa"],
     aa: {
         info: {

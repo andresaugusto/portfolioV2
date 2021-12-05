@@ -1,5 +1,4 @@
 //DEPS
-import { useState } from "react"
 import { motion } from "framer-motion"
 
 //COMPS
@@ -70,11 +69,11 @@ export default function About() {
             <div id="aboutContent">
                 <div id="aboutWrapper">
                     <motion.div id="bioSection" className="about-section" variants={ItemContainerAnimation}>
-                        <motion.div className="about-section-title" variants={ItemAnimation}>approach // andrés</motion.div>
+                        <motion.div className="about-section-title" variants={ItemAnimation}>approach</motion.div>
                         <motion.div className="about-section-body" variants={ItemContainerAnimation}>
                             <section id="bioTextBody">
                                 <motion.p variants={ItemAnimation}>
-                                    As the creators all humans are, we're expected to entitle ourselves with a voice. It's how we deliver our existence to the world and also how we understand what we receive in return. We make things- Structured as we see fit. Whether it be skateboarding, performing a musical piece, designing spatial experiences and interfaces, or delivering a feeling or a question in any way that speaks to cognition. Feeling moved by a figure created with garments or by a resurfaced memory relived through the taste of a dish. We all express and are expressed at. Perhaps subjectively, we intrerpret the receipt onto what we feel the communicator is truly expressing about itself. In Spanish, Braile, or visually; sensibility and empathy empower the guided as well as the guide.
+                                    As the creators all humans are, we're expected to entitle ourselves with a voice. It's how we deliver our existence to the world and also how we understand what we receive in return. We make things- structured as we see fit. Whether it be skateboarding, performing a musical piece, designing spatial experiences and interfaces, or delivering a feeling or a question in any way that speaks to cognition. Feeling moved by a figure created with garments or by a resurfaced memory relived through the taste of a dish. We all express and are expressed at. Perhaps subjectively, we intrerpret the receipt onto what we feel the communicator is truly expressing about itself. In Spanish, Braile, or visually; sensibility and empathy empower the guided as well as the guide.
                                 </motion.p>
                                 <motion.p id="centeredText" variants={ItemAnimation}>
                                     Constructing an experience needs to be taken, in itself, as an experience of its own.
