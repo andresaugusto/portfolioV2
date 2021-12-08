@@ -171,7 +171,7 @@ export default function ProjectCard( props ) {
                 <div id={`${pk}CardMediaContainer`} className="project-card-media-container">
                     <div id={`${pk}CardMedia`} className="project-card-media">
                         <video
-                            webkit-playsInline playsInline preload autoPlay loop muted controls
+                            webkit-playsInline playsInline preload autoPlay loop muted
                             id={`${pk}CardMediaVideo`}
                             className="project-card-video"
                             pointerEvents="none"
