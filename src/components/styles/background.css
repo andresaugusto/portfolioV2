@@ -15,12 +15,12 @@
 
     color: yellow;
     /* border: solid 2px yellow; */
-    background-color: white;
+    background-color: black;
 }
 
 #backgroundMediaVideo {
     min-height: 110vh;
-    width: 100vw;
+    /* width: 100vw; */
     filter: blur(0vmin) brightness(90%);
 }
 
