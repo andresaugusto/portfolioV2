@@ -205,7 +205,7 @@ export default function Background ( props ) {
                     ) : (
                         <div>
                             <video
-                                webkit-playsinline playsinline preload autoPlay loop muted 
+                                webkit-playsInline playsInline preload autoPlay loop muted controls
                                 key={props.focusedProject.projectKey+"MainWide"}
                                 id={`backgroundMediaVideo`}
                                 // preload="true"
