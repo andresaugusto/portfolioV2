@@ -175,7 +175,7 @@ export default function ProjectCard( props ) {
                             id={`${pk}CardMediaVideo`}
                             className="project-card-video"
                             pointerEvents="none"
-                            // width="100%"
+                            width="100%"
                             // preload="auto"
                             // loop={true}
                             // autoPlay="muted"
