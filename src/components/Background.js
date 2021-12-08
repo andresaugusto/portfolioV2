@@ -200,34 +200,17 @@ export default function Background ( props ) {
                     backgroundColor: 'black',
                 }}
                 >
-                {/* OPT 1 */}
-                    {/* {props.focusedProject.projectKey === currentMovie.movieKey ? (
-                        null
-                    ) : (
-                        handleMovie(props.focusedProject.projectKey)
-                        // console.log(props.focusedProject.projectKey)
-                    )}
-                    {currentMovie.movie} */}
-
-                {/* OPT 2 */}
-                    {/* {props.focusedProject.projectKey === currentMovie.movieKey ? (
-                        null
-                    ) : (
-                        toggleMovie(props.focusedProject.projectKey)
-                    )}
-                    {currentMovie.movieJSX} */}
-
-                {/* OPT 3 COMPLETE */}
                     {props.focusedProject.projectKey === null ? (
                         null
                     ) : (
                         <div>
                             <video
+                                webkit-playsinline playsinline preload autoPlay loop muted 
                                 key={props.focusedProject.projectKey+"MainWide"}
                                 id={`backgroundMediaVideo`}
-                                preload="true"
-                                loop={true}
-                                autoPlay={true}
+                                // preload="true"
+                                // loop={true}
+                                // autoPlay={true}
                                 poster={props.focusedProject.genMedia.videos.mainWide1080pFiltered.poster}
                                 style={{
                                     minHeight: "110vh",
@@ -243,26 +226,6 @@ export default function Background ( props ) {
                             />
                         </div>
                     )}
-
-                {/* OPT 4 */}
-                    {/* {props.focusedProject.projectKey === null ? (
-                        null
-                    ) : (
-                        <video
-                            id={`BackgroundMediaVideo`}
-                            preload="true"
-                            loop={true}
-                            autoPlay={true}
-                            poster={currentMovie.moviePoster}
-                            style={{
-                                minWidth: "100vw",
-                                filter: "blur(0vmin) brightness(90%)"
-                            }}
-                        >
-                                <source src={currentMovie.movie.mainWide1080pX4.mp4} type="video/mp4" />
-                                <source src={currentMovie.movie.mainWide1080pX4.webm} type="video/webm" />
-                        </video>
-                    )} */}
             </div>
         </>
     )
